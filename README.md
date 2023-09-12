@@ -10,6 +10,10 @@
 
 > 
 
+* 프로젝트 PPT : https://github.com/anjxxyi/Biscuit_teamProject-Public/blob/develop/process/file/Biscuit_final-project_PPT.pdf
+
+> 
+
 * 프로젝트 참여 인원
 
   > 안재이(팀장) : https://github.com/anjxxyi <br />
