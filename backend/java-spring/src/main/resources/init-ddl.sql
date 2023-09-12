@@ -1,0 +1,343 @@
+
+--
+--
+-- create table bookclass (
+--                            no bigint not null auto_increment,
+--                            created_at datetime(6),
+--                            updated_at datetime(6),
+--                            intro text comment '모임설명' not null,
+--                            location varchar(200) comment '모임지역' not null,
+--                            status varchar(1) comment '모임상태' not null,
+--                            title varchar(250) comment '모임명' not null,
+--                            user_no bigint comment '고객번호',
+--                            books_no bigint comment '도서등록번호',
+--                            primary key (no)
+-- ) engine=InnoDB
+--
+--
+-- create table bookclip (
+--                           no bigint comment '북클립번호' not null auto_increment,
+--                           created_at datetime(6),
+--                           updated_at datetime(6),
+--                           del_yn varchar(1) comment '삭제여부' not null,
+--                           user_no bigint comment '고객번호',
+--                           books_no bigint comment '도서등록번호',
+--                           primary key (no)
+-- ) engine=InnoDB
+--
+--
+-- create table booklog (
+--                          no bigint comment '북로그번호' not null auto_increment,
+--                          booklog_name varchar(60) comment '북로그명',
+--                          intro text comment '소개글',
+--                          suber bigint comment '구독자수',
+--                          today bigint comment '일일방문자',
+--                          total bigint comment '총방문자',
+--                          user_no bigint comment '고객번호',
+--                          primary key (no)
+-- ) engine=InnoDB
+--
+--
+-- create table booklog_article (
+--                                  no bigint comment '글번호' not null auto_increment,
+--                                  created_at datetime(6),
+--                                  updated_at datetime(6),
+--                                  cnt bigint comment '조회수' not null,
+--                                  content text comment '내용' not null,
+--                                  groups varchar(200) comment '그룹',
+--                                  kinds varchar(10) comment '분류' not null,
+--                                  likes bigint DEFAULT 0 comment '좋아요' not null,
+--                                  title varchar(200) comment '제목' not null,
+--                                  books_no bigint comment '도서등록번호',
+--                                  booklog_no bigint comment '북로그번호',
+--                                  primary key (no)
+-- ) engine=InnoDB
+--
+--
+-- create table books (
+--                        no bigint comment '도서등록번호' not null auto_increment,
+--                        author varchar(100) comment '도서작가' not null,
+--                        book_img_url varchar(255) comment '도서표지URL' not null,
+--                        detail text comment '도서소개' not null,
+--                        isbn bigint comment '도서고유번호' not null,
+--                        price bigint comment '도서가격' not null,
+--                        publisher varchar(100) comment '출판사' not null,
+--                        publisher_date datetime(6) DEFAULT now() comment '출간일' not null,
+--                        title varchar(255) comment '도서명' not null,
+--                        primary key (no)
+-- ) engine=InnoDB
+--
+--
+-- create table comment (
+--                          no bigint comment '댓글, 대댓글 번호' not null auto_increment,
+--                          created_at datetime(6),
+--                          updated_at datetime(6),
+--                          content text comment '댓글 내용' not null,
+--                          del_yn varchar(1) DEFAULT 'N' comment '삭제여부' not null,
+--                          upcomment_no bigint comment '상위 댓글 번호',
+--                          user_no bigint comment '고객번호',
+--                          booklog_article_no bigint comment '글번호',
+--                          primary key (no)
+-- ) engine=InnoDB
+--
+--
+-- create table event (
+--                        no bigint comment '이벤트번호' not null auto_increment,
+--                        created_at datetime(6),
+--                        updated_at datetime(6),
+--                        cnt bigint comment '조회수' not null,
+--                        content text comment '내용' not null,
+--                        del_yn varchar(1) comment '삭제여부' not null,
+--                        likes bigint comment '좋아요' not null,
+--                        title varchar(225) comment '제목' not null,
+--                        primary key (no)
+-- ) engine=InnoDB
+--
+--
+-- create table goods (
+--                        no bigint comment '굿즈번호' not null auto_increment,
+--                        content text comment '굿즈설명',
+--                        likes bigint comment '찜하기',
+--                        name varchar(100) comment '굿즈이름',
+--                        price bigint comment '굿즈가격',
+--                        primary key (no)
+-- ) engine=InnoDB
+--
+--
+-- create table images (
+--                         no bigint comment '이미지번호' not null auto_increment,
+--                         img_name varchar(40) comment '이미지이름',
+--                         img_path varchar(150) comment '이미지경로',
+--                         thumbnail_yn varchar(1) comment '썸네일여부',
+--                         goods_no bigint comment '굿즈번호',
+--                         primary key (no)
+-- ) engine=InnoDB
+--
+--
+-- create table orders (
+--                         no bigint comment '주문번호' not null auto_increment,
+--                         created_at datetime(6),
+--                         updated_at datetime(6),
+--                         name varchar(1) comment '취소여부',
+--                         order_cnt bigint comment '주문수량',
+--                         order_price bigint comment '주문가격',
+--                         payment varchar(1) comment '결제수단 A:통장 , B:간편결제',
+--                         phone varchar(20) comment '연락처',
+--                         useraddress_no bigint comment '배송지번호',
+--                         user_no bigint comment '고객번호',
+--                         goods_no bigint comment '굿즈번호',
+--                         primary key (no)
+-- ) engine=InnoDB
+--
+--
+-- create table participation (
+--                                no bigint comment '명단번호' not null auto_increment,
+--                                created_at datetime(6),
+--                                updated_at datetime(6),
+--                                primary key (no)
+-- ) engine=InnoDB
+--
+--
+-- create table recycle (
+--                          no bigint comment '중고 도서 번호' not null auto_increment,
+--                          created_at datetime(6),
+--                          updated_at datetime(6),
+--                          accept_yn varchar(1) comment '접수 승인 상태',
+--                          cnt bigint comment '조회수',
+--                          likes bigint comment '찜하기',
+--                          price bigint comment '중고 도서 가격' not null,
+--                          status varchar(1) comment '도서상태 G:Good , N:Normal , B:Bad' not null,
+--                          user_no bigint comment '고객번호',
+--                          books_no bigint comment '도서등록번호',
+--                          primary key (no)
+-- ) engine=InnoDB
+--
+--
+-- create table saved_goods (
+--                              no bigint comment '찜 번호' not null auto_increment,
+--                              created_at datetime(6),
+--                              updated_at datetime(6),
+--                              del_yn varchar(1) comment '삭제여부' not null,
+--                              user_no bigint comment '고객번호',
+--                              goods_no bigint comment '굿즈번호',
+--                              primary key (no)
+-- ) engine=InnoDB
+--
+--
+-- create table test1 (
+--                        id bigint not null auto_increment,
+--                        email varchar(255),
+--                        password varchar(255),
+--                        primary key (id)
+-- ) engine=InnoDB
+--
+--
+-- create table user (
+--                       no bigint comment '고객번호' not null auto_increment,
+--                       created_at datetime(6),
+--                       updated_at datetime(6),
+--                       birth datetime(6) comment '생년월일' not null,
+--                       email varchar(100) comment '이메일' not null,
+--                       expired_at datetime(6) DEFAULT now() comment '탈퇴일',
+--                       gender varchar(1) comment '성별' not null,
+--                       grade varchar(1) comment '권한' not null,
+--                       name varchar(30) comment '이름' not null,
+--                       nickname varchar(30) comment '닉네임' not null,
+--                       password varchar(200) comment '비밀번호' not null,
+--                       phone varchar(30) comment '핸드폰번호' not null,
+--                       point bigint comment '리워드 포인트' not null,
+--                       quit_yn varchar(1) comment '탈퇴여부',
+--                       user_id varchar(30) comment '유저아이디' not null,
+--                       primary key (no)
+-- ) engine=InnoDB
+--
+--
+-- create table useraddress (
+--                              no bigint comment '배송지번호' not null auto_increment,
+--                              main_yn varchar(1) DEFAULT 'N' comment '기본배송지여부',
+--                              ship_address varchar(200) comment '배송지주소',
+--                              ship_detail varchar(100) comment '배송지상세',
+--                              ship_name varchar(30) comment '배송지명',
+--                              user_no bigint comment '고객번호',
+--                              primary key (no)
+-- ) engine=InnoDB
+--
+--
+-- create table user_sub (
+--                           no bigint comment '구독번호' not null auto_increment,
+--                           created_at datetime(6),
+--                           updated_at datetime(6),
+--                           subed_no bigint comment '구독된 고객번호',
+--                           user_no bigint comment '고객번호',
+--                           primary key (no)
+-- ) engine=InnoDB
+--
+--
+-- alter table user
+--     add constraint UK_ob8kqyqqgmefl0aco34akdtpe unique (email)
+--
+--
+-- alter table user
+--     add constraint UK_n4swgcf30j6bmtb4l4cjryuym unique (nickname)
+--
+--
+-- alter table user
+--     add constraint UK_589idila9li6a4arw1t8ht1gx unique (phone)
+--
+--
+-- alter table user
+--     add constraint UK_a3imlf41l37utmxiquukk8ajc unique (user_id)
+--
+--
+-- alter table bookclass
+--     add constraint FK1fol1ox3p3y3c25t8w4v3vj5t
+--         foreign key (user_no)
+--             references user (no)
+--
+--
+-- alter table bookclass
+--     add constraint FKdbmm1hqcl98s08reby3b2sgfh
+--         foreign key (books_no)
+--             references books (no)
+--
+--
+-- alter table bookclip
+--     add constraint FK8qwspkp20mhs1p1vfgg2okf0q
+--         foreign key (user_no)
+--             references user (no)
+--
+--
+-- alter table bookclip
+--     add constraint FK4mhaqv62ti0h23a9jlaevicr8
+--         foreign key (books_no)
+--             references books (no)
+--
+--
+-- alter table booklog
+--     add constraint FKiduc7mv5i4hmq7ad1suir463e
+--         foreign key (user_no)
+--             references user (no)
+--
+--
+-- alter table booklog_article
+--     add constraint FKda06l61c2tmsqdqb4a2vfqa9t
+--         foreign key (books_no)
+--             references books (no)
+--
+--
+-- alter table booklog_article
+--     add constraint FKlbxhn52uqdteai1gyruseo6ag
+--         foreign key (booklog_no)
+--             references booklog (no)
+--
+--
+-- alter table comment
+--     add constraint FKq0ekodjkru4a87f99qeyg28l0
+--         foreign key (user_no)
+--             references user (no)
+--
+--
+-- alter table comment
+--     add constraint FK6ncoenewf5tyttl8exbyme9cw
+--         foreign key (booklog_article_no)
+--             references booklog_article (no)
+--
+--
+-- alter table images
+--     add constraint FKpi4u2vc4e3h90iujy39xcrs2
+--         foreign key (goods_no)
+--             references goods (no)
+--
+--
+-- alter table orders
+--     add constraint FKne1yjnnmvagmy0t55ounvlfcb
+--         foreign key (useraddress_no)
+--             references useraddress (no)
+--
+--
+-- alter table orders
+--     add constraint FKk3nq0fbgx4q0bgxw9pqgak6dh
+--         foreign key (user_no)
+--             references user (no)
+--
+--
+-- alter table orders
+--     add constraint FKop35i662bwy8ddlljs01xuy5f
+--         foreign key (goods_no)
+--             references goods (no)
+--
+--
+-- alter table recycle
+--     add constraint FKde35ahi828t37qv5nd3yjqcba
+--         foreign key (user_no)
+--             references user (no)
+--
+--
+-- alter table recycle
+--     add constraint FK2er3fpavv5500fm03ips1b3xl
+--         foreign key (books_no)
+--             references books (no)
+--
+--
+-- alter table saved_goods
+--     add constraint FKcjhqo82axgpvvscbko29ynuhm
+--         foreign key (user_no)
+--             references user (no)
+--
+--
+-- alter table saved_goods
+--     add constraint FK7via1x2k207mn56r9wjlwpqq2
+--         foreign key (goods_no)
+--             references goods (no)
+--
+--
+-- alter table useraddress
+--     add constraint FKaqladqvjvpfp7ra1yp7oydlw9
+--         foreign key (user_no)
+--             references user (no)
+--
+--
+-- alter table user_sub
+--     add constraint FKexts9pyt0qy02lecv1xtl9my5
+--         foreign key (user_no)
+--             references user (no)

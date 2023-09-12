@@ -1,0 +1,112 @@
+
+--
+-- alter table bookclass
+-- drop
+-- foreign key if exists FK1fol1ox3p3y3c25t8w4v3vj5t
+--
+-- alter table bookclass
+-- drop
+-- foreign key if exists FKdbmm1hqcl98s08reby3b2sgfh
+--
+-- alter table bookclip
+-- drop
+-- foreign key if exists FK8qwspkp20mhs1p1vfgg2okf0q
+--
+-- alter table bookclip
+-- drop
+-- foreign key if exists FK4mhaqv62ti0h23a9jlaevicr8
+--
+-- alter table booklog
+-- drop
+-- foreign key if exists FKiduc7mv5i4hmq7ad1suir463e
+--
+-- alter table booklog_article
+-- drop
+-- foreign key if exists FKda06l61c2tmsqdqb4a2vfqa9t
+--
+-- alter table booklog_article
+-- drop
+-- foreign key if exists FKlbxhn52uqdteai1gyruseo6ag
+--
+-- alter table comment
+-- drop
+-- foreign key if exists FKq0ekodjkru4a87f99qeyg28l0
+--
+-- alter table comment
+-- drop
+-- foreign key if exists FK6ncoenewf5tyttl8exbyme9cw
+--
+-- alter table images
+-- drop
+-- foreign key if exists FKpi4u2vc4e3h90iujy39xcrs2
+--
+-- alter table orders
+-- drop
+-- foreign key if exists FKne1yjnnmvagmy0t55ounvlfcb
+--
+-- alter table orders
+-- drop
+-- foreign key if exists FKk3nq0fbgx4q0bgxw9pqgak6dh
+--
+-- alter table orders
+-- drop
+-- foreign key if exists FKop35i662bwy8ddlljs01xuy5f
+--
+-- alter table recycle
+-- drop
+-- foreign key if exists FKde35ahi828t37qv5nd3yjqcba
+--
+-- alter table recycle
+-- drop
+-- foreign key if exists FK2er3fpavv5500fm03ips1b3xl
+--
+-- alter table saved_goods
+-- drop
+-- foreign key if exists FKcjhqo82axgpvvscbko29ynuhm
+--
+-- alter table saved_goods
+-- drop
+-- foreign key if exists FK7via1x2k207mn56r9wjlwpqq2
+--
+-- alter table useraddress
+-- drop
+-- foreign key if exists FKaqladqvjvpfp7ra1yp7oydlw9
+--
+-- alter table user_sub
+-- drop
+-- foreign key if exists FKexts9pyt0qy02lecv1xtl9my5
+--
+-- drop table if exists bookclass
+--
+-- drop table if exists bookclip
+--
+-- drop table if exists booklog
+--
+-- drop table if exists booklog_article
+--
+-- drop table if exists books
+--
+-- drop table if exists comment
+--
+-- drop table if exists event
+--
+-- drop table if exists goods
+--
+-- drop table if exists images
+--
+-- drop table if exists orders
+--
+-- drop table if exists participation
+--
+-- drop table if exists recycle
+--
+-- drop table if exists saved_goods
+--
+-- drop table if exists test1
+--
+-- drop table if exists user
+--
+-- drop table if exists useraddress
+--
+-- drop table if exists user_sub
+

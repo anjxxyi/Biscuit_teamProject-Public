@@ -1,0 +1,87 @@
+@charset "UTF-8"; 
+
+/* #pageContainer.events section.topSection -- END --- */
+#pageContainer.events section.topSection {display:flex; flex-flow:row-reverse; margin-bottom:3em;}
+#pageContainer.events section .sortArea {display:flex; flex-flow:row nowrap; align-items:center; justify-content:center;} 
+#pageContainer.events section .sortArea button.sortBtn {margin-left:1em;}
+#pageContainer.events section .sortArea button.sortBtn.active {font-weight:700; text-decoration:underline; text-underline-position:under;} 
+
+#pageContainer.events .eventEditSection {
+    text-align:right; 
+} 
+/* #pageContainer.events section.topSection -- END --- */
+
+
+/* #pageContainer.events section.listSection -- START --- */
+#pageContainer.events section .listArea {display:flex; flex-flow:row wrap; justify-content:flex-start; align-items:stretch;}
+#pageContainer.events section a {width:calc((100% - 6em) / 3); margin-right:3em; margin-bottom:4em;}
+#pageContainer.events section a:nth-child(3n) {margin-right:0;}
+#pageContainer.events section a .imgBox {width:100%; border:1px solid var(--BorderColor); position:relative; margin-bottom:1em; padding-top:66.67%;}
+#pageContainer.events section a .imgBox img {width:100%; height:100%; position:absolute; top:0; left:0;}
+#pageContainer.events section a .txtBox {text-align:justify;}
+#pageContainer.events section a .txtBox span.cate {font-size:0.75em; font-weight:700; border:1px solid var(--BgColorReversed); border-radius:1em; line-height:1; padding:0.25em 0.625em;}
+#pageContainer.events section a .txtBox h4.title { width:100%; font-size:1.25em; margin:0.75em 0 0.5em; overflow:hidden; text-overflow:ellipsis; white-space:nowrap;}
+#pageContainer.events section a .txtBox p.info {color:var(--InputBgColor); font-weight:500; letter-spacing:-0.25px; display:-webkit-box; -webkit-line-clamp:2; -webkit-box-orient:vertical; overflow:hidden; text-overflow:ellipsis;}
+#pageContainer.events section a .txtBox p.date {font-size:0.875em; font-weight:700; display:flex; flex-flow:row; align-items:center; margin-top:1em;}
+#pageContainer.events section a .txtBox p.date svg {font-size:1.375em; margin-right:0.375em;}
+#pageContainer.events section .pagination {text-align:center; margin-top:1.5em;}
+#pageContainer.events section .pagination ul.pageBox {display:flex; flex-flow:row nowrap; justify-content:center; align-items:center;}
+#pageContainer.events section .pagination ul.pageBox .pageNum{cursor: pointer;}
+#pageContainer.events section .pagination ul.pageBox li {display:block; line-height:1; padding:0.25em; margin:0 0.5em;}
+#pageContainer.events section .pagination ul.pageBox li.pageNum.active {font-weight:700;}
+#pageContainer.events section .pagination ul.pageBox li.pageChg svg {color:var(--InputTxtColor); display:block;}
+/* #pageContainer.events section.listSection -- END --- */
+
+
+
+/* #pageContainer.events.edit .eventEdit  -- START --- */
+#pageContainer.events.edit section {border-bottom:1px dashed var(--InputTxtColor); display:flex; flex-flow:column; margin-bottom:2em; padding:0 3em 2em;}
+#pageContainer.events.edit section:last-child {border-bottom:0;}
+#pageContainer.events.edit section.dateSection .sectionInner {display:flex; flex-flow:row; justify-content:flex-start; align-items:center;}
+#pageContainer.events.edit section.dateSection .sectionInner label {width:100px;}
+#pageContainer.events.edit section.dateSection .sectionInner span {padding:0 1em;}
+#pageContainer.events.edit section .sectionInner {margin-bottom:1em;}
+#pageContainer.events.edit section .sectionInner:last-child {margin-bottom:0;}
+#pageContainer.events.edit section .sectionInner label {width:100%; font-size:1.25em; font-weight:700; padding-right:0.5em; word-break:keep-all; padding:0.5em 0; display:block; line-height:1;}
+#pageContainer.events.edit section .sectionInner label span {width:100%; font-size:1.25; font-weight:350; padding-right:0.5em; word-break:keep-all; padding:0.5em 0;}
+#pageContainer.events.edit section .sectionInner input {width:100%; background:white; display:block;}
+#pageContainer.events.edit section .sectionInner input[type=file] {border:0; padding-left:0;}
+#pageContainer.events.edit section textarea {width:100%; height:15em; background:white; display:block; resize:none;}
+#pageContainer.events.edit section select {width:100px; text-align:center;}
+#pageContainer.events.edit section.btnSection {display:flex; flex-flow:row nowrap; align-items:center; justify-content:center;}
+#pageContainer.events.edit section.btnSection button {width:100%; max-width:200px; background:var(--InputTxtColor); border:1px solid var(--GuideColor); font-size:1.25em; font-weight:600; line-height:1; display:flex; align-items:center; padding:0.75em 1em; color:var(--TxtColorReversed);}
+#pageContainer.events.edit section.btnSection button.submit {background:var(--PointColor); margin-right:1em;}
+
+#pageContainer.events.edit section .eventSection {width:100%; display:flex; flex-flow:row nowrap; align-items:center; padding-left:1em;}
+#pageContainer.events.edit section .eventSection li {width:100%; font-size:1.25; font-weight:700; padding-right:0.5em; word-break:keep-all; padding:0.5em 0; margin-left:15px; margin-top:15px; margin-bottom:15px;}
+#pageContainer.events.edit section .eventSection .eventData {width:200px; text-align:center;}
+#pageContainer.events.edit section .thumbnailImage,
+#pageContainer.events.edit section .contentImage {width:300px;}
+#pageContainer.events.edit section .previewImage {width:50%; height:50%;}
+/* #pageContainer.events.edit .eventEdit  -- END --- */
+
+
+/* #pageContainer.events.view  -- START --- */
+#pageContainer.events.typeView .eventDetail .titleSection {height:280px; display:flex; flex-flow:column; align-items:center; justify-content:center;}
+#pageContainer.events.typeView .eventDetail .titleSection .title {font-family:inherit; font-size:2.25em; font-weight:500; text-align:center; margin:0.5em auto 1em;}
+#pageContainer.events.typeView .eventDetail .titleSection .info{font-family:inherit; font-size:1.2rem; font-weight:400; text-align:center; margin:0 auto;}
+#pageContainer.events.typeView .eventDetail .titleSection .info .date {display:flex; align-items:center; justify-content:center; line-height:1;}
+#pageContainer.events.typeView .eventDetail .titleSection .info .date svg {font-size:1.25em; margin-right:0.5em;}
+#pageContainer.events.typeView .eventDetail .titleSection .info .date span {padding-top:0.125em;}
+#pageContainer.events.typeView .eventDetail .mainSection {text-align:center;}
+#pageContainer.events.typeView .eventDetail .mainSection img {max-width:800px;}
+#pageContainer.events.typeView .eventDetail .mainSection div {max-width:800px; text-align:left; margin:1em auto;}
+#pageContainer.events.typeView .btnSection,
+#pageContainer.events.typeView .listSection {width:100%; display:flex; flex-flow:row wrap; align-items:center; justify-content:center; padding:1em 3em; margin-top:3em;}
+#pageContainer.events.typeView .listSection {margin-top:0; flex-flow:column;}
+#pageContainer.events.typeView .btnSection button,
+#pageContainer.events.typeView .listSection button {width:calc(30% - 0.5em); background:#aaa5; border:1px solid var(--BorderColor); font-weight:600; line-height:1; padding:1em;}
+#pageContainer.events.typeView .btnSection button.submit, 
+#pageContainer.events.typeView .listSection button.listBtn {background:var(--PointColor); color:var(--TxtColorReversed); font-weight:700;}
+#pageContainer.events.typeView .listSection button.listBtn {padding:0 0.126em; background:none; color:var(--TxtColor); border:0; width:auto; border-bottom:1px solid var(--TxtColor);}
+#pageContainer.events.typeView .listSection .pList {width:60%; margin-top:2em; padding:2em; border:1px solid var(--BorderColor);}
+#pageContainer.events.typeView .listSection .pList li {margin:0.5em 0;}
+/* #pageContainer.events.view  -- END --- */
+
+
+

@@ -1,0 +1,116 @@
+@charset "UTF-8"; 
+
+/* #pageContainer.auth /signup -- START --- */
+#pageContainer.auth {width:100%;}
+#pageContainer.auth .container {width:60%; margin:0 auto;}
+#pageContainer.auth .container h3 {font-size:1.75em; margin-bottom:1.5em;}
+
+#pageContainer.auth .container .termsBox {padding:3.2em 3.2em 2em 3.2em; border-bottom:1px solid #ccc;}
+#pageContainer.auth .container .termsBox input {margin-right:0.5em;}
+#pageContainer.auth .container .termsBox button {border:1px solid #ccc; padding:0.8em 2em; font-size:0.9em; width:100%;}
+#pageContainer.auth .container .termsBox .inputBox {display:flex; flex-direction:row; justify-content:space-between; align-items:center; margin-bottom:0.9em;}
+#pageContainer.auth .container .termsBox .termsContent {border:1px solid #ccc; width:100%; height:7em; margin-bottom:1em; white-space:pre-wrap; overflow-y:scroll;}
+#pageContainer.auth .container .termsBox .termsContent dl, 
+#pageContainer.auth .container .termsBox .termsContent ul, 
+#pageContainer.auth .container .termsBox .termsContent ol {margin-bottom:2em;}
+#pageContainer.auth .container .termsBox .termsContent dt {font-size:1.125em; font-weight:600; margin-bottom:0.7em;}
+#pageContainer.auth .container .termsBox .termsContent dd.dot {text-indent:-0.5em;}
+#pageContainer.auth .container .termsBox .termsContent dd.dot::before {content:'· '; display:inline;}
+#pageContainer.auth .container .termsBox .termsContent dd dd ul, 
+#pageContainer.auth .container .termsBox .termsContent dd dd ol {padding-left:1em; font-size:0.875em;}
+#pageContainer.auth .container .termsBox .termsContent dd li {font-weight:400; margin:0.25em;}
+#pageContainer.auth .container .termsBox .termsContent dd ul li {list-style:inside circle;}
+#pageContainer.auth .container .termsBox .termsContent dd ol li {list-style:inside decimal;}
+#pageContainer.auth .container .termsBox .inputBox div {display:flex; flex-direction:row; align-items:center;}
+#pageContainer.auth .container .termsBox .inputBox label {display:flex; flex-direction:row; align-items:center; cursor:pointer;}
+#pageContainer.auth .container .termsBox .closeBtn {width:8.5em; background-color:black; color:#EEEEEE; padding:0.9em 1.5em;}
+
+#pageContainer.auth .container .user {padding:3em; width:100%; border-bottom:1px solid #ccc;}
+#pageContainer.auth .container .user  button {background-color:#EEEEEE; padding:0.8em; width:25%; font-size:0.9em;}
+#pageContainer.auth .container .user .flex {display:flex; flex-direction:row; justify-content:space-between; align-items:center; margin-bottom:0.7em;}
+#pageContainer.auth .container .user .idPwBox {border-bottom:1px solid #ccc; margin-bottom:2em;}
+#pageContainer.auth .container .user .idPwBox > div:last-child {margin-bottom:2em;}
+#pageContainer.auth .container .user .w100 {width:100%; margin-bottom:0.7em;}
+#pageContainer.auth .container .user .w80 {width:80%;}
+#pageContainer.auth .container .user .w70 {width:70%;}
+#pageContainer.auth .container .user .w60 {width:53%; margin-left:1.4em;}
+#pageContainer.auth .container .user .w30 {width:28%; margin-left:0; margin-right:0.5em;}
+#pageContainer.auth .container .user .w10 {width:5%; margin-left:0.4em; margin-right:0.4em;}
+#pageContainer.auth .container .user .margin-bottom {margin-bottom:0;}
+#pageContainer.auth .container .user .duplicationBtn1 {margin-left:-3.3em; background-color:#EEEEEE;} 
+#pageContainer.auth .container .user .nicknameBox .duplicationBtn2 {margin-left:-4.3em; background-color:#EEEEEE;}
+#pageContainer.auth .container .user .addressBox div {display:flex; flex-direction:row; justify-content:flex-start; margin-bottom:0.7em; margin-top:0.9em;}
+#pageContainer.auth .container .user .birthBox div {margin-left:5.05em;}
+#pageContainer.auth .container .user .birthBox label {width:12%; margin-right:-1.35em;}
+#pageContainer.auth .container .user .addressBox div > input {margin-right:1.3em;}
+
+#pageContainer.auth .btnBox button {width:38%; padding:0.7em 0}
+#pageContainer.auth .btnBox .cancelBtn { background-color:var(--TxtColorReversed); border:1px solid black; margin-right:0.6em;}
+#pageContainer.auth .btnBox .checkBtn {background-color:var(--BgColorReversed); color:var(--TxtColorReversed); margin-left:0.6em;}
+#pageContainer.auth .displayFlex {display:flex; flex-direction:row; justify-content:center; margin-top:3em;}
+
+#pageContainer.auth input::placeholder {padding:0.7em; font-size:0.9em; color:var(--InputTxtColor);}
+#pageContainer.auth input[type="checkbox"] {width:1rem; height:1em; border-radius:50%; appearance:none; cursor:pointer; transition:0.2s;}
+#pageContainer.auth input[type="checkbox"]:checked {background-image:url("data:image/svg+xml,%3csvg viewBox='0 0 16 16' fill='white' xmlns='http://www.w3.org/2000/svg'%3e%3cpath d='M5.707 7.293a1 1 0 0 0-1.414 1.414l2 2a1 1 0 0 0 1.414 0l4-4a1 1 0 0 0-1.414-1.414L7 8.586 5.707 7.293z'/%3e%3c/svg%3e"); background-size:100%; background-position:50%; background-repeat:no-repeat; background-color:var(--PointColor); border:0;} 
+#pageContainer.auth .container .yellow input {border-color:var(--PointColor); background-image:url('../../../public/images/check-icon.PNG'); background-size:1.5em; background-position:97%; background-repeat:no-repeat;}
+#pageContainer.auth .red input {background-image:url(../../../public/images/cancle-icon.png); background-size:1.2em; background-position:96.5%; background-repeat:no-repeat;}
+/* #pageContainer.auth /signup -- END --- */
+
+/* #pageContainer.auth /signin -- START --- */
+#pageContainer.auth.signin {max-width:1064px; min-height:100vh; margin-bottom:-120px;}
+#pageContainer.auth.signin #pageVisual {width:calc(100% - 500px); padding-right:10%;}
+#pageContainer.auth.signin #pageVisual .title {line-height:1.4; display:flex; flex-flow:column;}
+#pageContainer.auth.signin #pageVisual .title span {font-size:1.25em; display:flex; flex-flow:row; align-content:center;}
+#pageContainer.auth.signin #pageVisual .title span img {width:1em; margin-right:0.25em;}
+#pageContainer.auth.signin #pageContents {width:100%; max-width:400px; display:flex; flex-flow:column; justify-content:center; padding-top:20px; padding-bottom:20px;}
+#pageContainer.auth.signin .formArea {margin-bottom:3em;}
+#pageContainer.auth.signin .formArea .inputBox {display:flex; flex-flow:column;}
+#pageContainer.auth.signin .formArea .inputBox input {background:#fff5; color:var(--BgColorFixed); padding:0.5em 1em}
+
+#pageContainer.auth.signin .formArea .inputBox input::placeholder {color:var(--InputTxtColorFixed);}
+#pageContainer.auth.signin .formArea .inputBox input:first-child {border-top-left-radius:0.25em; border-top-right-radius:0.25em; border-bottom:0;}
+#pageContainer.auth.signin .formArea .inputBox input:last-child {border-bottom-left-radius:0.25em; border-bottom-right-radius:0.25em;}
+#pageContainer.auth.signin .formArea .btnBox {margin:1.5em 0 1em;}
+#pageContainer.auth.signin .formArea .btnBox button {width:100%; background:var(--PointColor); color:var(--TxtColorFixed); border-radius:0.25em; font-size:1.125em; font-weight:500; line-height:1; display:block; padding:1em;}
+#pageContainer.auth.signin .formArea .ctrlBox {font-size:0.875em; font-weight:600; display:flex; flex-flow:row nowrap; justify-content:space-between; align-items:center; line-height:1;}
+#pageContainer.auth.signin .formArea .ctrlBox label {padding-right:1em; display:flex; flex-flow:row wrap; align-items:center; cursor:pointer;}
+#pageContainer.auth.signin .formArea .ctrlBox label input {margin-right:0.5em;}
+#pageContainer.auth.signin .linkArea {display:flex; flex-flow:column; justify-content:stretch; align-items:stretch;}
+#pageContainer.auth.signin .linkArea a {font-size:0.875em; display:flex; flex-flow:row; justify-content:space-between; align-items:center; text-align:center; font-weight:400; line-height:1; padding:1em 2em; border-radius:0.25em;}
+#pageContainer.auth.signin .linkArea a span.text {width:100%;}
+#pageContainer.auth.signin .linkArea a b {font-weight:600;}
+#pageContainer.auth.signin .linkArea a.biscuit {background:#444; border:1px solid var(--GuideColor); color:var(--TxtColorFixed); margin-bottom:0.75em;}
+#pageContainer.auth.signin .linkArea a.biscuit img {width:1.5em;}
+#pageContainer.auth.signin .linkArea a.google {background:var(--TxtColorFixed); color:var(--BgColorFixed); border:1px solid var(--BorderColor); padding:0.75em 2em;}
+#pageContainer.auth.signin .linkArea a.google svg {font-size:1.5em;}
+/* #pageContainer.auth /signin -- END --- */
+
+/* #pageContainer.auth /find -- START ---*/
+#pageContainer.auth.find {max-width:1064px; min-height:100vh; margin-bottom:-120px;}
+#pageContainer.auth.find ul.tabList {display:flex; flex-flow:row nowrap; border-bottom:1px solid var(--BorderColor);}
+#pageContainer.auth.find ul.tabList li.tabItem {width:50%; border-top:4px solid var(--BorderColor); border-right:1px solid var(--BorderColor); border-left:1px solid var(--BorderColor); border-radius:0; background:#bbb3; font-size:1.125em; font-weight:500; position:relative; bottom:-1px;}
+#pageContainer.auth.find ul.tabList li.tabItem:last-child {margin-right:0;}
+#pageContainer.auth.find ul.tabList li.tabItem.active {background:var(--BgColor); color:inherit; border-top-color:var(--PointColor); font-weight:800;}
+#pageContainer.auth.find ul.tabList li.tabItem a {display:block; padding:1em; text-align:center;}
+
+#pageContainer.auth.find #pageVisual .title {line-height:1.4;}
+#pageContainer.auth.find .tabArea {height:450px; display:flex; flex-flow:column; align-items:stretch;}
+#pageContainer.auth.find .tabPanel.active {border:1px solid var(--BorderColor); border-top:0; padding:1em 2em;}
+#pageContainer.auth.find .tabPanel .formArea {width:100%; display:flex; flex-flow:column; padding:20px;}
+#pageContainer.auth.find .tabPanel .formArea .inputBox {display:flex; flex-flow:column;}
+#pageContainer.auth.find .tabPanel .formArea .inputBox input {background:var(--TxtColorFixed); border-radius:0.25em; color:var(--BgColorFixed); padding:0.5em 1em; margin-bottom:0.5em;}
+#pageContainer.auth.find .tabPanel .formArea .inputBox input::placeholder {color:var(--InputTxtColorFixed);}
+#pageContainer.auth.find .tabPanel .formArea .btnBox {margin:1.5em 0 1em;}
+#pageContainer.auth.find .btnBox a {width:100%;}
+#pageContainer.auth.find .btnBox button {width:100%; background:var(--PointColor); color:var(--TxtColorFixed); border-radius:0.25em; font-size:1.125em; font-weight:500; line-height:1; display:block; padding:1em;}
+
+#pageContainer.auth.find .existArea {padding: 2em;}
+#pageContainer.auth.find .existArea.noExist {text-align:center;}
+#pageContainer.auth.find .existArea.noExist p {font-weight:700;}
+#pageContainer.auth.find .existArea .formBox {display:flex; flex-direction:row; justify-content:space-between; margin-bottom:0.5em;}
+#pageContainer.auth.find .existArea .infoBox {display:flex; flex-flow:column; align-items:center; justify-content:center; padding:0 0 20px;}
+#pageContainer.auth.find .existArea .infoBox span.name {font-size:1.125em; font-size:600;}
+#pageContainer.auth.find .existArea .infoBox span.result {font-size:1.25em; font-weight:700;}
+#pageContainer.auth.find .btnBox {margin-top:1em;}
+#pageContainer.auth.find .btnBox .moveBtn {background:var(--BorderColor); color:var(--TxtColor); margin-top:0.75em;}
+/* #pageContainer.auth /find -- END ---*/

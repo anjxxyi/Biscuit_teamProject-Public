@@ -1,0 +1,56 @@
+@charset "UTF-8";
+
+#pageContainer.main > #pageContents {max-width:100% !important; padding:0;}
+#pageContainer.main section {max-width:1440px; margin:0 auto; padding:0 20px;}
+
+#pageContainer.main section.mainVisual {width:100%; height:500px; margin-bottom:3em;}
+#pageContainer.main section.mainVisual .wrapper {display:flex; flex-flow:row nowrap; justify-content:space-between; align-items:center;}
+#pageContainer.main section.mainVisual .txtBox {font-size:1.25em; letter-spacing:-0.2px;}
+#pageContainer.main section.mainVisual .txtBox h2 {font-size:2.25em;}
+#pageContainer.main section.mainVisual .txtBox div {font-weight:500; line-height:1.4; margin:2em 0 3em;}
+#pageContainer.main section.mainVisual .txtBox div p:last-child {margin-top:0.5em;}
+#pageContainer.main section.mainVisual .txtBox div p b {font-weight:700;}
+#pageContainer.main section.mainVisual .txtBox button {background:var(--BgColorReversed); color:var(--TxtColorReversed); font-size:0.875em; font-weight:300; line-height:1; padding:0.875em 2.5em;}
+#pageContainer.main section.mainVisual .txtBox button b {font-weight:500; margin-left:0.25em;}
+#pageContainer.main section.mainVisual .img {height:30em; padding:5em 0;}
+#pageContainer.main section.mainVisual .slide.no2 .img {padding:3em 0;}
+
+#pageContainer.main section.search {display:flex; flex-flow:row; place-content:center; place-items:center; margin-bottom:8em;}
+#pageContainer.main section.search .searchBox {width:55%; max-width:800px; min-width:300px; position:relative;}
+#pageContainer.main section.search .searchBox input.searchBar {width:100%; background:var(--InputBgColor); color:var(--TxtColorFixed); font-size:1.125em; font-weight:300; border:0; padding:1em 4em 1em 1.5em;}
+#pageContainer.main section.search .searchBox button.searchBtn {color:var(--InputTxtColor); font-size:1.5em; position:absolute; top:50%; right:1em; transform:translateY(-50%); z-index:5;}
+
+#pageContainer.main section.market {width:100%; display:flex; flex-flow:row wrap; justify-content:space-between; margin-bottom:6em;}
+#pageContainer.main section.market h3 {font-size:1.5em; font-weight:500; position:absolute; bottom:100%; left:0; margin-bottom:0.75em;}
+#pageContainer.main section.market > * {position:relative; margin:2em 0 4em;}
+#pageContainer.main section.market .goodsArea {width:60%;}
+#pageContainer.main section.market .goodsArea .list {display:flex; flex-flow:row wrap; justify-content:space-between;}
+#pageContainer.main section.market .goodsArea .list a {width:calc((100% - 2em) / 3); display:block; position:relative;}
+#pageContainer.main section.market .goodsArea .list a .imgBox {width:100%; padding-top:100%; position:relative; background:var(--BorderColor);}
+#pageContainer.main section.market .goodsArea .list a .imgBox img {width:100%; border:0; outline:0; position:absolute; top:0; left:0;}
+#pageContainer.main section.market .goodsArea .list a .txtBox {margin-top:1em; position:absolute; top:100%; left:0;}
+#pageContainer.main section.market .goodsArea .list a .txtBox .name {margin-bottom:0.25em;}
+#pageContainer.main section.market .goodsArea .list a .txtBox .price {font-size:1.125em; font-weight:600; color:var(--PointColor);}
+#pageContainer.main section.market .campaignArea {width:calc(40% - 4em);}
+#pageContainer.main section.market .campaignArea a {width:100%; height:100%; background:var(--PointBgColor); color:var(--BgColorFixed); display:block; position:relative; padding:2em;}
+#pageContainer.main section.market .campaignArea a .txtBox {width:65%;}
+#pageContainer.main section.market .campaignArea a .txtBox img {width:100%;}
+#pageContainer.main section.market .campaignArea a .txtBox p {line-height:1.4; margin:1em 0; font-weight:500;}
+#pageContainer.main section.market .campaignArea a .txtBox p b {font-weight:700;}
+#pageContainer.main section.market .campaignArea a > img {width:50%; position:absolute; right:2em; bottom:1em;}
+
+#pageContainer.main section.events {max-width:100% !important; padding:0;}
+#pageContainer.main section.events .wrapper {width:100%;}
+#pageContainer.main section.events .wrapper img {display:block; margin:0 auto;}
+#pageContainer.main .slick-dots {bottom:1.5em;}
+#pageContainer.main .slick-dots li {width:auto; height:auto; line-height:1; margin:0 5px;}
+#pageContainer.main .slick-dots li button {width:auto; height:auto; line-height:1; font-size:0.75em; padding:0 5px;}
+#pageContainer.main .slick-dots li button:before {width:auto; height:auto; line-height:1; font-size:1em; transition:all 0.2s ease;}
+
+
+@media all and (max-width:1440px) {
+    #pageContainer.main section {max-width:100%; padding:0 10%;}
+}
+@media all and (max-width:1180px) {
+    #pageContainer.main section {max-width:100%; padding:0 4em;}
+}

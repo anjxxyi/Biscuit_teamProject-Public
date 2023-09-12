@@ -1,0 +1,85 @@
+@charset "UTF-8";
+@font-face {
+    font-family:'LotteriaChab';
+    src:url('/src/static/fonts/LotteriaChab.woff') format('woff');
+    font-weight:normal;
+    font-style:normal;
+}
+@font-face {
+    font-family:'ReenieBeanie';
+    src:url('/src/static/fonts/ReenieBeanie.woff') format('woff');
+    font-weight:normal;
+    font-style:normal;
+}
+
+:root {
+    --BgColor: #fff;
+    --TxtColor: #222;
+    --BgColorReversed: #222;
+    --TxtColorReversed: #fff;
+    --BgColorFixed: #222;
+    --TxtColorFixed: #fff;
+
+    --PointColor: #fe9b0c;
+    --PointBgColor: #ffecd045;
+
+    --GuideColor: #fff;
+    --ModalBgColor: #0008;
+    --InputBgColor: #222;
+    --InputTxtColor: #aaa;
+    --InputTxtColorFixed: #aaa;
+    --BorderColor: #ddd;
+    
+    --Banner01_Bg: #fffce5;
+    --Banner02_Bg: #1baa77;
+    --Banner03_Bg: #f5f5f5;
+}
+:root .darkMode {
+  --BgColor: #222;
+  --TxtColor: #fff;
+  --BgColorReversed: #fff;
+  --TxtColorReversed: #222;
+
+  --GuideColor: #777;
+  --InputBgColor: #fff5;
+  --InputTxtColor: #fff;
+  --BorderColor: #555;
+}
+:root .darkFixed {
+  --BgColor: #222;
+  --TxtColor: #fff;
+  --BgColorReversed: #fff;
+  --TxtColorReversed: #222;
+
+  --GuideColor: #777;
+  --BorderColor: #555;
+}
+::placeholder {color:var(--InputTxtColorFixed);}
+::selection {background:var(--PointColor); color:var(--BgColorFixed);}
+  
+/*** RESET *** Don't Touch ***/
+* {margin:0; padding:0; box-sizing:border-box;}
+html {font-family: 'Pretendard'; font-size:16px; font-weight:400; line-height:1.6; color:var(--TxtColor);}
+body {/*display:flex; place-items:center;*/ min-width:320px; min-height:100vh;}
+ol, ul, li, dl, dt, dd {list-style:none;}
+a {display:inline-block; text-decoration:none; color:inherit; outline:0;}
+img, video {max-width:100%; border:0;}
+input, textarea, select, pre {max-width:100%; border-radius:0; border:1px solid var(--BorderColor); background:var(--BgColor); color:var(--TxtColor); outline:0; font-family:inherit; font-size:inherit; line-height:inherit; padding:5px; text-wrap:wrap; -webkit-box-shadow: none !important;}
+button {cursor:pointer; outline:0; border:0; border-radius:0; padding:0; line-height:inherit; font-family:inherit; font-size:inherit; font-weight:inherit; background:none; color:inherit;}
+h1, h2 {font-family:'LotteriaChab'; font-weight:normal;}
+h1, h2, h3, h4, h5, h6 {line-height:1;}
+
+@media all and (max-width:1440px) {
+  html {font-size:15px; line-height:1.5;}
+}
+@media all and (max-width:1180px) {
+}
+@media all and (max-width:1024px) {
+  html {font-size:14px; line-height:1.4;}
+}
+@media all and (max-width:768px) {
+  html {font-size:12px;}
+}
+@media all and (max-width:680px) {
+  html {font-size:11px;}
+}

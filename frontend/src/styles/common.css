@@ -1,0 +1,15 @@
+@charset "UTF-8";
+
+::-webkit-scrollbar {width:0;}
+/* ::-webkit-scrollbar {width:6px;}
+::-webkit-scrollbar-track {background:transparent;}
+::-webkit-scrollbar-thumb {background:var(--TxtColor);}
+::-webkit-scrollbar-button {width:0; height:0;} */
+
+#root {width:100%;}
+
+.app {width:100%; background:var(--BgColor); color:var(--TxtColor);}
+
+button {display:flex; justify-content:center; align-items:center;}
+button.typeIcon svg {font-size:1.5em;}
+button.styleRound {padding:0.5em 1.5em; border-radius:2em;}

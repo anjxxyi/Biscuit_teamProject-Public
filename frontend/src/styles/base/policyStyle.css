@@ -1,0 +1,22 @@
+@charset "UTF-8";
+
+#pageContainer.policy {text-align:justify;}
+#pageContainer.policy ul.tabList {display:flex; flex-flow:row nowrap; border-bottom:1px solid var(--BorderColor);}
+#pageContainer.policy ul.tabList li.tabItem {width:calc((100% / 3) - 6em); border-top:4px solid var(--BorderColor); border-right:1px solid var(--BorderColor); border-left:1px solid var(--BorderColor); border-radius:0; background:#bbb3; font-weight:500; position:relative; bottom:-1px; margin-right:0.5em;}
+#pageContainer.policy ul.tabList li.tabItem.active {background:var(--BgColor); color:inherit; border-top-color:var(--PointColor); font-weight:700;}
+#pageContainer.policy ul.tabList li.tabItem a {display:block; padding:1em;}
+
+#pageContainer.policy .tabPanel {padding:0 1em;}
+#pageContainer.policy .tabPanel h3 {font-size:1.625em; margin:2em 0 1.5em;}
+#pageContainer.policy .tabPanel dl,
+#pageContainer.policy .tabPanel ul,
+#pageContainer.policy .tabPanel ol {margin-bottom:2em;}
+#pageContainer.policy .tabPanel dt {font-size:1.125em; font-weight:600; margin-bottom:0.7em;}
+#pageContainer.policy .tabPanel dd {margin:0.5em 0; font-weight:500; padding-left:0.5em;}
+#pageContainer.policy .tabPanel dd.dot {text-indent:-0.5em;}
+#pageContainer.policy .tabPanel dd.dot::before {content:'· '; display:inline;}
+#pageContainer.policy .tabPanel dd dd ul,
+#pageContainer.policy .tabPanel dd dd ol {padding-left:1em; font-size:0.875em;}
+#pageContainer.policy .tabPanel dd li {font-weight:400; margin:0.25em;}
+#pageContainer.policy .tabPanel dd ul li {list-style:inside circle;}
+#pageContainer.policy .tabPanel dd ol li {list-style:inside decimal;}

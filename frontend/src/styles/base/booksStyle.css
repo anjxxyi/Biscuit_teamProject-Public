@@ -1,0 +1,76 @@
+.noDrag {-webkit-user-select:none; -moz-user-select:none; -ms-user-select:none; user-select:none}
+
+/****** BooksPage -- START --- ******/
+/* topsection -- START --- */
+#pageContainer.books section.topSection { width:100%; display:flex; flex-flow:row wrap; justify-content:space-between; align-items:flex-end; }
+
+#pageContainer.books section .searchArea { width:55%; max-width:800px; min-width:300px; position:relative; }
+#pageContainer.books section .searchArea input.searchBar { width:100%; background:var(--InputBgColor); color:var(--TxtColorFixed); font-size:1.125em; font-weight:300; border:0; padding:1em 4em 1em 1em; }
+#pageContainer.books section .searchArea button.searchBtn { color:var(--InputTxtColor); font-size:1.5em; position:absolute; top:50%; right:1em; transform:translateY(-50%); z-index:5; } 
+
+#pageContainer.books section .sortArea { display:flex; flex-flow:row nowrap; align-items:center; justify-content:center; } 
+#pageContainer.books section .sortArea button.sortBtn { margin-left:1em; } 
+#pageContainer.books section .sortArea button.sortBtn.active { font-weight:700; text-decoration:underline; text-underline-position:under; }
+
+    /* Default */
+#pageContainer.books .topSection.default {justify-content: center;}
+#pageContainer.books .topSection.default .searchArea {width: 64%;}
+/* topsection -- END --- */
+
+/* bookListsection -- START -- */
+#pageContainer.books section.bookListSection { width:100%; min-height: 800px; margin-top:4em; position: relative; }
+
+#pageContainer.books section .bookList { width:100%; display:flex; flex-wrap:wrap; column-gap:5%; row-gap:45px; } 
+#pageContainer.books section .bookList .bookList_inner { width:16%; min-width:100px; display:flex; flex-flow:column; justify-content:flex-end;}
+#pageContainer.books section .bookList .bookList_inner img {width:100%; border:1px solid var(--BorderColor);}
+#pageContainer.books section .bookList .bookList_inner dt {margin-top:0.73rem; color:var(--TxtColor);}
+#pageContainer.books section .bookList .bookList_inner .bookInner_title {font-size:1.05rem; letter-spacing:-1px; line-height:1.35; word-break:keep-all; height:45px; text-overflow:ellipsis; overflow:hidden; display:-webkit-box; -webkit-line-clamp:2; -webkit-box-orient:vertical;}
+#pageContainer.books section .bookList .bookList_inner .bookInner_author {font-size:0.9rem; line-height:1.35; word-break:keep-all;}
+#pageContainer.books section .bookList .bookList_inner dd {font-size:0.8rem; color:var(--InputTxtColor);}
+
+#pageContainer.books section .pagination {margin-top:1.8rem; display:flex; justify-content:center; gap:2rem;}
+#pageContainer.books section .pagination span {cursor:pointer; line-height:1;}
+/* bookListSection -- END -- */
+/****** BooksPage -- END --- ******/
+
+
+/****** BookView -- START --- ******/
+#pageContainer.books.view #bigImgViewer {width:100%; max-width:100% !important; height:100vh; display:flex; justify-content:center; align-items:center; position:fixed; top:0; z-index:100000; background:var(--ModalBgColor); backdrop-filter:blur(10px); color:var(--TxtColorFixed);}
+#pageContainer.books.view #bigImgViewer #bigImg {width:100%; max-width:500px; position:relative;}
+#pageContainer.books.view #bigImgViewer #bigImg img {width:100%; border:1px solid #fff;}
+#pageContainer.books.view #bigImgViewer #bigImgCloser {width:26px; height:26px; display:flex; justify-content:center; align-items:center; background-color:var(--BgColorFixed); border-radius:50%; border:2px solid var(--TxtColorFixed); box-shadow:0 0 3px 0 #000; font-size:1rem; position:absolute; top:-10px; right:-10px; cursor:pointer;}
+
+
+/* pageVisual -- START --- */
+#pageContainer.books.view #pageVisual {width:100%; max-width:100% !important; height:auto; background-color:var(--BgColorFixed); border-bottom:1px solid var(--GuideColor); color:var(--TxtColorFixed); padding:0 !important;}
+#pageContainer.books.view #pageVisual #pageVisual_item {width:100%; max-width:1240px; margin:0 auto; padding:60px 0;  position:relative;}
+#pageContainer.books.view #pageVisual #pageVisual_item .backBtn {position:absolute; left:-15px; font-size:1.5rem;}
+#pageContainer.books.view #pageVisual #pageVisual_item .utilBtn {position:absolute; right:20px; font-size:1.5rem; display:flex; gap:20px;}
+#pageContainer.books.view #pageVisual #pageVisual_item .utilBtn svg {cursor: pointer;}
+#pageContainer.books.view #pageVisual #pageVisual_item .imgbox {max-width:1120px; margin:0 auto; display:flex; gap:4rem;}
+#pageContainer.books.view #pageVisual #pageVisual_item .imgbox .imgCover {width: 23%; min-height: 345px; display: flex; align-items: center;}
+#pageContainer.books.view #pageVisual #pageVisual_item .imgbox img {width:100%; min-width:100px; border:1px solid #ddd;}
+#pageContainer.books.view #pageVisual #pageVisual_item .imgbox .imgContent {width:77%; margin-bottom:33px; display:flex; flex-direction:column; justify-content:flex-end;}
+#pageContainer.books.view #pageVisual #pageVisual_item .imgbox .imgContent .imgTitle {margin-bottom:1rem; font-size:2.7rem; font-weight:500; word-break: keep-all;}
+#pageContainer.books.view #pageVisual #pageVisual_item .imgbox .imgContent .imgAuthor {font-size:1.26rem;}
+/* pageVisual -- END --- */
+
+/* pageContents -- START --- */
+#pageContainer.books.view #pageContents {max-width:1120px; margin:0 auto; padding:3rem 0; display:flex; flex-direction:column;}
+#pageContainer.books.view #pageContents pre {padding:0; border:0; word-break:keep-all; text-align:justify; line-height:1.8;}
+#pageContainer.books.view #pageContents b {font-size:1.7rem; font-weight:700;}
+
+#pageContainer.books.view #pageContents :is(.pageContents_basicInfo, .pageContents_detail) {width:100%; display:flex; margin-bottom:2.5rem; padding-bottom:2.5rem; border-bottom:1px solid var(--BorderColor);}
+#pageContainer.books.view #pageContents .pageContents_author {width:100%; display:flex;}
+#pageContainer.books.view #pageContents :is(.pageContents_basicInfo_head, .pageContents_detail_head, .pageContents_author_head) {width:20%;}
+#pageContainer.books.view #pageContents :is(.pageContents_basicInfo_description, .pageContents_detail_description, .pageContents_author_description) {width:calc(100% - 20%);}
+
+#pageContainer.books.view #pageContents .pageContents_basicInfo .pageContents_basicInfo_description {display:flex; gap:1.2rem; line-height:2;}
+#pageContainer.books.view #pageContents .pageContents_basicInfo .pageContents_basicInfo_description .des_index {font-weight:700;}
+
+#pageContainer.books.view #pageContents .pageContents_author .des_book_author {margin-bottom:1.2rem;}
+#pageContainer.books.view #pageContents small {margin-left:0.5rem;}
+
+div.dotLine {height:1px; margin:1.5rem 0; border:1px dashed var(--BorderColor);}
+/* pageContents -- END --- */
+/****** BookView -- END --- ******/

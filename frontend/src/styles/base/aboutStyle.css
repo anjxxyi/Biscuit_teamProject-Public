@@ -1,0 +1,42 @@
+@charset "UTF-8";
+
+/* #pageVisual -- START --- */
+/* #pageContainer.about {background:linear-gradient(180deg, var(--BgColor), var(--PointBgColor));} */
+
+/* #pageContainer.about::before {content:'Good to see you! Your reading supporter ‘Biscuit’.'; color:var(--PointColor); opacity:0.5; position:fixed; top:0; left:0; transform:rotate(90deg); display:block;}
+#pageContainer.about::after {content:'Good to see you! Your reading supporter ‘Biscuit’.'; width:auto; color:var(--PointColor); opacity:1; position:fixed; bottom:0%; right:0; transform:rotate(90deg); display:block; animation:identifier 10s infinite;}
+
+@keyframes identifier {
+  0% {bottom:100%;}
+  99% {bottom:0;}
+  99.1% {bottom:100%; opacity:0;}
+  100% {bottom:100%;}
+} */
+
+#pageContainer.about #pageVisual {height:calc(100vh - 100px); min-height:400px; background:transparent; text-align:center; position:relative; padding:2em 0 4em;}
+#pageContainer.about #pageVisual h2.title {display:flex; flex-flow:row nowrap; align-items:center; justify-content:center;}
+#pageContainer.about #pageVisual h2.title span {width:2.5em; height:2.5em; background:var(--BgColor); color:var(--TxtColor); display:flex; flex-flow:row; align-items:center; justify-content:center; line-height:1; border:1px solid var(--TxtColor); border-radius:100%; margin:0 -0.375em; position:relative;}
+#pageContainer.about #pageVisual h2.title span::before {content:''; background:var(--BgColor); display:block; width:40%; height:70%; position:absolute; top:50%; right:-30%; z-index:3; transform:translate(-50%, -50%);}
+#pageContainer.about #pageVisual h2.title span:last-child:before {display:none;}
+#pageContainer.about #pageVisual p.info {font-size:1.25em;}
+#pageContainer.about #pageVisual .scrollAni {width:100%; text-align:center; position:absolute; bottom:0; padding:1em;}
+#pageContainer.about #pageVisual .scrollAni button {margin:0 auto;}
+#pageContainer.about #pageVisual .scrollAni button svg {font-size:2em; position:relative; top:-0.75em; animation:identifier 2s infinite 2s; opacity:0;}
+
+@keyframes identifier {
+  0% {top:-0.75em; opacity:0;}
+  10% {top:-0.75em; opacity:0.5;}
+  100% {top:0; opacity:0;}
+}
+/* #pageVisual -- END --- */
+
+
+/* #pageContents -- START --- */
+#pageContainer.about section {margin:0 auto 6em;}
+#pageContainer.about section .title {position:relative; display:inline-block;}
+#pageContainer.about section .title span {mix-blend-mode:hard-light; color:var(--TxtColor); font-size:2.5em; font-family:'ReenieBeanie'; padding:0 0.25em; position:relative; z-index:2;}
+#pageContainer.about section .title::before {content:''; width:100%; height:50%; background:#ffe50059; position:absolute; bottom:0; z-index:1;}
+#pageContainer.about section .textArea {font-size:1.125em; margin-top:2em;}
+#pageContainer.about section .textArea p {margin-bottom:1.5em;}
+#pageContainer.about section .textArea p:last-child {margin-bottom:0;}
+/* #pageContents -- END --- */

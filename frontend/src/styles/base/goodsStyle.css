@@ -1,0 +1,106 @@
+@charset "UTF-8"; 
+
+/* #pageContainer.goods .visualInnerSection -- END --- */
+#pageContainer.goods .topSection {display:flex; flex-flow:row-reverse; position:relative; margin-bottom:1em;}
+#pageContainer.goods section.adminSection .btn {height:100%; position:absolute; bottom:calc(100% + 45px); right:0; width:13%;}
+#pageContainer.goods section .adminSection .btn a {width:100%; margin-top:30%; margin-left:1em;}
+#pageContainer.goods section.adminSection  button.uploadBtn {background:var(--BgColorReversed); color:var(--TxtColorReversed); font-size:0.9em; font-weight:700; line-height:1; display:flex; flex-flow:row; align-items:center; padding:1em 1em; width:100%; text-align:center; justify-content:center;}
+#pageContainer.goods section .selectArea {position:absolute; left:0;}
+#pageContainer.goods section .sortArea {display:flex; flex-flow:row nowrap; align-items:center; justify-content:flex-end; margin-bottom:2em;} 
+#pageContainer.goods section .sortArea button.sortBtn {margin-left:1em;}
+#pageContainer.goods section .sortArea button.sortBtn.active {font-weight:700; text-decoration:underline; text-underline-position:under;} 
+/* #pageContainer.goods section -- END --- */
+
+
+/* #pageContainer.goods section.infoSection */
+#pageContainer.goods section.infoSection {width:100%; position:relative; margin-bottom:1em; padding-top:50%; overflow:hidden;}
+#pageContainer.goods section.infoSection div {text-align:center;}
+#pageContainer.goods section.infoSection .goodsThumb img {width:500px; object-fit:cover; border:1px solid var(--Bgcolor); display:block; position:absolute; top:50%; left:50%; transform:translate(-50%, -50%); padding:0%;}
+#pageContainer.goods section.infoSection .goodsInfo {width:100%; margin-bottom:33px; display:flex; flex-direction:column; justify-content:flex-end;}
+#pageContainer.goods section.infoSection .goodsInfo .goodsName {font-size:1.5em; margin-bottom:0.5%;}
+#pageContainer.goods section.infoSection .goodsInfo .goodsPrice {color:var(--PointColor);}
+#pageContainer.goods section.infoSection .goodsBtn {display:flex; justify-content:center;}
+#pageContainer.goods section.infoSection button.saved, button.unsaved, .orderBtn {margin:0.5%; padding:0.5%;}
+#pageContainer.goods section.infoSection .orderBtn { border:0.1em solid var(--PointColor); border-radius:10%;}
+/* #pageContainer.goods section -- END --- */
+
+/* #pageContainer.goods.list section.listSection -- START --- */
+#pageContainer.goods.typeList section .listArea {display:flex; flex-flow:row wrap; justify-content:flex-start; align-items:stretch;}
+#pageContainer.goods.typeList section a {width:calc((100% - 6em) / 3); margin-right:3em; margin-bottom:4em;}
+#pageContainer.goods.typeList section a:nth-child(3n) {margin-right:0;}
+#pageContainer.goods.typeList section a .imgBox {width:100%; background:var(--BorderColor); position:relative; margin-bottom:1em; padding-top:100%; overflow:hidden;}
+#pageContainer.goods.typeList section a .imgBox .soldoutThumb {width:100%; height:100%; display:flex; align-items:center; justify-content:center; text-align:center; font-weight:600; position:absolute; top:0; left:0; z-index:3; background:#0009; color:var(--TxtColorFixed); letter-spacing:0;}
+#pageContainer.goods.typeList section a .imgBox img {object-fit:cover; border:1px solid var(--Bgcolor); display:block; position:absolute; top:50%; left:50%; transform:translate(-50%, -50%); padding:0%;}
+#pageContainer.goods.typeList section a .txtBox {text-align:justify;}
+#pageContainer.goods.typeList section a .txtBox h4.title {width:100%; font-size:1.25em; margin:0.75em 0 0.5em; overflow:hidden; text-overflow:ellipsis; white-space:nowrap;}
+#pageContainer.goods.typeList section a .txtBox p.price {color:var(--PointColor); font-size:1.25em; font-weight:700; display:flex; flex-flow:row wrap; align-items:flex-end; margin-top:0.5em;}
+#pageContainer.goods.typeList section .pagination {text-align:center; margin-top:1.5em;}
+#pageContainer.goods.typeList section .pagination ul.pageBox {display:flex; flex-flow:row nowrap; justify-content:center; align-items:center;}
+#pageContainer.goods.typeList section .pagination ul.pageBox li {display:block; line-height:1; padding:0.25em; margin:0 0.5em; cursor:pointer;}
+#pageContainer.goods.typeList section .pagination ul.pageBox li.pageNum.active {font-weight:700;}
+#pageContainer.goods.typeList section .pagination ul.pageBox li.pageChg svg {color:var(--InputTxtColor); display:block;}
+/* #pageContainer.goods section -- END --- */
+
+
+/* #pageContainer.goods.typeView -- START --- */
+#pageContainer.goods.typeView #pageVisual {width:100%; max-width:100% !important; height:auto; border-bottom:1px solid var(--GuideColor); padding:0 !important; border-bottom:1px solid var(--BorderColor); font-size:1.25em;}
+#pageContainer.goods.typeView .visualInner {width:100%; max-width:1240px; margin:0 auto; padding:60px 0; position:relative;}
+#pageContainer.goods.typeView .visualInner a.backBtn {display:block; position:absolute; left:-15px; font-size:1.75em;}
+#pageContainer.goods.typeView .visualInner button {position:absolute; right:20px; font-size:1.5em; display:flex; gap:20px;}
+#pageContainer.goods.typeView .visualInner .imgBox {max-width:1120px; margin:0 auto; display:flex; gap:4rem; display:flex; align-items:flex-end; justify-content:flex-start;}
+#pageContainer.goods.typeView .visualInner .imgBox .thumb {width:35%; max-width:500px; display:block; border:1px solid var(--BorderColor); position:relative; height:280px;}
+#pageContainer.goods.typeView .visualInner .imgBox img {height:280px;}
+#pageContainer.campaign.typeView .visualInner .imgBox .thumb img {display:block; height:100%;}
+#pageContainer.goods.typeView .visualInner .imgBox .soldoutThumb {width:100%; height:100%; display:flex; align-items:center; justify-content:center; text-align:center; font-weight:600; position:absolute; top:0; left:0; z-index:3; background:#0009; color:var(--TxtColorFixed); letter-spacing:0;}
+#pageContainer.goods.typeView .visualInner .imgBox .imgContent {width:100%; display:flex; flex-flow:column; align-items:flex-start;}
+#pageContainer.goods.typeView .visualInner .imgBox .imgContent h3.goodsName {font-size:1.75em;}
+#pageContainer.goods.typeView .visualInner .imgBox .imgContent p.goodsPrice {font-size:1.25em; font-weight:500; margin-top:0.75em;}
+#pageContainer.goods.typeView .visualInner .imgBox .imgContent .caption {color:#888e; font-size:0.875em; display:flex; align-items:center; justify-content:flex-start; line-height:1; margin-top:0.5em; padding:0;}
+
+#pageContainer.goods.typeView #pageContents {max-width:1120px; margin:0 auto; padding:3em 0; display:flex; flex-direction:column;}
+#pageContainer.goods.typeView section.detailSection {width:100%; display:flex; margin-bottom:2.5em; padding-bottom:2.5em; border-bottom:1px solid var(--BorderColor);}
+#pageContainer.goods.typeView section.detailSection .head {width:20%; font-size:1.7em;}
+#pageContainer.goods.typeView section.detailSection .content {width:80%;}
+#pageContainer.goods.typeView section.detailSection.typeOption .content {display:flex; flex-flow:row wrap; justify-content:space-between; position:relative;}
+#pageContainer.goods.typeView section.detailSection.typeOption .content label {display:flex; align-items:center;}
+#pageContainer.goods.typeView section.detailSection.typeOption .content label strong {width:80px; font-weight:700;}
+#pageContainer.goods.typeView section.detailSection.typeOption .content label input {width:100px; margin-right:1em;}
+#pageContainer.goods.typeView section.detailSection.typeOption .content .cnt {width:100%;}
+#pageContainer.goods.typeView section.detailSection.typeOption .content .price {width:50%;}
+#pageContainer.goods.typeView section.detailSection.typeOption .content a.goSignin {padding:1em 3em; line-height:1; background:var(--BgColorReversed); color:var(--TxtColorReversed); font-weight:700; margin-left:auto;}
+#pageContainer.goods.typeView section.detailSection.typeOption .content .orderBtn {padding:1em 3em; line-height:1; background:var(--BgColorReversed); color:var(--TxtColorReversed); font-weight:700; margin-left:auto;}
+#pageContainer.goods.typeView section.detailSection.typeOption .content .orderBtn.soldout {background:var(--BorderColor); color:var(--TxtColor);}
+#pageContainer.goods.typeView .caption {color:#888e; font-size:0.875em; display:flex; align-items:center; justify-content:flex-start; line-height:1; margin-top:0.5em; padding:0;}
+#pageContainer.goods.typeView .caption svg {margin-right:0.25em;}
+#pageContainer.goods.typeView section.detailSection.typeOption .content .updateBtn {position:absolute; bottom:100%; right:0;}
+#pageContainer.goods.typeView section.detailSection .content pre {padding:0; border:0; word-break:keep-all; text-align:justify; line-height:1.8;}
+#pageContainer.goods.typeView section.detailSection .content pre p {border-bottom:1px solid var(--BorderColor); padding-bottom:3em; margin-bottom:3em;}
+/* #pageContainer.goods.view -- END --- */
+
+
+/* #pageContainer.goods.typeEdit -- START --- */
+#pageContainer.goods.typeEdit section {border-bottom:1px dashed var(--InputTxtColor); display:flex; flex-flow:column; margin-bottom:2em; padding:0 3em 2em;}
+#pageContainer.goods.typeEdit section:last-child {border-bottom:0;}
+#pageContainer.goods.typeEdit  section.dateSection .sectionInner {display:flex; flex-flow:row; justify-content:flex-start; align-items:center;}
+#pageContainer.goods.typeEdit  section.dateSection .sectionInner.styleDouble div {width:100%; display:flex; flex-flow:row; justify-content:flex-start; align-items:center;}
+#pageContainer.goods.typeEdit  section.dateSection .sectionInner.styleDouble div input {width:100px;}
+#pageContainer.goods.typeEdit section.dateSection .sectionInner label {width:100px;}
+#pageContainer.goods.typeEdit section.dateSection .sectionInner span {padding:0 1em;}
+#pageContainer.goods.typeEdit section .sectionInner {margin-bottom:1em;}
+#pageContainer.goods.typeEdit section .sectionInner:last-child {margin-bottom:0;}
+#pageContainer.goods.typeEdit section .sectionInner label {width:100%; font-size:1.25em; font-weight:700; padding-right:0.5em; word-break:keep-all; padding:0.5em 0; display:block; line-height:1;}
+#pageContainer.goods.typeEdit section .sectionInner label span {width:100%; font-size:1.25; font-weight:350; padding-right:0.5em; word-break:keep-all; padding:0.5em 0;}
+#pageContainer.goods.typeEdit section .sectionInner input[type=file] {border:0; padding-left:0;}
+#pageContainer.goods.typeEdit section .sectionInner input {width:100%; background:white; display:block;}
+#pageContainer.goods.typeEdit section .sectionInner input.price,
+#pageContainer.goods.typeEdit section .sectionInner input.cnt {text-align:right;}
+#pageContainer.goods.typeEdit section textarea {width:100%; height:15em; background:white; display:block; resize:none;}
+#pageContainer.goods.typeEdit section select {width:100px; text-align:center;}
+#pageContainer.goods.typeEdit section.btnSection {display:flex; flex-flow:row nowrap; align-items:center; justify-content:center;}
+#pageContainer.goods.typeEdit section.btnSection button {width:100%; max-width:200px; background:var(--InputTxtColor); border:1px solid var(--GuideColor); font-size:1.25em; font-weight:600; line-height:1; display:flex; align-items:center; padding:0.75em 1em; color:var(--TxtColorReversed);}
+#pageContainer.goods.typeEdit section.btnSection button.submit {background:var(--PointColor); margin-right:1em;}
+#pageContainer.goods.typeEdit section .thumbnailImage,
+#pageContainer.goods.typeEdit section .contentImage {width:300px;}
+#pageContainer.goods.typeEdit section .previewImage {width:50%; height:50%;}
+#pageContainer.goods.typeEdit .caption {color:#888e; font-size:0.875em; display:flex; align-items:center; justify-content:flex-start; line-height:1; padding:0; margin-left:auto;}
+/* #pageContainer.goods.typeEdit -- END --- */

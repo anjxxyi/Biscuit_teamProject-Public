@@ -1,0 +1,216 @@
+@charset "UTF-8"; 
+
+/* #pageContainer.campaign section.topSection -- START --- */
+#pageContainer.campaign section.topSection {display:flex; flex-flow:row-reverse; position:relative; margin-bottom:3em;}
+#pageContainer.campaign .applyArea {height:100%; position:absolute; bottom:calc(100% + 85px); right:0;}
+#pageContainer.campaign .applyArea .bubble {width:100px; background:var(--BgColorReversed); color:var(--TxtColorReversed); border-radius:0.75em; font-size:0.75em; position:absolute; left:50%; transform:translateX(-50%); text-align:center; padding:0.875em; margin-top:-55%; margin-bottom:20px; animation:bounce 1.2s infinite;}
+#pageContainer.campaign .applyArea .bubble::before {content:''; display:block; width:0; height:0; overflow:hidden; border-top:6px solid var(--BgColorReversed); border-right:4px solid transparent; border-bottom:6px solid transparent; border-left:4px solid transparent; position:absolute; top:100%; left:50%; transform:translateX(-50%);}
+#pageContainer.campaign .applyArea button.applyBtn {background:var(--TxtColorFixed); border:2px solid #9475cb99; border-radius:2em; color:#764cc2; font-size:0.875em; font-weight:700; line-height:1; display:flex; flex-flow:row; align-items:center; padding:0.25em 1em;}
+#pageContainer.campaign .applyArea button.applyBtn .icon {width:2em;}
+#pageContainer.campaign .applyArea button.applyBtn span {margin-left:0.5em;}
+#pageContainer.campaign section .selectArea {position:absolute; left:0;}
+#pageContainer.campaign section .sortArea {display:flex; flex-flow:row nowrap; align-items:center; justify-content:center;} 
+#pageContainer.campaign section .sortArea button.sortBtn {margin-left:1em;} 
+#pageContainer.campaign section .sortArea button.sortBtn.active {font-weight:700; text-decoration:underline; text-underline-position:under;}
+#pageContainer.campaign section .sortArea button.sortBtn:focus {font-weight:700; text-decoration:underline; text-underline-position:under;}
+/* #pageContainer.campaign section.topSection -- END --- */
+
+
+/* #pageContainer.campaign section.listSection -- START --- */
+#pageContainer.campaign.typeList section .listArea {display:flex; flex-flow:row wrap; justify-content:flex-start; align-items:stretch;}
+#pageContainer.campaign.typeList section a {width:calc((100% - 6em) / 4); margin-right:2em; margin-bottom:4em;}
+#pageContainer.campaign.typeList section a:nth-child(4n) {margin-right:0;}
+#pageContainer.campaign.typeList section a .imgBox {width:100%; background:#ccc7; position:relative; margin-bottom:1em; padding-top:100%; overflow:hidden;}
+#pageContainer.campaign.typeList section a .imgBox img {height:100%; border:1px solid var(--Bgcolor); display:block; position:absolute; top:50%; left:50%; transform:translate(-50%, -50%); padding:10%; z-index:2;}
+#pageContainer.campaign.typeList section a .imgBox .imgBg {width:110%; height:110%; position:absolute; top:50%; left:50%; transform:translate(-50%, -50%); z-index:1; opacity:0.75; filter:blur(10px);}
+#pageContainer.campaign.typeList section a .imgBox .soldoutThumb {width:100%; height:100%; display:flex; align-items:center; justify-content:center; text-align:center; font-weight:600; position:absolute; top:0; left:0; z-index:3; background:#0009; color:var(--TxtColorFixed); letter-spacing:0;}
+#pageContainer.campaign.typeList section a .txtBox {text-align:justify;}
+#pageContainer.campaign.typeList section a .txtBox span.condition {font-size:0.875em; font-weight:700; background:var(--TxtColorFixed); border:1px solid var(--BgColorReversed); line-height:1; padding:0.125em 0.5em;}
+#pageContainer.campaign.typeList section a .txtBox.gradeS span.condition {border-color:seagreen; color:seagreen;}
+#pageContainer.campaign.typeList section a .txtBox.gradeA span.condition {border-color:dodgerblue; color:dodgerblue;}
+#pageContainer.campaign.typeList section a .txtBox.gradeB span.condition {border-color:darkorange; color:darkorange;}
+#pageContainer.campaign.typeList section a .txtBox.gradeC span.condition {border-color:gray; color:gray;}
+#pageContainer.campaign.typeList section a .txtBox h4.title {width:100%; font-size:1.25em; margin:0.75em 0 0.5em; overflow:hidden; text-overflow:ellipsis; white-space:nowrap;}
+#pageContainer.campaign.typeList section a .txtBox p.info {color:var(--InputBgColor); font-weight:500; letter-spacing:-0.25px; display:-webkit-box; -webkit-line-clamp:2; -webkit-box-orient:vertical; overflow:hidden; text-overflow:ellipsis;}
+#pageContainer.campaign.typeList section a .txtBox div.price {line-height:1.5; display:flex; flex-flow:row wrap; align-items:flex-end; margin-top:0.5em;}
+#pageContainer.campaign.typeList section a .txtBox div.price .before {font-size:0.875em; text-decoration:line-through;}
+#pageContainer.campaign.typeList section a .txtBox div.price .sale {color:red; font-weight:700; padding-left:0.5em;}
+#pageContainer.campaign.typeList section a .txtBox div.price .after {width:100%; font-size:1.125em; font-weight:700;}
+#pageContainer.campaign.typeList section a .txtBox div.price .saleY {display:flex; flex-direction:row; align-items:center;}
+#pageContainer.campaign.typeList section a .txtBox div.price .soldout {background:#cccc; color:var(--BgColorFixed); padding:0.2em 0.5em; margin-left:1em; font-size:0.625em;}
+
+#pageContainer.campaign.typeList section .pagination {text-align:center; margin-top:1.5em;}
+#pageContainer.campaign.typeList section .pagination ul.pageBox {display:flex; flex-flow:row nowrap; justify-content:center; align-items:center;}
+#pageContainer.campaign.typeList section .pagination ul.pageBox li {display:block; line-height:1; padding:0.25em; margin:0 0.5em;}
+#pageContainer.campaign.typeList section .pagination ul.pageBox li.pageNum.active {font-weight:700;}
+#pageContainer.campaign.typeList section .pagination ul.pageBox li.pageNum{cursor: pointer;}
+#pageContainer.campaign.typeList section .pagination ul.pageBox li.pageChg svg {color:var(--InputTxtColor); display:block;}
+/* #pageContainer.campaign section.listSection -- END --- */
+
+
+/* #pageContainer.campaign.typeView -- START --- */
+#pageContainer.campaign.typeView #pageVisual {width:100%; max-width:100% !important; height:auto; border-bottom:1px solid var(--GuideColor); padding:0 !important;  border-bottom:1px solid var(--BorderColor); font-size:1.25em;}
+#pageContainer.campaign.typeView .visualInner {width:100%; max-width:1240px; margin:0 auto; padding:60px 0; position:relative;}
+#pageContainer.campaign.typeView .visualInner a.backBtn {display:block; position:absolute; left:-15px; font-size:1.75em;}
+#pageContainer.campaign.typeView .visualInner button {position:absolute; right:20px; font-size:1.5em; display:flex; gap:20px;}
+#pageContainer.campaign.typeView .visualInner .imgBox {max-width:1120px; margin:0 auto; display:flex; gap:4rem; display:flex; align-items:flex-end; justify-content:flex-start;}
+#pageContainer.campaign.typeView .visualInner .imgBox .thumb {width:23%; display:block; border:1px solid var(--BorderColor); position:relative;}
+#pageContainer.campaign.typeView .visualInner .imgBox .thumb img {display:block;}
+#pageContainer.campaign.typeView .visualInner .imgBox .thumb .soldoutThumb {width:100%; height:100%; display:flex; align-items:center; justify-content:center; text-align:center; font-weight:600; position:absolute; top:0; left:0; z-index:3; background:#0009; color:var(--TxtColorFixed); letter-spacing:0;}
+
+#pageContainer.campaign.typeView .visualInner .imgBox .imgContent {width:100%; display:flex; flex-flow:column; align-items:flex-start;}
+#pageContainer.campaign.typeView .visualInner .imgBox .imgContent h3.bookName {font-size:1.75em; line-height:1.25; word-break:keep-all;}
+#pageContainer.campaign.typeView .visualInner .imgBox .imgContent p.bookAuthor {font-size:1.25em; font-weight:500; margin-top:0.75em;}
+
+#pageContainer.campaign.typeView #pageContents {max-width:1120px; margin:0 auto; padding:3em 0; display:flex; flex-direction:column;}
+#pageContainer.campaign.typeView section.detailSection {width:100%; display:flex; flex-direction:column;}
+#pageContainer.campaign.typeView section.detailSection .head {width:20%; font-size:1.7em;}
+#pageContainer.campaign.typeView section.detailSection .content {width:80%;}
+#pageContainer.campaign.typeView section.detailSection .content.typeOption {display:flex; flex-flow:row wrap; align-items:flex-end;}
+#pageContainer.campaign.typeView section.detailSection .content pre {padding:0; border:0; word-break:keep-all; text-align:justify; line-height:1.8;}
+#pageContainer.campaign.typeView section.detailSection .content pre p {border-bottom:1px solid var(--BorderColor); padding-bottom:3em; margin-bottom:3em;}
+#pageContainer.campaign.typeView section.detailSection .detail {width:100%; display:flex; margin-bottom:2.5rem; padding-bottom:2.5rem; border-bottom:1px solid var(--BorderColor);}
+#pageContainer.campaign.typeView section.detailSection .detail:last-child {padding-bottom:0; margin-bottom:0; border-bottom:0;}
+#pageContainer.campaign.typeView section.detailSection .detail .content ul {display:inline-block;}
+#pageContainer.campaign.typeView section.detailSection .detail .content ul li {display:flex; align-items:center; margin-bottom:0.25em;}
+#pageContainer.campaign.typeView section.detailSection .detail .content ul li strong {display:inline-block; width:80px; font-weight:700;}
+#pageContainer.campaign.typeView section.detailSection .detail .content ul li span.status {font-size:0.75em; font-weight:700; background:var(--TxtColorFixed); border:1px solid; line-height:1; padding:0.25em 1em;}
+#pageContainer.campaign.typeView section.detailSection .content .buyBtn {padding:1em 3em; line-height:1; background:var(--BgColorReversed); color:var(--TxtColorReversed); font-weight:700; margin-left:auto; display:block;}
+#pageContainer.campaign.typeView section.detailSection .content .buyBtn.soldout {background:var(--BorderColor); color:var(--TxtColor);}
+#pageContainer.campaign.typeView .caption {color:#888e; font-size: 0.875em; display: flex; align-items: center; justify-content: flex-start;  line-height: 2.3; margin-top: 0.5em; padding:0;}
+#pageContainer.campaign.typeView .caption svg {margin-right:0.25em;}
+#pageContainer.campaign.typeView section.detailSection .detail .content .gradeS {border-color:seagreen; color:seagreen;}
+#pageContainer.campaign.typeView section.detailSection .detail .content .gradeG {border-color:dodgerblue; color:dodgerblue;}
+#pageContainer.campaign.typeView section.detailSection .detail .content .gradeN {border-color:darkorange; color:darkorange;}
+#pageContainer.campaign.typeView section.detailSection .detail .content .gradeB {border-color:gray; color:gray;}
+#pageContainer.campaign.typeView section.detailSection .detail pre.content {padding:0; border:0; word-break:keep-all; text-align:justify; line-height:1.8;}
+#pageContainer.campaign.typeView section.detailSection .detail.author .content {align-items:baseline; display:flex; flex-direction:column;}
+#pageContainer.campaign.typeView section.detailSection .detail.author .content small {margin-left:1em;}
+#pageContainer.campaign.typeView section.detailSection .detail.author .authorInfo {margin-bottom:2em; border:0;}
+#pageContainer.campaign.typeView section.detailSection .detail.author .authorInfo b {font-size:1.7rem; font-weight:700;}
+#pageContainer.campaign.typeView .content  div.dotLine{height: 1px; margin: 1.5rem 0; border: 1px dashed var(--BorderColor); width: 100%;}
+
+/* #pageContainer.campaign.view -- END --- */
+
+
+/* #pageContainer.campaign.apply -- START --- */
+#pageContainer.campaign.apply .applySection .formArea {max-width:900px; background:#fff1; margin:0 auto; padding:2em 0;}
+#pageContainer.campaign.apply .applySection .formArea .infoBox {border-bottom:1px dashed var(--InputTxtColor); display:flex; flex-flow:column; margin-bottom:2em; padding:0 3em 2em;}
+#pageContainer.campaign.apply .applySection .formArea .infoBox > div label {width:100%; font-size:1.25; font-weight:700; padding-right:0.5em; word-break:keep-all; padding:0.5em 0;}
+#pageContainer.campaign.apply .applySection .formArea .infoBox .infoTitle {font-size:1.75em; font-weight:700; line-height:1; margin-bottom:0.75em;}
+#pageContainer.campaign.apply .applySection .formArea .infoBox > div {width:100%; display:flex; padding-bottom:0.75em;}
+#pageContainer.campaign.apply .applySection .formArea .infoBox.user > div {  flex-flow:row nowrap; align-items:center;}
+#pageContainer.campaign.apply .applySection .formArea .infoBox.user label {width:80px;}
+#pageContainer.campaign.apply .applySection .formArea .infoBox.user div.likeInput {width:calc(100% - 80px); background:#eee5; font-weight:500; color:var(--TxtColor);}
+#pageContainer.campaign.apply .applySection .formArea div.likeInput {width:100%; height:37.5px; margin-right:0.5em; padding:5px; border:1px solid var(--BorderColor); background-color:#fff3; padding-left:0.7em;}
+#pageContainer.campaign.apply .formArea .infoBox .caption {color:#888e; font-size:0.875em; align-items:center; justify-content:flex-end; line-height:1; margin-top:0.5em; padding:0;}
+#pageContainer.campaign.apply .formArea .infoBox .caption.red {color:red;}
+#pageContainer.campaign.apply .applySection .formArea .infoBox .caption > *:not(svg) { display:flex; flex-flow:row; align-items:center; padding:0 0.25em;}
+#pageContainer.campaign.apply .applySection .formArea .infoBox .caption a {text-decoration:none; color:inherit; outline:0; margin:0; width:fit-content;}
+#pageContainer.campaign.apply .applySection .formArea .infoBox.useBook > div {flex-flow:row wrap; align-items:stretch;}
+#pageContainer.campaign.apply .applySection .formArea .infoBox > div input, #pageContainer.campaign.apply .formArea .infoBox.useBook > div textarea {  width:100%; background:#fff3; display:block; padding-left:0.7em; text-align:start;}
+#pageContainer.campaign.apply .applySection .formArea .infoBox.useBook .conditionBox button {font-size:0.85em; font-weight:700; background:var(--TxtColorFixed); border:1px solid var(--BgColorReversed); line-height:1; padding:0.6em 0.8em; margin-right:0.5em; width:8%; align-items:center;}
+#pageContainer.campaign.apply .applySection .formArea .infoBox.useBook .conditionBox .gradeS {border-color:seagreen;}
+#pageContainer.campaign.apply .applySection .formArea .infoBox.useBook .conditionBox .gradeA {border-color:dodgerblue;}
+#pageContainer.campaign.apply .applySection .formArea .infoBox.useBook .conditionBox .gradeB {border-color:darkorange;}
+#pageContainer.campaign.apply .applySection .formArea .infoBox.useBook .conditionBox .gradeC {border-color:gray;}
+#pageContainer.campaign.apply .applySection .formArea .infoBox.useBook .conditionBox .gradeS:hover, .gradeS:active {background-color:seagreen; color:white;}
+#pageContainer.campaign.apply .applySection .formArea .infoBox.useBook .conditionBox .gradeS:focus {background-color:seagreen; color:white;}
+#pageContainer.campaign.apply .applySection .formArea .infoBox.useBook .conditionBox .gradeA:hover, .gradeA:active {background-color:dodgerblue; color:white;}
+#pageContainer.campaign.apply .applySection .formArea .infoBox.useBook .conditionBox .gradeA:focus {background-color:dodgerblue; color:white;}
+#pageContainer.campaign.apply .applySection .formArea .infoBox.useBook .conditionBox .gradeB:hover, .gradeB:active {background-color:darkorange; color:white;}
+#pageContainer.campaign.apply .applySection .formArea .infoBox.useBook .conditionBox .gradeB:focus {background-color:darkorange; color:white;}
+#pageContainer.campaign.apply .applySection .formArea .infoBox.useBook .conditionBox .gradeC:hover, .gradeC:active {background-color:gray; color:white;}
+#pageContainer.campaign.apply .applySection .formArea .infoBox.useBook .conditionBox .gradeC:focus {background-color:gray; color:white;}
+
+#pageContainer.campaign.apply .applySection .formArea .infoBox.useBook div.location .zip {width:100%; display:flex; flex-flow:row; align-items:stretch; justify-content:flex-start;}
+#pageContainer.campaign.apply .applySection .formArea .infoBox.useBook > div.location .zip input {width:200px; margin-right:0.5em;}
+#pageContainer.campaign.apply .applySection .formArea .infoBox.useBook > div.location .zip button {background:#ccc7; border:1px solid var(--BorderColor); font-size:0.875em; font-weight:600; line-height:1; display:flex; align-items:center; padding:0 1em;}
+#pageContainer.campaign.apply .applySection .formArea .infoBox.useBook > div.location > *:not(label) {margin-bottom:0.5em;}
+#pageContainer.campaign.apply .applySection .formArea .infoBox.useBook > div.book .searchBundle {width:80%; display:flex; flex-flow:row; align-items:stretch; justify-content:flex-start;}
+#pageContainer.campaign.apply .applySection .formArea .infoBox.useBook > div.book .search div.likeInput {width:400px;}
+#pageContainer.campaign.apply .applySection .formArea .infoBox.useBook > div.book .searchBundle button {background:#ccc7; border:1px solid var(--BorderColor); font-size:0.875em; font-weight:600; line-height:1; display:flex; align-items:center; padding:0 1em; width:20%; margin-left:0.5em;}
+#pageContainer.campaign.apply .applySection .formArea .btnBox {width:100%; display:flex; flex-flow:row wrap; align-items:center; justify-content:space-between; padding:1em 3em;}
+#pageContainer.campaign.apply .applySection .formArea .btnBox button {width:calc(50% - 0.5em); background:#aaa5; border:1px solid var(--BorderColor); font-weight:600; letter-spacing:1em; line-height:1; padding:1em;}
+#pageContainer.campaign.apply .applySection .formArea .btnBox button.submit {background:var(--BgColorReversed); color:var(--TxtColorReversed); font-weight:700;}
+/* #pageContainer.campaign.apply -- END --- */
+
+
+/*#pageContainer.campaign aceept --START --- */
+#pageContainer.campaign .modalArea {width:100vw; height:100vh; background:var(--ModalBgColor); backdrop-filter:blur(10px); position:fixed; top:0; left:0; z-index:999;}
+#pageContainer.campaign .modalArea > *:not(.bgClickClose) {width:100%; max-width:940px; background:var(--BgColor); position:absolute; left:50%; transform:translateX(-50%); z-index:3;}
+#pageContainer.campaign .modalArea .campaignModal {height:calc(100vh - 120px); top:50px; overflow-Y:auto; position:relative; z-index:2;}
+#pageContainer.campaign .modalArea .campaignModal .acceptList {width:100%; height:calc(100vh - 220px); padding:2em; top:50px; overflow-Y:auto;}
+#pageContainer.campaign .modalArea .campaignModal table.resultBox {width:100%; border-collapse:collapse}
+#pageContainer.campaign .modalArea .campaignModal table.resultBox th {font-weight:700; border-top:1px solid var(--BgColorReversed); border-bottom:1px solid var(--BgColorReversed); padding:0.5em 0;}
+#pageContainer.campaign .modalArea .campaignModal table.resultBox td {padding:0.75em 0.25em; border-bottom:1px solid var(--BgColorReversed); cursor:pointer;}
+#pageContainer.campaign .modalArea .campaignModal table.resultBox td:not(.name) {text-align:center; font-size:0.875em;}
+#pageContainer.campaign .modalArea .campaignModal table.resultBox td.check {width:2em; font-weight:600;}
+#pageContainer.campaign .modalArea .campaignModal table.resultBox td.name label {display:flex; flex-flow:row; align-items:center;}
+#pageContainer.campaign .modalArea .campaignModal table.resultBox td.price {width:7em;}
+#pageContainer.campaign .modalArea .campaignModal table.resultBox td.price span {display:flex; flex-flow:row; align-items:center; justify-content:center;}
+#pageContainer.campaign .modalArea .campaignModal table.resultBox td.price input {margin-right:0.375em;}
+#pageContainer.campaign .modalArea .campaignModal table.resultBox td.condition {width:7em;}
+#pageContainer.campaign .modalArea .campaignModal table.resultBox td.submit {width:5em}
+#pageContainer.campaign .modalArea .campaignModal table.resultBox img {width:60px; display:inline-block; margin-right:1em;}
+#pageContainer.campaign .modalArea .campaignModal table.resultBox button {display:inline-block; border:1px solid var(--BorderColor); padding:0.5em 1em; line-height:1;}
+#pageContainer.campaign .modalArea .campaignModal .btn {height:100px; display:flex; align-items:center; justify-content:stretch; text-align:center; padding:2em;}
+#pageContainer.campaign .modalArea .campaignModal .btn button {width:100%; background:var(--BgColorReversed); color:var(--TxtColorReversed); line-height:1; padding:1em; font-weight:600; letter-spacing:4px; text-indent:4px;}
+#pageContainer.campaign .modalArea .bgClickClose {width:100%; height:100%; position:absolute; top:0; left:0; z-index:1;}
+
+
+
+/*#pageContainer.order --START --- */
+#pageContainer.order section {border-bottom:1px dashed var(--BorderColor); margin-bottom:3em; padding:0 1em 3em;}
+#pageContainer.order section .title {margin-bottom:1.5em; font-size:1.5em;}
+#pageContainer.order .orderSection table {width:100%;                  border-collapse:collapse;}
+#pageContainer.order .orderSection table thead th {border-top:1px solid var(--BorderColor); border-bottom:1px solid var(--BorderColor); padding:10px 5px;}
+#pageContainer.order .orderSection table tbody td {padding:10px 5px; border-bottom:1px solid var(--BorderColor); text-align:center;}
+#pageContainer.order .orderSection table tbody td.image {width:110px; text-align:center;}
+#pageContainer.order .orderSection table tbody td.image img {height:100px;}
+#pageContainer.order .orderSection table tbody td.bookTitle {width:calc(50% - 80px); font-weight:600;}
+#pageContainer.order .orderSection table tbody td.price {width:15%;}
+#pageContainer.order .orderSection table tbody td.cnt {width:10%;}
+#pageContainer.order .orderSection table tbody td.total {width:15%;}
+#pageContainer.order .userSection .infoBox li {display:flex; flex-flow:row; align-items:center; justify-content:stretch; margin-bottom:1em;}
+#pageContainer.order .userSection .infoBox li.location {align-items:stretch;}
+#pageContainer.order .userSection .infoBox li .infotext {width:100%;}
+#pageContainer.order .userSection .infoBox li .infotitle {display:inline-block; width:100px; font-weight:600; margin-top:1;}
+#pageContainer.order .userSection .infoBox li input {margin-bottom:0.5em; margin-right:0.5em;}
+#pageContainer.order .userSection .infoBox li input#location {width:40%;}
+#pageContainer.order .userSection .infoBox li input#locationDetail {width:40%;}
+#pageContainer.order .userSection .infoBox li .caption {color:#888e; font-size: 0.875em; display: flex; align-items: center; justify-content: flex-start;  line-height: 2.3; margin-top: 0.5em; padding:0;}
+#pageContainer.order .userSection .infoBox li .caption svg {margin-right:0.25em;}
+#pageContainer.order .userSection .infoBox li .caption a {margin-left:0.25em;}
+
+#pageContainer.order .btnSection {width:100%; display:flex; flex-flow:row wrap; align-items:center; justify-content:center; padding:1em 3em; margin-top:3em; border-bottom:0;}
+#pageContainer.order .btnSection button {width:calc(30% - 0.5em); background:#aaa5; border:1px solid var(--BorderColor); font-weight:600; line-height:1; padding:1em;}
+#pageContainer.order .btnSection button.orderBtn  {background:var(--PointColor); color:var(--TxtColorReversed); font-weight:700;}
+
+/*
+#pageContainer.order #pageVisual {max-width:100%; background:var(--BgColor); color:var(--TxtColor); display:flex; flex-flow:column wrap; justify-content:center; padding:2em 10em; height:auto}
+#pageContainer.order #pageVisual section {max-width:100%; padding:2em; display:flex; justify-content:center;}
+#pageContainer.order section table {margin-bottom:2em;}
+#pageContainer.order section table caption {font-size:2em; margin-bottom:1em;}
+#pageContainer.order section td {border:1px solid var(--GuideColor); padding-left:0.5em; height:auto; text-align:center;}
+#pageContainer.order section thead > tr {font-weight:700;}
+#pageContainer.order section td:first-child {width:30%;}
+#pageContainer.order section td:nth-child(n+2):nth-child(-n+3) {width:20%;}
+#pageContainer.order section td:nth-child(n+4):nth-child(-n+5) {width:15%;}
+#pageContainer.order section .orderContent {width:90%; display:flex; flex-direction:column; justify-content:center}
+#pageContainer.order section img {width:70%; padding-top:0.5em; height:50vh;}
+#pageContainer.order section .buyinfoArea {display:flex; flex-direction:row; flex-wrap:nowrap; justify-content:space-between; align-items:center; padding:0 8em;}
+#pageContainer.order section .buyinfoArea .infoBox {border-right:1px solid var(--BorderColor); width:50%;}
+#pageContainer.order section .buyinfoArea .infotitle {font-size:1.2em; font-weight:700; margin-bottom:0.5em;}
+#pageContainer.order section .buyinfoArea .name, .call, .payment, .email {margin-bottom:1em;}
+#pageContainer.order section .buyinfoArea .name>div, .call>div, .payment>div, .email>div {padding-left:0.5em;}
+#pageContainer.order section .buyinfoArea .location {display:flex; flex-direction:column; width:50%; margin-left:1em;}
+#pageContainer.order section .buyinfoArea .location .zip {display:flex; flex-direction:row; margin-bottom:0.5em; align-items:center;}
+#pageContainer.order section .buyinfoArea input:not(.zip input) {margin-bottom:0.5em; width:90%;}
+#pageContainer.order section .buyinfoArea input::placeholder {padding-left:0.5em; color:var(--TxtColor);}
+#pageContainer.order section .buyinfoArea .zip button {border:1px solid var(--BorderColor); margin-left:1em; padding:0.5em}
+#pageContainer.order section .buyinfoArea .location .caption {margin-left:7.5em; margin-top:0.5em;}
+#pageContainer.order section .buybtnBox {padding:0.5em; border:1px solid var(--BorderColor); background-color:var(--BgColorReversed); color:var(--TxtColorReversed); text-align:center; width:60%; margin:2em auto;}
+#pageContainer.order section .buybtnBox button {text-align:center; width:100%;} */
+
+/*#pageContainer.order --END --- */

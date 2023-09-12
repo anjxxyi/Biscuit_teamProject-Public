@@ -1,0 +1,43 @@
+/* 구독자들 */
+#pageContainer.subscribe .subscribers-page .subscribers-list {
+  border-bottom:0px dashed var(--InputTxtColor); display:flex; flex-flow:column; margin-bottom:2em; padding:0 3em 2em; margin: 10px; margin-top: 30px;
+}
+#pageContainer.subscribe .subscribers-page .subscribers-list .subscriber-item {
+  border-bottom: 1px dashed rgb(197, 197, 197); padding-top:20px; padding-bottom: 10px; padding-left: 5px; margin-left: 40px; width: 90%
+}
+#pageContainer.subscribe .subscribers-page .subscriber-nickname {
+  font-size: 1.3rem; font-weight: 700; margin: 10px; margin-right: 20px;
+}
+#pageContainer.subscribe .subscribers-page .subscriber-userid {
+  color: gray;
+}
+/* 구독중인 북로그 */
+#pageContainer.subscribeBlog .subscribers-page .subscribers-list {
+  border-bottom:0px dashed var(--InputTxtColor); display:flex; flex-flow:column; margin-bottom:2em; padding:0 3em 2em; margin: 10px; margin-top: 30px;
+}
+#pageContainer.subscribeBlog .subscribers-page .subscribers-list .subscriber-item {
+  border-bottom: 1px dashed rgb(197, 197, 197); padding-top:20px; padding-bottom: 10px; padding-left: 5px; margin-left: 40px; width: 90%
+}
+#pageContainer.subscribeBlog .subscribers-page .subscriber-nickname {
+  font-size: 1.3rem; font-weight: 700; margin: 10px; margin-right: 20px;
+}
+#pageContainer.subscribeBlog .subscribers-page .subscriber-userid {
+  color: gray;
+}
+#pageContainer.subscribe .subscribers-page .subscriber-actions {
+  float: right; margin-right: 15px;
+}
+#pageContainer.subscribe .subscribers-page .subscriber-button {
+  color: azure;
+  background-color: #fe9b0c;
+  width: 80px;
+  height: 35px;
+  border-radius: 18px;
+}
+#pageContainer.subscribe .subscribers-page .nosubscribe,
+#pageContainer.subscribeBlog .subscribers-page .nosubscribe{
+  text-align: center;
+  align-items: center;
+  margin: auto 0;
+  font-size: 1.5rem;
+}
