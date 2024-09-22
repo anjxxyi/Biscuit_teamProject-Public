@@ -3,7 +3,7 @@
 
 > 2023.08.01 ~ 2023.08.31
 
-* 배포 주소 : http://ec2-3-39-189-163.ap-northeast-2.compute.amazonaws.com/biscuit-project
+* 배포 주소 : http://biscuit-project.duckdns.org/biscuit-project
 
 > 
 
