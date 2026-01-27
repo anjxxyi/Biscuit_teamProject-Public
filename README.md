@@ -7,7 +7,7 @@
 
 > 
 
-* 데모비디오 주소 : https://youtu.be/MqECvmNpCtI
+* UI Preview비디오 주소 : https://youtu.be/MqECvmNpCtI
 
 > 
 
