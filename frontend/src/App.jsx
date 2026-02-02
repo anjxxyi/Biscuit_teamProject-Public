@@ -4,6 +4,7 @@ import { useNavigate } from 'react-router-dom'
 import AppRoutes from './app/AppRoutes'
 import Layout from './components/Layout'
 import { Context } from './components/store/Context'
+import { clearSessionStorage, readStoredMember } from './utils/storage'
 import './styles/reset.css'
 import './styles/common.css'
 
@@ -16,7 +17,7 @@ function App() {
   useEffect(() => refreshHandler(), [])
 
   function refreshHandler() {
-    const member = JSON.parse(localStorage.getItem('member'))
+    const member = readStoredMember()
     userInfo || setUserInfo(member)
     if (member == null) return undefined
 
@@ -27,10 +28,7 @@ function App() {
   }
 
   const signoutHandler = () => {
-    const preservedKeys = ['LS_KEY_SAVE_ID_FLAG', 'LS_KEY_ID']
-    Object.keys(localStorage).forEach((key) => {
-      if (!preservedKeys.includes(key)) localStorage.removeItem(key)
-    })
+    clearSessionStorage()
     setUserInfo()
     alert('로그아웃 되었습니다.')
     navigate('/', { replace: true })
@@ -42,7 +40,7 @@ function App() {
       return
     }
 
-    const member = JSON.parse(localStorage.getItem('member'))
+    const member = readStoredMember()
     if (member == null || member === '') {
       alert('로그인 후 이용해 주세요.')
       navigate('/auth/signin')
