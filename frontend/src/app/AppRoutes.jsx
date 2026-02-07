@@ -5,6 +5,7 @@ import FindPwForm from '../components/auth/FindPwForm'
 import AboutPage from '../pages/AboutPage'
 import FaqPage from '../pages/FaqPage'
 import HomePage from '../pages/HomePage'
+import NotFoundPage from '../pages/NotFoundPage'
 import FindIdPwPage from '../pages/auth/FindIdPwPage'
 import SigninPage from '../pages/auth/SigninPage'
 import SignupPage from '../pages/auth/SignupPage'
@@ -105,6 +106,7 @@ function AppRoutes() {
       </Route>
 
       <Route path="/faq" element={<FaqPage />} />
+      <Route path="*" element={<NotFoundPage />} />
     </Routes>
   )
 }
