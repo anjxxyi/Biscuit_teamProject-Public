@@ -1,4 +1,4 @@
-import axios from 'axios';
+import apiClient from '../api/client'
 
 /**
  * mathod => get, post, put
@@ -10,13 +10,13 @@ const fetchAuth = async (fetchData) => {
     const method = fetchData.method;
     const url = fetchData.url;
     const data = fetchData.data;
-    const header = fetchData.header == undefined ? "headers: { 'Content-Type': 'application/json' }" : fetchData.header;
+    const config = fetchData.header ?? {};
     
 
       const response =
-        (method === 'get' && (await axios.get(url, header))) ||
-        (method === 'post' && (await axios.post(url, data, header))) ||
-        (method === 'put' && (await axios.put(url, data, header)))
+        (method === 'get' && (await apiClient.get(url, config))) ||
+        (method === 'post' && (await apiClient.post(url, data, config))) ||
+        (method === 'put' && (await apiClient.put(url, data, config)))
       ;
     return response;
   }
