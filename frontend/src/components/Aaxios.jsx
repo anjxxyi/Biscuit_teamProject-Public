@@ -1,4 +1,5 @@
 import apiClient from '../api/client'
+import { toFormatDate } from '../utils/date'
 
 /**
  * mathod => get, post, put
@@ -36,24 +37,6 @@ const fetchAuth = async (fetchData) => {
     return response;
   };
 
-  /**
-   * @returns " YYYY.MM.DD HH:MM "의 날짜 형식으로 반환
-   */
-  const toFormatDate = (dateStr) => {
-    const temp = new Date(dateStr);
-    const year = temp.getFullYear();
-    let month = temp.getMonth() + 1;
-    month = month <= 9 ? "0" + month : month; 
-    const date = temp.getDate();
-    let hour = temp.getHours();
-    hour = hour <= 9 ? "0" + hour : hour; 
-    let minute = temp.getMinutes();
-    minute = minute <= 9 ? "0" + minute : minute; 
-
-    return `${year}.${month}.${date} ${hour}:${minute}`;
-  }
-
-  
   /**
    * @param {Map} info 
    * @param {String} info.name
