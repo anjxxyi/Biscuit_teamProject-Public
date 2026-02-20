@@ -45,11 +45,25 @@ async function persistPreviewOrder(order) {
 export function requestPay(info) {
   const { checkout, order } = createPaymentData(info)
   const payment = window.IMP
+  if (!payment) {
+    alert('결제 모듈을 불러오지 못했습니다.')
+    return { data: checkout, result: false }
+  }
+
   payment.init('imp55171728')
 
-  payment.request_pay(checkout, async () => {
-    await persistPreviewOrder(order)
-    alert('결제가 완료되었습니다.')
+  payment.request_pay(checkout, async (response) => {
+    if (!response.success) {
+      alert('결제가 취소되었습니다.')
+      return
+    }
+
+    try {
+      await persistPreviewOrder(order)
+      alert('결제가 완료되었습니다.')
+    } catch {
+      alert('주문 정보를 저장하지 못했습니다. 관리자에게 문의해 주세요.')
+    }
   })
 
   return { data: checkout, result: undefined }
