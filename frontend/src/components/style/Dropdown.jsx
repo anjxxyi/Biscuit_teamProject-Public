@@ -1,30 +1,36 @@
-import React, { useEffect, useState } from 'react'
+import { useEffect, useState } from 'react'
 
-const Dropdown = ({ visibility, handleDropdown, children }) => {
-  const [visibilityAnimation, setVisibilityAnimation] = useState(false);
+import useBodyScrollLock from '../../hooks/useBodyScrollLock'
+
+function Dropdown({ visibility, handleDropdown, children }) {
+  const [mounted, setMounted] = useState(visibility)
+  useBodyScrollLock(visibility)
 
   useEffect(() => {
     if (visibility) {
-      setVisibilityAnimation(true);
-      document.body.style= `overflow:hidden`;
-      return () => document.body.style = `overflow:auto`;
-    } else {
-      setTimeout(() => {
-        setVisibilityAnimation(false);
-      }, 300);
+      setMounted(true)
+      return undefined
     }
-  }, [visibility]);
+
+    const animationTimer = setTimeout(() => setMounted(false), 300)
+    return () => clearTimeout(animationTimer)
+  }, [visibility])
+
+  if (!mounted) return null
 
   return (
-    <>
-    {visibilityAnimation ? 
-      <div id="headerDropdown" className={`${visibility ? "slideFadeInDropdown" : "slideFadeOutDropdown"}`}>
-        <div className="wrapper">{ visibilityAnimation  && children }</div>
-        <div onClick={handleDropdown}></div>
-      </div> 
-      : null
-    }
-    </>
+    <div
+      id="headerDropdown"
+      className={visibility ? 'slideFadeInDropdown' : 'slideFadeOutDropdown'}
+    >
+      <div className="wrapper">{children}</div>
+      <button
+        type="button"
+        className="dropdownBackdrop"
+        aria-label="메뉴 닫기"
+        onClick={handleDropdown}
+      />
+    </div>
   )
 }
 
