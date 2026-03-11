@@ -2,6 +2,7 @@ import React, { useState, useEffect, useRef } from "react";
 import { useNavigate } from "react-router-dom";
 import { POST, GET } from "./../Aaxios";
 import PopupPostCode from "../PopupPostCode";
+import { isValidNickname, isValidPassword, isValidUserId } from '../../utils/validation'
 
 const SignupForm = () => {
 	const [bisAgree, setBisAgree] = useState(false);
@@ -65,9 +66,7 @@ const SignupForm = () => {
 	const onChangeId = (e) => {
 		const currentId = e.target.value;
 		setUserId(currentId);
-		const idRegExp = /^[a-zA-z0-9]{8,16}$/;
- 
-		if (!idRegExp.test(currentId)) {
+		if (!isValidUserId(currentId)) {
 			console.log("8-16사이 대소문자 또는 숫자만 입력해 주세요!");
 			setIsId(false);
 		} else {
@@ -95,9 +94,7 @@ const SignupForm = () => {
   const onChangePassword = (e) => {
     const currentPassword = e.target.value;
     setPassword(currentPassword);
-    const passwordRegExp =
-      /^(?=.*[a-zA-Z])(?=.*[!@#$%^*+=-])(?=.*[0-9]).{8,25}$/;
-    if (!passwordRegExp.test(currentPassword)) {
+    if (!isValidPassword(currentPassword)) {
       console.log(
         "숫자+영문자+특수문자 조합으로 8자리 이상 입력해주세요!"
       );
@@ -126,7 +123,7 @@ const SignupForm = () => {
 		const currentName = e.target.value;
 		setNickname(currentName);
  
-		if (currentName.length < 2 || currentName.length > 8) {
+		if (!isValidNickname(currentName)) {
 			setIsNickname(false);
 		} else {
 			console.log("사용가능");
