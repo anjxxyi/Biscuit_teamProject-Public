@@ -2,6 +2,7 @@ import React, { useState, useEffect, useRef } from "react";
 import { useNavigate } from "react-router-dom";
 import { POST, GET } from "./../Aaxios";
 import PopupPostCode from "../PopupPostCode";
+import useBodyScrollLock from '../../hooks/useBodyScrollLock'
 import { isValidNickname, isValidPassword, isValidUserId } from '../../utils/validation'
 
 const SignupForm = () => {
@@ -30,6 +31,7 @@ const SignupForm = () => {
 	const [address_detail, setAddress_detail] = useState(""); //상세주소
 
   const [isPopupPostCode, setIsPopupPostCode] = useState(false)
+  useBodyScrollLock(isPopupPostCode)
 
 	const [doubleCheck, setDoubleCheck] = useState(null); // 아이디 중복여부 체크
 	const [pwCheck, setPwCheck] = useState(""); // 비밀번호 일치여부 체크
@@ -134,11 +136,9 @@ const SignupForm = () => {
 	//주소 팝업 열기/닫기
 	const openPostCode = () => {
     setIsPopupPostCode(true);
-    document.body.style.overflow = "hidden";
   };
-  const closePostCode = (e) => {
+  const closePostCode = () => {
     setIsPopupPostCode(false);
-    document.body.style.overflow = "unset";
   };
 
 	const postCodeTrigger = useRef(null);
