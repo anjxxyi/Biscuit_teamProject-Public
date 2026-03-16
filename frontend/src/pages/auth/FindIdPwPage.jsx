@@ -24,9 +24,6 @@ const FindIdPwPage = () => {
     const matchedURL = checkURL(filteredURL, browserURL);
     setIndex(filteredURL.indexOf(matchedURL));
   }, [browserURL]);
-  console.log("browserURL : " + browserURL);
-  console.log("filteredURL : " + filteredURL);
-
   return (
     <main id="pageContainer" className="auth find styleSide">
       <div id="pageVisual">

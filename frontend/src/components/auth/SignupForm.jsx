@@ -68,26 +68,14 @@ const SignupForm = () => {
 	const onChangeId = (e) => {
 		const currentId = e.target.value;
 		setUserId(currentId);
-		if (!isValidUserId(currentId)) {
-			console.log("8-16사이 대소문자 또는 숫자만 입력해 주세요!");
-			setIsId(false);
-		} else {
-			console.log("사용가능한 아이디 입니다.");
-			setIsId(true);
-		}
+		setIsId(isValidUserId(currentId));
 	};
 
 	/* 비밀번호 일치 실시간 확인 */
 	useEffect(() => {
 		if (password !== "" && password2 !== "") {
 			// 비밀번호, 비밀번호 확인이 빈 값이 아닐 것
-			if (password !== password2) {
-				console.log("다름");
-				setPwCheck(false);
-			} else {
-				console.log("동일함");
-				setPwCheck(true);
-			}
+			setPwCheck(password === password2);
 		}
 	}, [password2]);
 
@@ -96,15 +84,7 @@ const SignupForm = () => {
   const onChangePassword = (e) => {
     const currentPassword = e.target.value;
     setPassword(currentPassword);
-    if (!isValidPassword(currentPassword)) {
-      console.log(
-        "숫자+영문자+특수문자 조합으로 8자리 이상 입력해주세요!"
-      );
-      setIsPassword(false);
-    } else {
-      console.log("안전한 비밀번호 입니다.");
-      setIsPassword(true);
-    }
+    setIsPassword(isValidPassword(currentPassword));
   };
 
 	/* 닉네임 중복 확인 함수 */
@@ -115,8 +95,8 @@ const SignupForm = () => {
 			.then((res) => {
 				setNicknameCheck(res.data);
 			})
-			.catch((error) => {
-				console.log("통신안됨");
+			.catch(() => {
+				setNicknameCheck(null);
 			});
 	};
 
@@ -125,12 +105,7 @@ const SignupForm = () => {
 		const currentName = e.target.value;
 		setNickname(currentName);
  
-		if (!isValidNickname(currentName)) {
-			setIsNickname(false);
-		} else {
-			console.log("사용가능");
-			setIsNickname(true);
-		}
+		setIsNickname(isValidNickname(currentName));
 	};
 	
 	//주소 팝업 열기/닫기
@@ -199,7 +174,6 @@ const SignupForm = () => {
 			address: location,
 			address_detail: address_detail,
 		};
-		console.log(signUpData);
 
 		POST("/api/auth/signup", signUpData, 
       {headers:{"Content-Type":"application/json"}}
