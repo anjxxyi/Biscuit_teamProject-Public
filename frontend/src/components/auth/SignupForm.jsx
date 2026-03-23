@@ -2,6 +2,8 @@ import React, { useState, useEffect, useRef } from "react";
 import { useNavigate } from "react-router-dom";
 import { POST, GET } from "./../Aaxios";
 import PopupPostCode from "../PopupPostCode";
+import useBodyScrollLock from '../../hooks/useBodyScrollLock'
+import { isValidNickname, isValidPassword, isValidUserId } from '../../utils/validation'
 
 const SignupForm = () => {
 	const [bisAgree, setBisAgree] = useState(false);
@@ -29,6 +31,7 @@ const SignupForm = () => {
 	const [address_detail, setAddress_detail] = useState(""); //상세주소
 
   const [isPopupPostCode, setIsPopupPostCode] = useState(false)
+  useBodyScrollLock(isPopupPostCode)
 
 	const [doubleCheck, setDoubleCheck] = useState(null); // 아이디 중복여부 체크
 	const [pwCheck, setPwCheck] = useState(""); // 비밀번호 일치여부 체크
@@ -65,28 +68,14 @@ const SignupForm = () => {
 	const onChangeId = (e) => {
 		const currentId = e.target.value;
 		setUserId(currentId);
-		const idRegExp = /^[a-zA-z0-9]{8,16}$/;
- 
-		if (!idRegExp.test(currentId)) {
-			console.log("8-16사이 대소문자 또는 숫자만 입력해 주세요!");
-			setIsId(false);
-		} else {
-			console.log("사용가능한 아이디 입니다.");
-			setIsId(true);
-		}
+		setIsId(isValidUserId(currentId));
 	};
 
 	/* 비밀번호 일치 실시간 확인 */
 	useEffect(() => {
 		if (password !== "" && password2 !== "") {
 			// 비밀번호, 비밀번호 확인이 빈 값이 아닐 것
-			if (password !== password2) {
-				console.log("다름");
-				setPwCheck(false);
-			} else {
-				console.log("동일함");
-				setPwCheck(true);
-			}
+			setPwCheck(password === password2);
 		}
 	}, [password2]);
 
@@ -95,17 +84,7 @@ const SignupForm = () => {
   const onChangePassword = (e) => {
     const currentPassword = e.target.value;
     setPassword(currentPassword);
-    const passwordRegExp =
-      /^(?=.*[a-zA-Z])(?=.*[!@#$%^*+=-])(?=.*[0-9]).{8,25}$/;
-    if (!passwordRegExp.test(currentPassword)) {
-      console.log(
-        "숫자+영문자+특수문자 조합으로 8자리 이상 입력해주세요!"
-      );
-      setIsPassword(false);
-    } else {
-      console.log("안전한 비밀번호 입니다.");
-      setIsPassword(true);
-    }
+    setIsPassword(isValidPassword(currentPassword));
   };
 
 	/* 닉네임 중복 확인 함수 */
@@ -116,8 +95,8 @@ const SignupForm = () => {
 			.then((res) => {
 				setNicknameCheck(res.data);
 			})
-			.catch((error) => {
-				console.log("통신안됨");
+			.catch(() => {
+				setNicknameCheck(null);
 			});
 	};
 
@@ -126,22 +105,15 @@ const SignupForm = () => {
 		const currentName = e.target.value;
 		setNickname(currentName);
  
-		if (currentName.length < 2 || currentName.length > 8) {
-			setIsNickname(false);
-		} else {
-			console.log("사용가능");
-			setIsNickname(true);
-		}
+		setIsNickname(isValidNickname(currentName));
 	};
 	
 	//주소 팝업 열기/닫기
 	const openPostCode = () => {
     setIsPopupPostCode(true);
-    document.body.style.overflow = "hidden";
   };
-  const closePostCode = (e) => {
+  const closePostCode = () => {
     setIsPopupPostCode(false);
-    document.body.style.overflow = "unset";
   };
 
 	const postCodeTrigger = useRef(null);
@@ -202,7 +174,6 @@ const SignupForm = () => {
 			address: location,
 			address_detail: address_detail,
 		};
-		console.log(signUpData);
 
 		POST("/api/auth/signup", signUpData, 
       {headers:{"Content-Type":"application/json"}}

@@ -4,16 +4,11 @@ import { Context } from '../../components/store/Context';
 import { requestPay } from '../../components/Aaxios';
 
 function MemberTicket() {
-  const [ticket, setTicket] = useState(false); // api 연결 해야함
+  const [ticket] = useState(false); // api 연결 해야함
+  const [managementOpen, setManagementOpen] = useState(false)
 
   const myTicketHandler = () => {
-    const ticketSpin = document.getElementById("ticketSpin");
-    if(!ticketSpin.style.transform) ticketSpin.style.transform = "rotate(90deg)";
-    else ticketSpin.style.transform = null;
-
-    const ticketBox = document.getElementById("ticketBox");
-    if(ticketBox.classList.contains("open")) ticketBox.classList.remove("open");
-    else ticketBox.classList.add("open");
+    setManagementOpen((opened) => !opened)
   };
 
   const userInfo = useContext(Context).userInfo;
@@ -36,7 +31,7 @@ function MemberTicket() {
       <h3 id="memberTicketHead" className='memberHead'>나의 정기권</h3>
       {
         ticket ?
-        <div id="ticketBox">
+        <div id="ticketBox" className={managementOpen ? 'open' : undefined}>
           <section id="ticketSectionOne">
             <div id="ticketName"><b>바삭 정기권</b></div>
             <div id="ticketPeriodBox">
@@ -49,7 +44,7 @@ function MemberTicket() {
                 <li id="ticketPaymentDate">2024.01.01</li>
               </ul>
             </div>
-            <div id="ticketSetting" className='noDrag' onClick={myTicketHandler}>정기권 관리 <span id="ticketSpin">▶</span></div>
+            <button id="ticketSetting" className='noDrag' type="button" onClick={myTicketHandler}>정기권 관리 <span id="ticketSpin" style={{ transform: managementOpen ? 'rotate(90deg)' : undefined }}>▶</span></button>
           </section>
           <section id="ticketSectionTwo">
             <ul>

@@ -1,10 +1,10 @@
 import React, { useContext, useEffect } from 'react'
 
-import { Link, useLocation } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import { Context } from '../../components/store/Context';
 import SideBar from "../../components/layout/SideBar"
 
-import { GiTicket, GiBookshelf } from "react-icons/Gi"
+import { GiBookshelf } from "react-icons/Gi"
 import { BsFillPersonBadgeFill } from "react-icons/Bs"
 
 import '../../styles/base/sub.css'
@@ -13,26 +13,13 @@ import MemberAdmin from './MemberAdmin';
 
 const MemberNav = ({children}) => {
 
-  const path = useLocation().pathname;
-	const pathGroup = path.replace("/", "").split("/");
-  
-  useEffect(() => {
-    if(userInfo?.authority != "A") {
-      const liTags = document.querySelectorAll("section.navSideSection > ul > li");
-      liTags.forEach(e => e.style.fontWeight = "400");
-      if(pathGroup[1] === "info" || pathGroup[1] === "cancel") liTags[0].style.fontWeight = "700";
-      if(pathGroup[1] === "bookclip") liTags[1].style.fontWeight = "700";
-      if(pathGroup[1] === "bookclass") liTags[2].style.fontWeight = "700";
-      if(pathGroup[1] === "orderlist") liTags[3].style.fontWeight = "700";
-      if(pathGroup[1] === "savedgoods") liTags[4].style.fontWeight = "700";
-    }
-  }, [])
-
   const props = useContext(Context);
-  const userInfo = JSON.parse(localStorage.getItem("member"));
+  const userInfo = props.userInfo;
   useEffect(() => {
     props.loginChk();
   },[]);
+
+  const navStyle = ({ isActive }) => ({ fontWeight: isActive ? 700 : 400 })
 
   
   return (
@@ -67,10 +54,10 @@ const MemberNav = ({children}) => {
         <div id="pageContents" className="memberNavMain">
             <section className="navSideSection">
               <ul>
-                <li><Link to={'/member/info'}>내 정보</Link></li>
-                <li><Link to={'/member/bookclip'}>북클립 관리</Link></li>
-                <li><Link to={'/member/bookclass'}>북클래스 관리</Link></li>
-                <li><Link to={'/member/orderlist'}>주문내역</Link></li>
+                <li><NavLink style={navStyle} to={'/member/info'}>내 정보</NavLink></li>
+                <li><NavLink style={navStyle} to={'/member/bookclip'}>북클립 관리</NavLink></li>
+                <li><NavLink style={navStyle} to={'/member/bookclass'}>북클래스 관리</NavLink></li>
+                <li><NavLink style={navStyle} to={'/member/orderlist'}>주문내역</NavLink></li>
               </ul>
             </section>
             <section className="navContentSection">
