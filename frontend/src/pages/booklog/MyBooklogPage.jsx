@@ -1,5 +1,5 @@
 import React, { useContext, useEffect, useState } from "react"
-import axios from "axios"
+import axios from "../../api/client"
 import { Link, useParams } from "react-router-dom"
 import { Tab, Tabs, TabList, TabPanel } from "react-tabs"
 import { Context } from "../../components/store/Context"
@@ -26,9 +26,6 @@ function MyBooklogPage() {
 	const props = useContext(Context);
 	const userInfo = props.userInfo || initialUserInfo;
 	
-  useEffect(() => {
-    props.loginChk();
-  },[]);
 
 	//-----------------------------------------------------------------------
 	//                        북로그 게시글 상세보기
@@ -44,6 +41,8 @@ function MyBooklogPage() {
 
 	const fetchmyBooklogData = () => {
 		setLoad(true);
+		setarticlesData([]);
+		setSelectedGroup(null);
 		axios.get(`/api/booklogs/${params.no}`) // userId로 검색 front의 no로 표시되있지만 userId를 보내주고 back에서 userId로 받음
 			.then((response) => {
 				setNo(response.data.user_no.no);
@@ -65,7 +64,7 @@ function MyBooklogPage() {
 	//                        북로그 별 게시글 리스트
 	//-----------------------------------------------------------------------
 
-	const [articlesData, setarticlesData] = useState("");
+	const [articlesData, setarticlesData] = useState([]);
 
 	const articlesUrl = `/api/booklogarticles/user/${no}`;
 
@@ -150,7 +149,7 @@ function MyBooklogPage() {
 	const groupedArticles = {};
 
 	for (const articleKey in articlesData) {
-		if (articlesData.hasOwnProperty(articleKey)) {
+		if (Object.prototype.hasOwnProperty.call(articlesData, articleKey)) {
 			const article = articlesData[articleKey];
 			const groupName = article.groups;
 
@@ -176,13 +175,18 @@ function MyBooklogPage() {
 	const [subscribedBlogs, setSubscribedBlogs] = useState([]);
 
 	useEffect(() => {
-		const storedSubscribedBlogs =
-			JSON.parse(localStorage.getItem("subscribedBlogs")) || [];
-		setSubscribedBlogs(storedSubscribedBlogs);
-
-		// 현재 블로그가 구독되었는지 여부를 확인하여 isSubscribed 상태 설정
-		setIsSubscribed(storedSubscribedBlogs.includes(no));
-	}, [no]);
+		setIsSubscribed(false);
+		setSubscribedBlogs([]);
+		if (!userInfo.no) return;
+		let active = true;
+		axios.get(`/api/subscribers/${userInfo.no}`).then((response) => {
+			if (!active) return;
+			const followedUsers = response.data.map((item) => item.subed_no.no);
+			setSubscribedBlogs(followedUsers);
+			setIsSubscribed(followedUsers.includes(no));
+		});
+		return () => { active = false; };
+	}, [no, userInfo.no]);
 
 	const handleSubscribeButtonClick = () => {
 		if (!userInfo.no) {
@@ -206,6 +210,7 @@ function MyBooklogPage() {
 					);
 					alert("구독이 취소되었습니다!");
 					fetchSubscribeBlogData();
+					fetchSubscribersData();
 				})
 				.catch((error) => {
 					console.error("구독 취소 중 오류 발생:", error);
@@ -224,6 +229,7 @@ function MyBooklogPage() {
 					setIsSubscribed(true);
 					alert("구독이 완료되었습니다!");
 					fetchSubscribeBlogData();
+					fetchSubscribersData();
 				})
 				.catch((error) => {
 					console.error("구독 중 오류 발생:", error);
