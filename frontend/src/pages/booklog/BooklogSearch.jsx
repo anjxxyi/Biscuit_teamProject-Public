@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import axios from "axios";
+import axios from "../../api/client";
 import ReactPaginate from "react-paginate";
 import { Link } from "react-router-dom";
 import { CgSearch } from "react-icons/Cg";
@@ -274,12 +274,10 @@ function BooklogSearch() {
 														{/* {item.user_no && ( */}
 														<>
 															<strong className="nickname">
-																{item.user_no?.nickname}
-																{item.user?.nickname}
+																{item.user_no?.nickname ?? item.user?.nickname}
 															</strong>
 															<span className="userId">
-																{item.user_no?.userId}
-																{item.user?.userId}
+																{item.user_no?.userId ?? item.user?.userId}
 															</span>
 															<Link to={`/booklog/${item.user_no?.userId || item.user?.userId}`}>
 																	방문하기
@@ -291,13 +289,11 @@ function BooklogSearch() {
 														{/* {item.user_no && ( */}
 														<>
 															<h3 className="title">
-																{item?.booklog_name}
-																{item?.booklogName}
+																{item.booklog_name ?? item.booklogName}
 															</h3>
 															<p className="since">
 																<b>since</b>
-																{item.user_no?.createdAt}
-																{item.user?.createdAt}
+																{item.user_no?.createdAt ?? item.user?.createdAt}
 															</p>
 														</>
 														{/* )} */}
