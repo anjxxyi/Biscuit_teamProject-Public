@@ -1,5 +1,5 @@
 import React, { useContext, useEffect, useState } from "react";
-import axios from "axios";
+import axios from "../../api/client";
 import { Link, useNavigate, useParams } from "react-router-dom";
 import { LiaHeartSolid, LiaHeart, LiaCommentDotsSolid } from "react-icons/Lia";
 import { MdArrowBackIos } from "react-icons/Md";
@@ -313,6 +313,10 @@ function BooklogDetail() {
 
 	const [isEditModalOpen, setIsEditModalOpen] = useState(false);
 	const [editCommentId, setEditCommentId] = useState(null);
+	const closeEditModal = () => {
+		setIsEditModalOpen(false);
+		setEditCommentId(null);
+	};
 	const [editComment, setEditComment] = useState("");
 
 	// 댓글 수정 클릭 이벤트를 처리하는 함수
@@ -341,23 +345,13 @@ function BooklogDetail() {
 							: comment,
 					);
 					setCommentData(updatedComments);
-					closeEditModal();
+					onClose();
 
 					alert("수정되었습니다!");
 				})
 				.catch((error) => {
 					console.error(error);
 				});
-		};
-
-		useEffect(() => {
-			setEditComment(commentContent);
-		}, [commentContent]);
-
-		const closeEditModal = () => {
-			setIsEditModalOpen(false);
-			setEditComment(""); // 모달 닫을 때 상태 초기화
-			setEditCommentId(null);
 		};
 
 		useEffect(() => {
@@ -372,7 +366,7 @@ function BooklogDetail() {
 						onChange={(e) => setEditComment(e.target.value)}
 					/>
 					<button onClick={handleEditSubmit}>수정</button>
-					<button onClick={closeEditModal}>닫기</button>
+					<button onClick={onClose}>닫기</button>
 				</div>
 			</div>
 		);
@@ -486,7 +480,7 @@ function BooklogDetail() {
 							></pre>
 
 							{
-                userInfo?.no == detailData?.booklog_no.user.no && (
+                userInfo?.no != null && userInfo.no === detailData?.booklog_no?.user?.no && (
 					<div className="btnCase">
 						<Link to={`/booklog/article/update/${no}`} className="updateContent">수정하기</Link>
 						<button className="updateContent" onClick={deleteBooklogHandler}>삭제하기</button>
@@ -533,7 +527,7 @@ function BooklogDetail() {
 														<EditCommentModal
 															commentId={comm.no}
 															commentContent={comm.content}
-															onClose={() => closeEditModal(comm.no)}
+															onClose={closeEditModal}
 														/>
 													) : (
 														<>
@@ -616,9 +610,7 @@ function BooklogDetail() {
 																			<EditCommentModal
 																				commentId={recomm.no}
 																				commentContent={recomm.content}
-																				onClose={() =>
-																					closeEditModal(recomm.no)
-																				}
+																								onClose={closeEditModal}
 																			/>
 																		) : (
 																			<>

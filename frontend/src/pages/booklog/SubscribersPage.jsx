@@ -1,4 +1,3 @@
-import axios from 'axios';
 import React, { useContext, useEffect, useState } from 'react'
 import { Link, useParams } from 'react-router-dom';
 
@@ -6,6 +5,7 @@ import "../../styles/base/sub.css"; // ** Don't Touch ** subPage Common Style **
 // import "../../styles/base/booklogStyle2.css"; // 참고하여 새파일 생성 후 연결
 import "../../styles/base/subscriber.css"
 import { Context } from '../../components/store/Context';
+import { cancelBooklogSubscription, getSubscribedBooklogs } from '../../api/booklog'
 
 function SubscribersPage() {
 
@@ -23,10 +23,8 @@ function SubscribersPage() {
   // 제거하려는 값 (예: 33)
   const [valueToRemove, setValueRemove] = useState();
 
-  const url = `/api/subscribers/${no}`;
-
   const fetchData = () => {
-    axios.get(url)
+    getSubscribedBooklogs(no)
       .then(response => {
         setData(response.data);
       })
@@ -45,8 +43,7 @@ function SubscribersPage() {
 
   const handleCancelSubscription = (userNo, subedUserNo) => {
 
-    axios
-      .delete(`/api/subscriptions/${userNo}/${subedUserNo}`)
+    cancelBooklogSubscription(userNo, subedUserNo)
       .then((response) => {
         if (response.status === 200) {
           alert("구독이 취소되었습니다!")

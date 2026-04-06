@@ -1,4 +1,3 @@
-import axios from 'axios';
 import React, { useContext, useEffect, useState } from 'react'
 import { Link, useParams } from 'react-router-dom';
 
@@ -6,6 +5,7 @@ import "../../styles/base/sub.css"; // ** Don't Touch ** subPage Common Style **
 import "../../styles/base/subscriber.css"
 
 import { Context } from '../../components/store/Context';
+import { cancelBooklogSubscription, getBooklogSubscribers } from '../../api/booklog'
 
 function SubscribeBlogPage() {
 
@@ -21,7 +21,7 @@ function SubscribeBlogPage() {
   const [subscribeBlogData, setSubscribeBlogData] = useState([]);
 
   const fetchSubscribeBlogData = () => {
-    axios.get(`/api/subscribeBlog/${no}`)
+    getBooklogSubscribers(no)
       .then(response => {
         setSubscribeBlogData(response.data);
       })
@@ -42,8 +42,7 @@ function SubscribeBlogPage() {
   // 구독 취소 버튼 클릭 이벤트 처리 함수
   const handleCancelSubscription = (userNo, subedUserNo) => {
     if (userInfo && userInfo.no === subedUserNo) {
-      axios
-        .delete(`/api/subscriptions/${userNo}/${subedUserNo}`)
+      cancelBooklogSubscription(userNo, subedUserNo)
         .then((response) => {
           if (response.status === 200) {
             fetchSubscribeBlogData(); // 구독 취소 후 리스트 다시 가져오기
