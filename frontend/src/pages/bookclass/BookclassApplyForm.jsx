@@ -14,7 +14,6 @@ const BookclassApplyForm = () => {
   // userInfo
 	const props = useContext(Context);
   const userInfo = props.userInfo;
-  console.log(userInfo);
   useEffect(() => {
     props.loginChk();
     if (userInfo?.grade !== "L") {
