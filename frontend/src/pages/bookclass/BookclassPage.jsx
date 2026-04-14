@@ -44,7 +44,7 @@ const BookClass = () => {
         setLoad(false);
       }, 200);
     })
-    .catch(error => console.log(error))
+    .catch(() => setDataList([]))
   };
 
 
@@ -222,7 +222,6 @@ const BookClass = () => {
 
       chk && GET(`/api/bookclass/status/list=${numList}&status=${status}`)
       .then(res => {
-        console.log(res)
         getClassForAdmin(adminSortBtn);
       });
     } else return alert("기능 조건을 먼저 선택해 주세요");
@@ -233,7 +232,6 @@ const BookClass = () => {
 
     chk && GET(`/api/bookclass/delete/${classNo}`)
     .then(res => {
-      console.log(res);
       setDataList([...dataList].filter(e => e.no != classNo));
     });
   };
