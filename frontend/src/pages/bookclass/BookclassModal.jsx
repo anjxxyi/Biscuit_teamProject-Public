@@ -4,11 +4,8 @@ import { RiTimeFill, RiMapPinFill, RiBookFill, RiVipCrownFill, RiCheckboxCircleF
 import { PiUsersThreeFill } from "react-icons/Pi"
 import { TiLocationArrow } from "react-icons/Ti"
 
-const BookclassModal = ({object, modalOpen, setModalOpen}) => {
-  const handleSroll = () => {
-    setModalOpen(!modalOpen);
-    document.body.style.overflow = "unset";
-  }
+const BookclassModal = ({object, setModalOpen}) => {
+  const closeModal = () => setModalOpen(false)
 
   // NAVER map API -- START --
   const mapElement = useRef(null);
@@ -52,10 +49,10 @@ const BookclassModal = ({object, modalOpen, setModalOpen}) => {
       </div>
     </div>
     <div className="btn">
-      <Link to={`./${object.no}`} className="submitBtn" onClick={handleSroll}>자세히 보기</Link>
-      <button className="closeBtn" type="button" onClick={handleSroll}>닫기</button>
+      <Link to={`./${object.no}`} className="submitBtn" onClick={closeModal}>자세히 보기</Link>
+      <button className="closeBtn" type="button" onClick={closeModal}>닫기</button>
     </div>
-    <div className="bgClickClose" onClick={handleSroll}></div>
+    <button className="bgClickClose" type="button" aria-label="북클래스 상세 닫기" onClick={closeModal} />
     </>
   )
 }
