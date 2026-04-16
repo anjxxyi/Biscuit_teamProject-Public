@@ -82,7 +82,7 @@
 
 #pageContainer.bookclass .modalArea {width:100vw; height:100vh; background:var(--ModalBgColor); backdrop-filter:blur(10px); position:fixed; top:0; left:0; z-index:999;}
 #pageContainer.bookclass .modalArea > *:not(.bgClickClose) {width:100%; max-width:840px; background:var(--BgColor); position:absolute; left:50%; transform:translateX(-50%); z-index:3;}
-#pageContainer.bookclass .modalArea .modal {height:calc(100vh - 220px); top:50px; overflow-Y:auto;}
+#pageContainer.bookclass .modalArea .modal {height:calc(100vh - 220px); top:50px; overflow-y:auto;}
 #pageContainer.bookclass .modalArea .modal .summary {display:flex; flex-flow:column; position:relative; margin:3em 3em 1.5em;}
 #pageContainer.bookclass .modalArea .modal .summary .expandBtn {font-size:2em; position:absolute; top:0; right:0; padding:0;}
 #pageContainer.bookclass .modalArea .modal .summary .pin {line-height:1; display:flex; flex-flow:row nowrap; align-items:center; justify-content:flex-start; margin-bottom:1em;}
