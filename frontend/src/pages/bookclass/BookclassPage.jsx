@@ -6,6 +6,7 @@ import { PiPlus } from "react-icons/Pi"
 import { TiLocationArrow } from "react-icons/Ti"
 import { MdAdminPanelSettings } from "react-icons/Md"
 import { GET } from '../../components/Aaxios'
+import useBodyScrollLock from '../../hooks/useBodyScrollLock'
 
 import PageVisual from "../../components/layout/PageVisual"
 import BookclassModal from './BookclassModal'
@@ -24,6 +25,7 @@ const BookClass = () => {
   // data
   const [dataList, setDataList] = useState([]);
   const [modalOpen, setModalOpen] = useState(false);
+  useBodyScrollLock(modalOpen)
   const [activeObject, setActiveObject] = useState(null);
 
   useEffect(() => {
@@ -42,7 +44,7 @@ const BookClass = () => {
         setLoad(false);
       }, 200);
     })
-    .catch(error => console.log(error))
+    .catch(() => setDataList([]))
   };
 
 
@@ -100,7 +102,6 @@ const BookClass = () => {
                   <div className="listItem" key={item.no} onClick={() => {
                     setModalOpen(true);
                     setActiveObject(item);
-                    document.body.style.overflow = "hidden";
                   }}>
                     <button className="expandBtn"><PiPlus/></button>
                     <p className="pin">
@@ -221,7 +222,6 @@ const BookClass = () => {
 
       chk && GET(`/api/bookclass/status/list=${numList}&status=${status}`)
       .then(res => {
-        console.log(res)
         getClassForAdmin(adminSortBtn);
       });
     } else return alert("기능 조건을 먼저 선택해 주세요");
@@ -232,7 +232,6 @@ const BookClass = () => {
 
     chk && GET(`/api/bookclass/delete/${classNo}`)
     .then(res => {
-      console.log(res);
       setDataList([...dataList].filter(e => e.no != classNo));
     });
   };
@@ -299,7 +298,6 @@ const BookClass = () => {
                       <div className="btm" onClick={() => {
                         setModalOpen(true);
                         setActiveObject(item);
-                        document.body.style.overflow = "hidden";
                       }}>
                         <h3>{item.title}</h3>
                         <span className="location">장소: {item.location.split(" ")[0] + " " + item.location.split(" ")[1]}</span>

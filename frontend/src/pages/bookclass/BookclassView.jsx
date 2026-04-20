@@ -45,7 +45,7 @@ const BookclassView = () => {
           naverMap(res.data.location);
           setLoad(false);
         })
-        .catch(error => console.log(error))
+        .catch(() => setDetail(null))
     }
   }, [props.userInfo]);
 
@@ -59,7 +59,7 @@ const BookclassView = () => {
       {address: addr},
       function (status, response) {
         if (status !== navermaps.Service.Status.OK) {
-          console.log('error');
+          alert('북클래스 정보를 불러오지 못했습니다.');
           return alert('Something wrong!');
         }
         const result = response.result;
@@ -133,7 +133,7 @@ const BookclassView = () => {
           dataList.partyMemCnt++;
           setLoad(false);
           if(res.data == "max") alert("북클래스가 이미 만원입니다.");
-          else console.log(res.data);
+          else alert('참여 신청을 처리하지 못했습니다.');
         });
     }
   };
@@ -146,7 +146,7 @@ const BookclassView = () => {
         .then(res => {
           setJoined(!joined);
           dataList.partyMemCnt--;
-          console.log(res.data);
+          alert('참여 취소를 처리하지 못했습니다.');
         });
     }
   };

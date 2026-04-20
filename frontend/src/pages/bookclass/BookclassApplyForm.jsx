@@ -7,6 +7,7 @@ import { MdArrowRight } from 'react-icons/Md'
 import PopupPostCode from '../../components/PopupPostCode'
 import PopupFindBook from '../../components/PopupFindBook'
 import { POST, GET, PUT } from '../../components/Aaxios'
+import useBodyScrollLock from '../../hooks/useBodyScrollLock'
 
 const BookclassApplyForm = () => {
   const navigate = useNavigate();
@@ -14,7 +15,6 @@ const BookclassApplyForm = () => {
   // userInfo
 	const props = useContext(Context);
   const userInfo = props.userInfo;
-  console.log(userInfo);
   useEffect(() => {
     props.loginChk();
     if (userInfo?.grade !== "L") {
@@ -28,13 +28,13 @@ const BookclassApplyForm = () => {
   const [location, setLocation] = useState(null);
   const [postcode, setPostcode] = useState(null);
   const [isPopupPostCode, setIsPopupPostCode] = useState(false)
+  const [isPopupFindBook, setIsPopupFindBook] = useState(false)
+  useBodyScrollLock(isPopupPostCode || isPopupFindBook)
   const openPostCode = () => {
     setIsPopupPostCode(true);
-    document.body.style.overflow = "hidden";
   };
-  const closePostCode = (e) => {
+  const closePostCode = () => {
     setIsPopupPostCode(false);
-    document.body.style.overflow = "unset";
   };
   const postCodeTrigger = useRef(null);
   const fnPostCodeTrigger = () => {
@@ -48,19 +48,16 @@ const BookclassApplyForm = () => {
   const [bookAuth, setBookAuth] = useState(null);
   const [bookPub, setBookPub] = useState(null);
   const [bookIsbn, setBookIsbn] = useState(null);
-  const [isPopupFindBook, setIsPopupFindBook] = useState(false)
 
   const submitBtn = useRef();
   const locationDetail = useRef();
 
   const openFindBook = () => {
     setIsPopupFindBook(true);
-    document.body.style.overflow = "hidden";
     submitBtn.current.type = "button"
   };
-  const closeFindBook = (e) => {
+  const closeFindBook = () => {
     setIsPopupFindBook(false);
-    document.body.style.overflow = "unset";
     submitBtn.current.type = "submit"
   };
 
