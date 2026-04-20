@@ -1,5 +1,5 @@
 import React, { useContext, useEffect, useState } from 'react'
-import axios from 'axios'
+import axios from '../../api/client'
 import { useNavigate } from 'react-router-dom'
 import DatePicker from 'react-datepicker'
 
