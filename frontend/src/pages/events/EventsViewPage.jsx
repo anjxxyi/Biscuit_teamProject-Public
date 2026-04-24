@@ -1,6 +1,6 @@
 import React, { useContext, useEffect, useState } from "react"
 import { useNavigate, useParams } from "react-router-dom"
-import axios from "axios"
+import axios from "../../api/client"
 import * as XLSX from "xlsx"
 import { AiTwotoneCalendar } from "react-icons/Ai"
 import { SiMicrosoftexcel } from "react-icons/Si"
@@ -75,6 +75,8 @@ const EventsViewPage = () => {
 	};
 
 	useEffect(() => {
+		setShowParticipation(false);
+		setParticipationData([]);
 		fetchEventDetailData();
 		fetchParticipationData();
 	}, [no]);
@@ -182,7 +184,7 @@ const EventsViewPage = () => {
 									<div>{item.event.content}</div>
 								</section>
 								<section className="btnSection">
-									{userInfo && (
+									{userInfo.no != null && (
 										<>
 											{isParticipated ? (
 												<button
@@ -203,15 +205,10 @@ const EventsViewPage = () => {
 									)}
 								</section>
 								<section className="listSection">
-									{userInfo && (userInfo?.authority == null && userInfo?.authority == undefined) || userInfo?.authority == "U" ?
-										<button className="listBtn" onClick={handleParticipationListButtonClick}>참여자 리스트</button>
-									: 
-										<>
-											{participationData.length != 0 && (
-												<button className="listBtn" onClick={downloadExcel}><SiMicrosoftexcel /> 참여자 리스트</button>
-											)}
-										</>
-									}
+									<button className="listBtn" onClick={handleParticipationListButtonClick}>참여자 {participationData.length}명</button>
+									{userInfo.authority === 'A' && participationData.length > 0 && (
+										<button className="listBtn" onClick={downloadExcel}><SiMicrosoftexcel /> 엑셀 다운로드</button>
+									)}
 									{showParticipation && (
 										<ul className="pList">
 											{participationData

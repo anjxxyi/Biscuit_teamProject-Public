@@ -1,5 +1,5 @@
 import React, { useContext, useEffect, useState } from "react"
-import axios from "axios"
+import axios from "../../api/client"
 import { Link } from "react-router-dom"
 import { Context } from "../../components/store/Context"
 import { AiTwotoneCalendar } from "react-icons/Ai"
