@@ -1,7 +1,7 @@
 import React , { useState, useEffect } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import { CgSearch } from "react-icons/Cg"
-import axios from 'axios'
+import axios from '../api/client'
 
 import BannerSlider from '../components/layout/BannerSlider'
 import VisualSlider from '../components/layout/VisualSlider'
