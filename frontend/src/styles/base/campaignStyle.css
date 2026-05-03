@@ -139,8 +139,8 @@
 /*#pageContainer.campaign aceept --START --- */
 #pageContainer.campaign .modalArea {width:100vw; height:100vh; background:var(--ModalBgColor); backdrop-filter:blur(10px); position:fixed; top:0; left:0; z-index:999;}
 #pageContainer.campaign .modalArea > *:not(.bgClickClose) {width:100%; max-width:940px; background:var(--BgColor); position:absolute; left:50%; transform:translateX(-50%); z-index:3;}
-#pageContainer.campaign .modalArea .campaignModal {height:calc(100vh - 120px); top:50px; overflow-Y:auto; position:relative; z-index:2;}
-#pageContainer.campaign .modalArea .campaignModal .acceptList {width:100%; height:calc(100vh - 220px); padding:2em; top:50px; overflow-Y:auto;}
+#pageContainer.campaign .modalArea .campaignModal {height:calc(100vh - 120px); top:50px; overflow-y:auto; position:relative; z-index:2;}
+#pageContainer.campaign .modalArea .campaignModal .acceptList {width:100%; height:calc(100vh - 220px); padding:2em; top:50px; overflow-y:auto;}
 #pageContainer.campaign .modalArea .campaignModal table.resultBox {width:100%; border-collapse:collapse}
 #pageContainer.campaign .modalArea .campaignModal table.resultBox th {font-weight:700; border-top:1px solid var(--BgColorReversed); border-bottom:1px solid var(--BgColorReversed); padding:0.5em 0;}
 #pageContainer.campaign .modalArea .campaignModal table.resultBox td {padding:0.75em 0.25em; border-bottom:1px solid var(--BgColorReversed); cursor:pointer;}
