@@ -63,7 +63,6 @@ function EventUpdate() {
 			try {
 				const response = await axios.get(`/api/events/${no}`);
 				const eventData = response.data;
-				console.log("머가 나오나? ", response.data);
 				setTitle(eventData[0].event.title);
 				setContent(eventData[0].event.content);
 				setEventType(eventData[0].event.eventType);
@@ -94,8 +93,6 @@ function EventUpdate() {
 	}, [no]);
 
 	useEffect(() => {
-		// console.log("이벤트 데이터", eventData); // 이미지의 no 값들이 저장된 배열 출력
-		console.log("!!!!!!!!!!", thumbnailImageNo , contentImageNo);
 	}, [contentImageNo , thumbnailImageNo]);
 
 	const handleThumbnailFileChange = (event) => {
