@@ -13,3 +13,21 @@
 button {display:flex; justify-content:center; align-items:center;}
 button.typeIcon svg {font-size:1.5em;}
 button.styleRound {padding:0.5em 1.5em; border-radius:2em;}
+/* Keyboard focus */
+:root[data-input-modality="pointer"] :focus {
+  outline: none;
+}
+
+:root[data-input-modality="keyboard"] :where(a, button, input, select, textarea, [tabindex]):focus-visible {
+  outline: 3px solid var(--PointColor, #f4a340);
+  outline-offset: 3px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    scroll-behavior: auto !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
