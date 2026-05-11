@@ -1,22 +1,9 @@
-import React, { useEffect, useState } from 'react'
 import Slider from "react-slick"
 
 import "slick-carousel/slick/slick.css"
 import "slick-carousel/slick/slick-theme.css"
-import { Link } from 'react-router-dom'
-import axios from 'axios'
 
 const BannerSlider = () => {
-
-  // data
-  // const [eventData, setEventData] = useState();
-  // const fetchEventData = () => {
-  //   axios
-  //     .get(`/api/events`)
-  //     .then(res => setEventData(res.data))
-  //     .catch(err => console.log(err));
-  // }
-  // useEffect(() => fetchEventData(), [])
 
   const data = [
     {
@@ -76,20 +63,6 @@ const BannerSlider = () => {
           }
         `}
       </style>
-      {/* <Slider {...settings}>
-        {eventData ? eventData.slice(0, 3).map((item, i) => {
-          const { event, images } = item;
-          return (
-            <div className="slide" key={item}>
-              <Link
-                className="wrapper" style={{ background: item.bgcolor }}
-                to={`/events/${event.no}`}>
-                <img className='sliderImgInfo' src={`${images.imgPath}`} alt=""/>
-              </Link>
-            </div>
-          )
-        }) : null}
-      </Slider> */}
       <Slider {...settings}>
         {data ? data.map((v, i) => {
             return (

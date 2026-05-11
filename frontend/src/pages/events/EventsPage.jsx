@@ -1,6 +1,6 @@
 import React, { useContext, useEffect, useState } from "react"
-import axios from "axios"
-import { Link } from "react-router-dom"
+import axios from "../../api/client"
+import { Link, useNavigate } from "react-router-dom"
 import { Context } from "../../components/store/Context"
 import { AiTwotoneCalendar } from "react-icons/Ai"
 import { MdArrowBackIos, MdArrowForwardIos } from "react-icons/Md"
@@ -13,6 +13,7 @@ import "../../styles/base/sub.css"
 import "../../styles/base/eventsStyle.css"
 
 const EventsPage = () => {
+  const navigate = useNavigate()
 	//-----------------------------------------------------------------------
 	//                        로그인 된 정보 가져오기
 	//-----------------------------------------------------------------------
@@ -71,7 +72,7 @@ const EventsPage = () => {
 
 			if (eventEnd < currentTime) {
 				alert("이벤트가 이미 종료되었습니다.");
-	      window.location.href = `/biscuit-project/events/`; // 이벤트 상세 페이지로 이동
+	      navigate('/events', { replace: true });
 			} 
 		};
 
