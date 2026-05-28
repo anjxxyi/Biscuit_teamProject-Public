@@ -24,16 +24,16 @@ const Navigation = ({ dropdownGnb, dropdownSearch, handleDropdownGnb, handleDrop
 				<Link to={`/events`}>이벤트</Link>
 			</nav>
 			<nav className="rightNav">
-				<button className="menuBtn typeIcon" onClick={handleDropdownGnb}>
+				<button className="menuBtn typeIcon" type="button" aria-label="전체 메뉴" aria-expanded={dropdownGnb} onClick={handleDropdownGnb}>
 					{dropdownGnb ? <CgClose /> : <CgMenu />}
 				</button>
-				<button className="menuBtn typeIcon" onClick={handleDropdownSearch}>
+				<button className="menuBtn typeIcon" type="button" aria-label="검색 메뉴" aria-expanded={dropdownSearch} onClick={handleDropdownSearch}>
 					{dropdownSearch ? <TbSearchOff /> : <TbSearch />}
 				</button>
 				{props.userInfo ? 
 					<>
-						<Link to={(userInfo?.authority == "A") ? `/member/admin` : `/member/info`}><button className="myPageBtn typeIcon"><HiUser /></button></Link>
-						<button className="signoutBtn typeIcon" onClick={props.signoutHandler}><RiLogoutBoxRLine /></button>
+						<Link to={(userInfo?.authority == "A") ? `/member/admin` : `/member/info`}><button className="myPageBtn typeIcon" type="button" aria-label="마이페이지"><HiUser /></button></Link>
+						<button className="signoutBtn typeIcon" type="button" aria-label="로그아웃" onClick={props.signoutHandler}><RiLogoutBoxRLine /></button>
 						{(userInfo?.authority == null && userInfo?.authority == undefined) || userInfo?.authority == "U" ? 
 							<Link to={`/booklog/${userInfo.userId}`}><button className="authBtn styleRound">내 북로그</button></Link>
 							: null 

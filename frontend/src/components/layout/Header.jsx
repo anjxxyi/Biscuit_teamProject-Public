@@ -29,12 +29,9 @@ const Header = ({ darkMode, handleDarkMode }) => {
 		(pathGroup[0] == "books" && !isNaN(pathGroup[1])) ||
 		(pathGroup[0] == "booklog" && pathGroup[1] == "now")
 	);
-  const [isPageChange,] = useState(path);
   useEffect(() => {
-    if(path !== isPageChange) {
-      setDropdownGnb(false);
-      setDropdownSearch(false);
-    }
+    setDropdownGnb(false);
+    setDropdownSearch(false);
   }, [path])
 
 	return (
@@ -52,7 +49,13 @@ const Header = ({ darkMode, handleDarkMode }) => {
       </div>
       <NavigationGlobal dropdownVisibility={dropdownGnb} handleDropdownGnb={handleDropdownGnb} />
       <HeaderSearch dropdownVisibility={dropdownSearch} handleDropdownSearch={handleDropdownSearch} />
-      <button className="fixedBtn typeDark typeIcon" onClick={handleDarkMode}><CgDarkMode/></button>
+      <button
+        className="fixedBtn typeDark typeIcon"
+        type="button"
+        aria-label="화면 색상 모드 전환"
+        aria-pressed={darkMode}
+        onClick={handleDarkMode}
+      ><CgDarkMode/></button>
     </header>
 	);
 };
