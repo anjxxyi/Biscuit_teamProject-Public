@@ -19,6 +19,12 @@ const BooksView = () => {
   const param = useParams();
   const navigate = useNavigate(); //변수 할당시켜서 사용 가능
   const backBtn = () => { navigate(-1); }; // 바로 이전 페이지로 이동, '/main' 등 직접 지정도 가능
+  const handleIconKeyDown = (handler) => (event) => {
+    if (event.key === "Enter" || event.key === " ") {
+      event.preventDefault();
+      handler();
+    }
+  };
   
   // 도서 정보 가져오기
   useEffect(() => {
@@ -76,6 +82,8 @@ const BooksView = () => {
     const printContents = document.querySelector("#pageContainer.books").innerHTML;
     const objWin = window.open("", "_blank", "fullscreen");
 
+    if (!objWin) return;
+
     objWin.document.write("<link rel='stylesheet' href='https://github.com/anjxxyi/Biscuit_teamProject/blob/develop/frontend/src/styles/base/booksStyle.css'>");
     objWin.document.write("<html><body>");
     objWin.document.write(printContents);
@@ -100,31 +108,31 @@ const BooksView = () => {
       { viewer &&
         <div id="bigImgViewer" onClick={viewerHandler}>
           <div id="bigImg">
-            <div id="bigImgCloser" onClick={viewerHandler}><IoMdClose /></div>
-            <img src={bookInfo.bookImgUrl} />
+            <div id="bigImgCloser" role="button" tabIndex={0} aria-label="표지 크게 보기 닫기" onClick={viewerHandler} onKeyDown={handleIconKeyDown(viewerHandler)}><IoMdClose /></div>
+            <img src={bookInfo.bookImgUrl} alt={`${bookInfo.title} 표지 크게 보기`} />
           </div>
         </div>
       }
       <div id="pageVisual">
         <section id="pageVisual_item">
-          <a href='#' className="backBtn" onClick={backBtn}><MdArrowBackIos /></a>
+          <button type="button" className="backBtn" aria-label="이전 화면" onClick={backBtn}><MdArrowBackIos /></button>
           <div className="utilBtn">
             { props.userInfo &&
               <>
               {
                 clip ?
-                <IoMdHeart style={{color: "var(--PointColor"}} onClick={bookClipHandler} />
+                <IoMdHeart role="button" tabIndex={0} aria-label="북클립 해제" style={{color: "var(--PointColor"}} onClick={bookClipHandler} onKeyDown={handleIconKeyDown(bookClipHandler)} />
                 :
-                <IoMdHeartEmpty onClick={bookClipHandler} />
+                <IoMdHeartEmpty role="button" tabIndex={0} aria-label="북클립 추가" onClick={bookClipHandler} onKeyDown={handleIconKeyDown(bookClipHandler)} />
               }
               </>
             }
-            <FaSearchPlus onClick={viewerHandler} />
-            <RiPrinterFill onClick={printHandler} />
+            <FaSearchPlus role="button" tabIndex={0} aria-label="표지 크게 보기" onClick={viewerHandler} onKeyDown={handleIconKeyDown(viewerHandler)} />
+            <RiPrinterFill role="button" tabIndex={0} aria-label="도서 정보 인쇄" onClick={printHandler} onKeyDown={handleIconKeyDown(printHandler)} />
           </div>
           <div className="imgbox">
             <div className='imgCover'>
-              <img src={bookInfo.bookImgUrl} />
+              <img src={bookInfo.bookImgUrl} alt={`${bookInfo.title} 표지`} />
             </div>
             <div className="imgContent">
               <b className="imgTitle">{bookInfo.title}</b>
@@ -149,7 +157,7 @@ const BooksView = () => {
                 <li>{bookInfo.publishedDate}</li>
                 <li>{bookInfo.isbn}</li>
                 <li>{bookInfo.publisher}</li>
-                <li>{bookInfo.price.toLocaleString()} 원 <a href={bookInfo.bookDtlUrl} target='_blank'><MdSell /></a></li>
+                <li>{bookInfo.price.toLocaleString()} 원 <a href={bookInfo.bookDtlUrl} target='_blank' rel="noreferrer" aria-label="판매처에서 도서 보기"><MdSell /></a></li>
               </ul>
             </div>
           </div>
@@ -187,11 +195,11 @@ const BooksView = () => {
     <SideBar>
       {
         clip ?
-        <button className="scrollTop" type="button" onClick={bookClipHandler}>
+        <button className="scrollTop" type="button" aria-label="북클립 해제" onClick={bookClipHandler}>
           <IoMdHeart style={{color: "var(--PointColor"}} />
         </button>
         :
-        <button className="scrollTop" type="button" onClick={bookClipHandler}>
+        <button className="scrollTop" type="button" aria-label="북클립 추가" onClick={bookClipHandler}>
           <IoMdHeartEmpty />
         </button>
       }
