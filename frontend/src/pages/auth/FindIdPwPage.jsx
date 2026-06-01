@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { Tab, TabList, TabPanel, Tabs } from 'react-tabs'
-import { Link, Outlet } from 'react-router-dom'
+import { Link, Outlet, useLocation } from 'react-router-dom'
 
 import '../../styles/base/sub.css'
 import '../../styles/base/authStyle.css'
@@ -12,7 +12,7 @@ const FindIdPwPage = () => {
   ]
   
   const [index, setIndex] = useState(0);
-  const browserURL = document.location.pathname.replace("/", "").split("/")[3];
+  const browserURL = useLocation().pathname.split('/').filter(Boolean).at(-1);
   const filteredURL = pageTab.map(({ path }) => path);
 
   useEffect(() => {

@@ -16,8 +16,8 @@ const HeaderSearch = ({ dropdownVisibility, handleDropdownSearch }) => {
     <Dropdown visibility={dropdownVisibility} handleDropdown={handleDropdownSearch}>
       <h3>빠른 도서 검색</h3>
       <div className="searchBox">
-        <input type="text" name="search" id="hssearch" className="searchBar" placeholder="찾고 싶은 도서를 검색해 보세요." onKeyUp={e => e.key == "Enter" && searchHandler()} />
-        <button type="button" className="searchBtn typeIcon" onClick={() => searchHandler()}><CgSearch /></button>
+        <input type="text" name="search" id="hssearch" className="searchBar" aria-label="빠른 도서 검색어" placeholder="찾고 싶은 도서를 검색해 보세요." onKeyUp={e => e.key == "Enter" && searchHandler()} />
+        <button type="button" className="searchBtn typeIcon" aria-label="도서 검색" onClick={() => searchHandler()}><CgSearch /></button>
       </div>
     </Dropdown>
   )

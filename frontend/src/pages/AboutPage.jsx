@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useRef } from 'react'
 import AOS from 'aos'
 import 'aos/dist/aos.css'
 import { MdOutlineKeyboardDoubleArrowDown } from 'react-icons/Md'
@@ -9,11 +9,17 @@ import '../styles/base/sub.css'
 import '../styles/base/aboutStyle.css'
 
 const AboutPage = () => {
+  const contentsRef = useRef(null)
+
   useEffect(() => {
     AOS.init();
-  })
+  }, [])
 
-  const onMoveToSection = () => window.scrollBy({top:document.getElementById("pageContents").getBoundingClientRect().top - 100, behavior:'smooth'});
+  const onMoveToSection = () => {
+    if (contentsRef.current) {
+      window.scrollTo({ top: contentsRef.current.offsetTop - 100, behavior: 'smooth' })
+    }
+  }
 
   return (
     <main id="pageContainer" className="about">
@@ -29,11 +35,11 @@ const AboutPage = () => {
         </h2>
         <p className="info" data-aos="zoom-in-up" data-aos-duration="1000" data-aos-delay="800">반가워요! <br />당신의 독서 서포터 <b>‘비스킷’</b>입니다.</p>
         <div className="scrollAni">
-          <button type="button" onClick={onMoveToSection}><MdOutlineKeyboardDoubleArrowDown/></button>
+          <button type="button" aria-label="비스킷 소개로 이동" onClick={onMoveToSection}><MdOutlineKeyboardDoubleArrowDown/></button>
         </div>
       </div>
       
-      <div id="pageContents">
+      <div id="pageContents" ref={contentsRef}>
         <section className="overView" data-aos="fade-right"  data-aos-duration="1000" data-aos-anchor-placement="top-center">
           <h3 className="title"><span>OVERVIEW</span></h3>
           <div className="textArea">
