@@ -11,4 +11,13 @@ describe('API error helpers', () => {
     expect(annotateApiError(error)).toBe(error)
     expect(error.userMessage).toBe('network error')
   })
+
+  it('빈 서버 메시지 대신 다음 오류 내용을 사용한다', () => {
+    const error = { response: { data: { message: ' ', error: 'invalid request' } } }
+    expect(getApiErrorMessage(error)).toBe('invalid request')
+  })
+
+  it('오류 정보가 없으면 공통 안내를 반환한다', () => {
+    expect(getApiErrorMessage({})).toBe('요청을 처리하지 못했습니다. 잠시 후 다시 시도해 주세요.')
+  })
 })
