@@ -26,6 +26,15 @@ describe('preview payment', () => {
   beforeEach(() => {
     vi.clearAllMocks()
     vi.stubGlobal('alert', vi.fn())
+    delete window.IMP
+  })
+
+  it('결제 module이 없으면 요청하지 않고 실패 상태를 반환한다', () => {
+    const result = requestPay(paymentInfo)
+
+    expect(result.result).toBe(false)
+    expect(alert).toHaveBeenCalledWith('결제 모듈을 불러오지 못했습니다.')
+    expect(apiClient.post).not.toHaveBeenCalled()
   })
 
   it('승인 실패 시 주문을 저장하지 않는다', () => {
