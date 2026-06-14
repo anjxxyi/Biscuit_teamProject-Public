@@ -22,6 +22,17 @@ const paymentInfo = {
   },
 }
 
+const installPaymentModule = () => {
+  let completePayment
+  window.IMP = {
+    init: vi.fn(),
+    request_pay: vi.fn((_data, callback) => {
+      completePayment = callback
+    }),
+  }
+  return (response) => completePayment(response)
+}
+
 describe('preview payment', () => {
   beforeEach(() => {
     vi.clearAllMocks()
@@ -47,5 +58,18 @@ describe('preview payment', () => {
 
     expect(apiClient.post).not.toHaveBeenCalled()
     expect(alert).toHaveBeenCalledWith('결제가 취소되었습니다.')
+  })
+
+  it('일반 결제 승인 후 주문을 저장한다', async () => {
+    apiClient.post.mockResolvedValue({})
+    const completePayment = installPaymentModule()
+
+    requestPay(paymentInfo)
+    await completePayment({ success: true })
+
+    expect(window.IMP.init).toHaveBeenCalledWith('imp55171728')
+    expect(apiClient.post).toHaveBeenCalledWith('/api/orders/add', expect.objectContaining({ pd_type: 'T' }))
+    expect(apiClient.put).not.toHaveBeenCalled()
+    expect(alert).toHaveBeenCalledWith('결제가 완료되었습니다.')
   })
 })
