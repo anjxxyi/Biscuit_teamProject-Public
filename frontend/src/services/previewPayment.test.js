@@ -72,4 +72,15 @@ describe('preview payment', () => {
     expect(apiClient.put).not.toHaveBeenCalled()
     expect(alert).toHaveBeenCalledWith('결제가 완료되었습니다.')
   })
+
+  it('캠페인 도서 결제 후 판매 상태를 변경한다', async () => {
+    apiClient.post.mockResolvedValue({})
+    apiClient.put.mockResolvedValue({})
+    const completePayment = installPaymentModule()
+
+    requestPay({ ...paymentInfo, pd_type: 'R', pd_no: 55 })
+    await completePayment({ success: true })
+
+    expect(apiClient.put).toHaveBeenCalledWith('/api/campaign/55/sale', { saleYn: 'Y' })
+  })
 })
