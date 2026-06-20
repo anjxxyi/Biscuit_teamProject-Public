@@ -83,4 +83,15 @@ describe('preview payment', () => {
 
     expect(apiClient.put).toHaveBeenCalledWith('/api/campaign/55/sale', { saleYn: 'Y' })
   })
+
+  it('굿즈 결제 후 재고 판매 요청을 전송한다', async () => {
+    apiClient.post.mockResolvedValue({})
+    apiClient.put.mockResolvedValue({})
+    const completePayment = installPaymentModule()
+
+    requestPay({ ...paymentInfo, pd_type: 'G', pd_no: 81 })
+    await completePayment({ success: true })
+
+    expect(apiClient.put).toHaveBeenCalledWith('/api/goods/81/sale')
+  })
 })
