@@ -21,4 +21,16 @@ describe('storage utilities', () => {
     expect(localStorage.getItem('LS_KEY_ID')).toBe('biscuit')
     expect(localStorage.getItem('member')).toBeNull()
   })
+
+  it('로그아웃 후 아이디 저장 여부와 저장된 아이디를 유지한다', () => {
+    localStorage.setItem('LS_KEY_SAVE_ID_FLAG', 'true')
+    localStorage.setItem('LS_KEY_ID', 'anjxxyi')
+    localStorage.setItem('accessToken', 'temporary-token')
+
+    clearSessionStorage()
+
+    expect(localStorage.getItem('LS_KEY_SAVE_ID_FLAG')).toBe('true')
+    expect(localStorage.getItem('LS_KEY_ID')).toBe('anjxxyi')
+    expect(localStorage.getItem('accessToken')).toBeNull()
+  })
 })

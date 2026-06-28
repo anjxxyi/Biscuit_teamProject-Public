@@ -15,4 +15,10 @@ describe('회원 입력 validation', () => {
     expect(isValidNickname(' 바삭 ')).toBe(true)
     expect(isValidNickname(' 한 ')).toBe(false)
   })
+
+  it('입력하지 않은 회원 값은 유효하지 않은 값으로 처리한다', () => {
+    expect(isValidUserId()).toBe(false)
+    expect(isValidPassword(null)).toBe(false)
+    expect(isValidNickname()).toBe(false)
+  })
 })

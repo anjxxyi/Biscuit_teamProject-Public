@@ -1,10 +1,25 @@
-import { defineConfig } from 'vite'
+import { defineConfig, loadEnv } from 'vite'
 import react from '@vitejs/plugin-react-swc'
 
-export default defineConfig({
+export default defineConfig(({ mode }) => {
+  const env = loadEnv(mode, process.cwd(), '')
+
+  return {
   plugins: [react()],
-  // base: import.meta.env.PUBLIC_URL,
-  base: '/biscuit-project',
+  base: env.VITE_BASE_PATH || (mode === 'production' ? '/biscuit-project/' : '/'),
+  build: {
+    rollupOptions: {
+      output: {
+        manualChunks(id) {
+          if (id.includes('/node_modules/react-icons/')) return 'iconsVendor'
+          if (id.includes('/node_modules/xlsx/')) return 'spreadsheetVendor'
+          if (id.includes('/node_modules/draft-js/') || id.includes('/node_modules/react-draft-wysiwyg/')) return 'editorVendor'
+          // Keep React and its CommonJS consumers together to preserve initialization order.
+          if (id.includes('/node_modules/')) return 'vendor'
+        },
+      },
+    },
+  },
   server: {
     proxy: {
       "/api": {
@@ -33,4 +48,5 @@ export default defineConfig({
     setupFiles: "./src/test/setup.js",
     mockReset: true,
   },
+  }
 })
