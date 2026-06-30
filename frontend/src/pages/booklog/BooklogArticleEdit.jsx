@@ -91,7 +91,7 @@ const BooklogArticleEdit = () => {
 			.post(`/api/booklogarticles/new/${userInfo.no}`, requestData,)
 			.then((res) => {
 				alert("게시글이 등록되었습니다!")
-				window.location.href = "/biscuit-project/booklog/now"
+				navigate("/booklog/now")
 
 			})
 			.catch(error => console.error(error));

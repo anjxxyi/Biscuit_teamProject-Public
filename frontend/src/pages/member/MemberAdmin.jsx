@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react'
 import { GET } from '../../components/Aaxios'
 import Loading from '../../components/style/Loading';
-import { RiInformationLine } from "react-icons/Ri"
+import { RiInformationLine } from "react-icons/ri"
 
 import '../../styles/base/memberStyle.css'
 

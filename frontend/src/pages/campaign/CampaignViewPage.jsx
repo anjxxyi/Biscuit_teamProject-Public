@@ -1,8 +1,8 @@
 import React, { useEffect, useContext, useState } from 'react'
 import { useNavigate, useParams, Link } from "react-router-dom"
-import { IoIosArrowBack } from "react-icons/Io"
-import { RiInformationLine } from 'react-icons/Ri'
-import { BsFillClipboardCheckFill } from 'react-icons/Bs'
+import { IoIosArrowBack } from "react-icons/io"
+import { RiInformationLine } from 'react-icons/ri'
+import { BsFillClipboardCheckFill } from 'react-icons/bs'
 import { GET } from "../../components/Aaxios"
 import { Context } from "../../components/store/Context"
 

@@ -54,3 +54,19 @@
 @media all and (max-width:1180px) {
     #pageContainer.main section {max-width:100%; padding:0 4em;}
 }
+
+@media all and (max-width:680px) {
+    #pageContainer.main section {padding:0 24px;}
+    #pageContainer.main section.mainVisual {height:auto; min-height:520px;}
+    #pageContainer.main section.mainVisual .wrapper {flex-direction:column; gap:24px; align-items:flex-start;}
+    #pageContainer.main section.mainVisual .txtBox {width:100%; font-size:1em;}
+    #pageContainer.main section.mainVisual .txtBox h2 {font-size:1.75em; line-height:1.4; word-break:keep-all;}
+    #pageContainer.main section.mainVisual .txtBox div {margin:1.25em 0;}
+    #pageContainer.main section.mainVisual .img,
+    #pageContainer.main section.mainVisual .slide.no2 .img {height:160px; padding:0; align-self:center; max-width:100%;}
+    #pageContainer.main section.search .searchBox {width:100%; min-width:0;}
+    #pageContainer.main section.market {gap:64px;}
+    #pageContainer.main section.market .goodsArea,
+    #pageContainer.main section.market .campaignArea {width:100%;}
+    #pageContainer.main section.market .goodsArea .list a .txtBox {position:static;}
+}

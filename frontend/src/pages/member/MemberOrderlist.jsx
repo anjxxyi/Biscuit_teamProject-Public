@@ -1,6 +1,6 @@
 import React, { useContext, useEffect, useRef, useState } from 'react'
 import MemberNav from './MemberNav'
-import { CgSearch } from "react-icons/Cg"
+import { CgSearch } from "react-icons/cg"
 import { GET, POST, toFormatDate } from '../../components/Aaxios'
 import { Context } from '../../components/store/Context';
 import LoadingSmall from '../../components/style/LoadingSmall';
@@ -73,8 +73,8 @@ function Memberorderlist() {
       <div id="myOrderlist">
         <div className="memberMenuTop">
           <div className="memberMenuSearch">
-            <input type='text' className="miniSearchBar" placeholder='검색' onKeyUp={e => e.key == "Enter" && alert("Not supported")} />
-            <button type="button" className="searchBtn typeIcon" onClick={() => alert("Not supported")} ><CgSearch /></button>
+            <input type='text' className="miniSearchBar" placeholder='검색' onKeyUp={e => e.key == "Enter" && alert("현재 이 목록에서는 검색을 지원하지 않습니다.")} />
+            <button type="button" className="searchBtn typeIcon" onClick={() => alert("현재 이 목록에서는 검색을 지원하지 않습니다.")} ><CgSearch /></button>
           </div>
           <div className="sortArea">
             {

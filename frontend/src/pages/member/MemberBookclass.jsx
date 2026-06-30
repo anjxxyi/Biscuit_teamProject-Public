@@ -1,11 +1,11 @@
 import React, { useContext, useEffect, useState } from 'react'
 import MemberNav from './MemberNav'
 import { Link } from 'react-router-dom';
-import { MdArrowForwardIos } from "react-icons/Md"
-import { RiMapPinFill, RiTimeFill, RiVipCrownFill } from "react-icons/Ri"
-import { PiUsersThreeFill } from "react-icons/Pi"
-import { CgSearch } from "react-icons/Cg"
-import { FaBook } from "react-icons/Fa"
+import { MdArrowForwardIos } from "react-icons/md"
+import { RiMapPinFill, RiTimeFill, RiVipCrownFill } from "react-icons/ri"
+import { PiUsersThreeFill } from "react-icons/pi"
+import { CgSearch } from "react-icons/cg"
+import { FaBook } from "react-icons/fa"
 import { Context } from '../../components/store/Context';
 import { POST } from '../../components/Aaxios';
 import LoadingSmall from '../../components/style/LoadingSmall';
@@ -80,8 +80,8 @@ function MemberBookclass() {
         <div id="myBookclass">
           <div className="memberMenuTop">
             <div className="memberMenuSearch">
-              <input type='text' className="miniSearchBar" placeholder='검색' onKeyUp={e => e.key == "Enter" && alert("Not supported")} />
-              <button type="button" className="searchBtn typeIcon" onClick={() => alert("Not supported")} ><CgSearch /></button>
+              <input type='text' className="miniSearchBar" placeholder='검색' onKeyUp={e => e.key == "Enter" && alert("현재 이 목록에서는 검색을 지원하지 않습니다.")} />
+              <button type="button" className="searchBtn typeIcon" onClick={() => alert("현재 이 목록에서는 검색을 지원하지 않습니다.")} ><CgSearch /></button>
             </div>
             <div className="sortArea">
               <div className="sortArea" style={{marginRight: "5px"}}>

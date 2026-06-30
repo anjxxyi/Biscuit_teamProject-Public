@@ -1,6 +1,6 @@
 import React, { useState, useContext, useRef, useEffect } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
-import { FcGoogle } from 'react-icons/Fc'
+import { FcGoogle } from 'react-icons/fc'
 import { POST } from "./../Aaxios";
 import { Context } from '../store/Context';
 

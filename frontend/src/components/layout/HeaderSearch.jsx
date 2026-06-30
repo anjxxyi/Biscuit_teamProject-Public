@@ -1,5 +1,5 @@
 import React from 'react'
-import { CgSearch } from "react-icons/Cg"
+import { CgSearch } from "react-icons/cg"
 import { useNavigate } from 'react-router-dom';
 
 import Dropdown from "../style/Dropdown"

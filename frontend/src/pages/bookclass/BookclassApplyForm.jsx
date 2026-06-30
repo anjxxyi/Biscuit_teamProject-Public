@@ -1,8 +1,8 @@
 import React, { useContext, useEffect, useRef, useState } from 'react'
 import { Link, useNavigate, useSearchParams } from 'react-router-dom'
 import { Context } from '../../components/store/Context'
-import { RiInformationLine } from 'react-icons/Ri'
-import { MdArrowRight } from 'react-icons/Md'
+import { RiInformationLine } from 'react-icons/ri'
+import { MdArrowRight } from 'react-icons/md'
 
 import PopupPostCode from '../../components/PopupPostCode'
 import PopupFindBook from '../../components/PopupFindBook'
@@ -65,17 +65,18 @@ const BookclassApplyForm = () => {
   // handleApplySubmit
 	const handleApplySubmit = async (e) => {
 		e.preventDefault();
+    const fields = e.currentTarget.elements;
 
     if(submitBtn.current.id == "apply"){
       const data = {
-        title: title.value,
-        intro: intro.value,
-        zipCode: zipCode.value,
+        title: fields.title.value,
+        intro: fields.intro.value,
+        zipCode: fields.zipCode.value,
         location: location,
         locationDetail: locationDetail.current.value,
-        memberCnt: memberCnt.value,
-        scheduleStart: date.value + " " + timeStart.value,
-        scheduleEnd: date.value + " " + timeEnd.value,
+        memberCnt: fields.memberCnt.value,
+        scheduleStart: fields.date.value + " " + fields.timeStart.value,
+        scheduleEnd: fields.date.value + " " + fields.timeEnd.value,
         userId: userInfo.userId,
         isbn: bookIsbn
       };
@@ -92,14 +93,14 @@ const BookclassApplyForm = () => {
     } else if(submitBtn.current.id == "edit") {
       const urlpar = urlparams.get("edit");
       const data = {
-        title: title.value,
-        intro: intro.value,
-        zipCode: zipCode.value,
+        title: fields.title.value,
+        intro: fields.intro.value,
+        zipCode: fields.zipCode.value,
         location: location,
         locationDetail: locationDetail.current.value,
-        memberCnt: memberCnt.value,
-        scheduleStart: date.value + " " + timeStart.value,
-        scheduleEnd: date.value + " " + timeEnd.value,
+        memberCnt: fields.memberCnt.value,
+        scheduleStart: fields.date.value + " " + fields.timeStart.value,
+        scheduleEnd: fields.date.value + " " + fields.timeEnd.value,
         isbn: bookIsbn
       };
       PUT(`/api/bookclass/${urlpar}/update`, data,)

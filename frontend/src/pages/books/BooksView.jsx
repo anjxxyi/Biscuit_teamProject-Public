@@ -1,10 +1,10 @@
 import React, { useContext, useEffect, useState } from 'react'
 import { useNavigate, useParams } from 'react-router-dom'
 
-import { RiPrinterFill } from "react-icons/Ri"
-import { MdArrowBackIos, MdSell } from "react-icons/Md"
-import { FaSearchPlus } from "react-icons/Fa"
-import { IoMdClose, IoMdHeartEmpty, IoMdHeart } from "react-icons/Io"
+import { RiPrinterFill } from "react-icons/ri"
+import { MdArrowBackIos, MdSell } from "react-icons/md"
+import { FaSearchPlus } from "react-icons/fa"
+import { IoMdClose, IoMdHeartEmpty, IoMdHeart } from "react-icons/io"
 import { Context } from '../../components/store/Context'
 import { POST, PUT } from '../../components/Aaxios'
 import Loading from '../../components/style/Loading'

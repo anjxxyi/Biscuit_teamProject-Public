@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef , useContext } from 'react'
-import { MdArrowBackIos, MdArrowForwardIos } from "react-icons/Md"
-import { TiArrowSortedDown, TiArrowSortedUp } from "react-icons/Ti"
+import { MdArrowBackIos, MdArrowForwardIos } from "react-icons/md"
+import { TiArrowSortedDown, TiArrowSortedUp } from "react-icons/ti"
 import { Link } from 'react-router-dom'
 import { GET } from "../../components/Aaxios"
 import { Context } from '../../components/store/Context'

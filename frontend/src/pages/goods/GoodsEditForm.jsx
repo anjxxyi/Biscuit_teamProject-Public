@@ -1,7 +1,7 @@
 import React, { useState , useEffect } from 'react'
 import axios from '../../api/client'
 import { useNavigate , useParams } from 'react-router-dom'
-import { RiInformationLine } from 'react-icons/Ri'
+import { RiInformationLine } from 'react-icons/ri'
 
 import '../../styles/base/sub.css'
 import '../../styles/base/goodsStyle.css'

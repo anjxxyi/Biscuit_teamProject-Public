@@ -1,9 +1,9 @@
 import React, { useContext, useEffect, useRef, useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import { useParams } from 'react-router-dom'
-import { RiTimeFill, RiMapPinFill, RiBookFill, RiVipCrownFill } from "react-icons/Ri"
-import { PiUsersThreeFill } from "react-icons/Pi"
-import { TiLocationArrow } from "react-icons/Ti"
+import { RiTimeFill, RiMapPinFill, RiBookFill, RiVipCrownFill } from "react-icons/ri"
+import { PiUsersThreeFill } from "react-icons/pi"
+import { TiLocationArrow } from "react-icons/ti"
 import { useNavermaps } from 'react-naver-maps'
 
 import Sidebar from '../../components/layout/SideBar'
@@ -45,7 +45,10 @@ const BookclassView = () => {
           naverMap(res.data.location);
           setLoad(false);
         })
-        .catch(() => setDetail(null))
+        .catch(() => {
+          setDataList([]);
+          setLoad(false);
+        })
     }
   }, [props.userInfo]);
 

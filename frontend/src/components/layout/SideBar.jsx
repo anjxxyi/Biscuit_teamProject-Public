@@ -1,4 +1,4 @@
-import { RiArrowUpSLine, RiShareFill } from 'react-icons/Ri'
+import { RiArrowUpSLine, RiShareFill } from 'react-icons/ri'
 
 import useScrollThreshold from '../../hooks/useScrollThreshold'
 import { readStoredMember } from '../../utils/storage'

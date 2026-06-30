@@ -2,8 +2,8 @@ import React, { useRef, useState } from "react"
 import axios from "axios";
 import { useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom"
-import { AiFillEye } from "react-icons/Ai"
-import { GiArchiveResearch } from "react-icons/Gi"
+import { AiFillEye } from "react-icons/ai"
+import { GiArchiveResearch } from "react-icons/gi"
 
 import SideBar from "../../components/layout/SideBar"
 import LoadingSmall from "../../components/style/LoadingSmall"

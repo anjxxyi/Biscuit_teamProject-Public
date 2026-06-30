@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Link, useLocation } from "react-router-dom";
-import { CgDarkMode } from "react-icons/Cg";
+import { CgDarkMode } from "react-icons/cg";
 
 import BiscuitLogo from "/images/biscuitLogo.svg";
 import BiscuitLogo_dark from "/images/biscuitLogo_dark.svg";

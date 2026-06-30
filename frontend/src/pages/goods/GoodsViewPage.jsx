@@ -1,8 +1,8 @@
 import React, { useEffect, useState , useContext , useRef } from 'react'
 import axios from "../../api/client";
 import { useParams, useNavigate , Link } from "react-router-dom"
-import { IoIosArrowBack } from "react-icons/Io"
-import { RiInformationLine } from 'react-icons/Ri'
+import { IoIosArrowBack } from "react-icons/io"
+import { RiInformationLine } from 'react-icons/ri'
 
 import { Context } from "../../components/store/Context"
 

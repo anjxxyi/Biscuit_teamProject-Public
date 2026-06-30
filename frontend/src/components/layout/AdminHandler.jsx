@@ -1,6 +1,6 @@
 import React, { useContext } from 'react'
 import { Link, useLocation } from 'react-router-dom'
-import { AiFillSetting, AiFillEdit } from 'react-icons/Ai'
+import { AiFillSetting, AiFillEdit } from 'react-icons/ai'
 import { Context } from '../store/Context'
 import { useState } from 'react'
 
@@ -19,7 +19,7 @@ const AdminHandler = ({ edit, children }) => {
 
   return (
     <>
-    {userInfo && (userInfo?.authority == null && userInfo?.authority == undefined) || userInfo?.authority == "U" ?
+    {userInfo?.authority !== 'A' ?
       null
       :
       <div id="adminHandler">

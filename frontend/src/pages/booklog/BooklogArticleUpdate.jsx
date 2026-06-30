@@ -126,7 +126,7 @@ const BooklogArticleUpdate = () => {
     axios.put(`/api/booklogarticles/${no}`, requestData)
       .then((res) => {
         alert("수정이 완료되었습니다!")
-        window.location.href = "/biscuit-project/booklog/now"
+        navigate("/booklog/now")
       })
       .catch((error) => {
         console.error('게시글 수정 오류:', error);

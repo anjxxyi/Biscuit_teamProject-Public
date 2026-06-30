@@ -1,9 +1,9 @@
 import React, {useContext, useState, useRef, useEffect} from 'react'
 import { Link, useNavigate , useSearchParams} from 'react-router-dom'
-import { RiInformationLine } from 'react-icons/Ri'
-import { MdArrowRight } from 'react-icons/Md'
+import { RiInformationLine } from 'react-icons/ri'
+import { MdArrowRight } from 'react-icons/md'
 import {Context} from "../../components/store/Context";
-import {POST} from "../../components/Aaxios";
+import {GET, POST} from "../../components/Aaxios";
 
 import PopupFindBook from '../../components/PopupFindBook';
 import PopupPostCode from '../../components/PopupPostCode';

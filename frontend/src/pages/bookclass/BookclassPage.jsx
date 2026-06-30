@@ -1,10 +1,10 @@
 import React, { useEffect, useState, useRef } from 'react'
 import { useNavigate } from 'react-router-dom'
-import { CgSearch } from "react-icons/Cg"
-import { RiVipCrownFill, RiCheckboxCircleFill,RiInformationLine } from "react-icons/Ri"
-import { PiPlus } from "react-icons/Pi"
-import { TiLocationArrow } from "react-icons/Ti"
-import { MdAdminPanelSettings } from "react-icons/Md"
+import { CgSearch } from "react-icons/cg"
+import { RiVipCrownFill, RiCheckboxCircleFill,RiInformationLine } from "react-icons/ri"
+import { PiPlus } from "react-icons/pi"
+import { TiLocationArrow } from "react-icons/ti"
+import { MdAdminPanelSettings } from "react-icons/md"
 import { GET } from '../../components/Aaxios'
 import useBodyScrollLock from '../../hooks/useBodyScrollLock'
 

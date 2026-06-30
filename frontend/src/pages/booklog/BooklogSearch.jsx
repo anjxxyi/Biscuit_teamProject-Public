@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import axios from "../../api/client";
 import ReactPaginate from "react-paginate";
 import { Link } from "react-router-dom";
-import { CgSearch } from "react-icons/Cg";
+import { CgSearch } from "react-icons/cg";
 
 import PageVisual from "../../components/layout/PageVisual";
 import SideBar from "../../components/layout/SideBar";

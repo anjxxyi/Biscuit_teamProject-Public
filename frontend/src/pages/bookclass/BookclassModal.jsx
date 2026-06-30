@@ -1,8 +1,8 @@
 import React, { useEffect, useRef } from 'react'
 import { Link } from 'react-router-dom'
-import { RiTimeFill, RiMapPinFill, RiBookFill, RiVipCrownFill, RiCheckboxCircleFill } from "react-icons/Ri"
-import { PiUsersThreeFill } from "react-icons/Pi"
-import { TiLocationArrow } from "react-icons/Ti"
+import { RiTimeFill, RiMapPinFill, RiBookFill, RiVipCrownFill, RiCheckboxCircleFill } from "react-icons/ri"
+import { PiUsersThreeFill } from "react-icons/pi"
+import { TiLocationArrow } from "react-icons/ti"
 
 const BookclassModal = ({object, setModalOpen}) => {
   const closeModal = () => setModalOpen(false)

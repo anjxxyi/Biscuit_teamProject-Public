@@ -1,6 +1,6 @@
 import React , { useState, useEffect } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
-import { CgSearch } from "react-icons/Cg"
+import { CgSearch } from "react-icons/cg"
 import axios from '../api/client'
 
 import BannerSlider from '../components/layout/BannerSlider'

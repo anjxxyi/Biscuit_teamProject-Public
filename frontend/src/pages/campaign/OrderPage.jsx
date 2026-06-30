@@ -1,9 +1,9 @@
 import React from 'react'
 import { useEffect, useContext, useState } from 'react'
 import { GET, requestPay } from "../../components/Aaxios";
-import { useLocation, useNavigate, Link } from 'react-router-dom';
-import { MdArrowRight } from 'react-icons/Md'
-import { RiInformationLine } from 'react-icons/Ri'
+import { useLocation, useNavigate, Link, Navigate } from 'react-router-dom';
+import { MdArrowRight } from 'react-icons/md'
+import { RiInformationLine } from 'react-icons/ri'
 import { Context } from "../../components/store/Context"
 
 
@@ -15,12 +15,13 @@ const OrderPage = () => {
   const [ detailData, setDetailData ] = useState("");
   const lc = useLocation();
   const loca = useLocation();
-  const recycleNo = lc.state.recycleNo;
-  const no = loca.state.no;
-  const orderCnt = loca.state.orderCnt;
+  const recycleNo = lc.state?.recycleNo;
+  const no = loca.state?.no;
+  const orderCnt = loca.state?.orderCnt;
 
 
   useEffect(() => {
+      if (!no) return;
       GET(`/api/goods/${no}`)
       .then((response) => {
           setDetailData(response.data);
@@ -32,6 +33,7 @@ const OrderPage = () => {
   }, [])
 
   useEffect(() => {
+      if (!recycleNo) return;
       GET(`/api/campaign/${recycleNo}`)
       .then((res) => {
           setDetail(res.data);
@@ -58,8 +60,8 @@ const OrderPage = () => {
   // handleCancel
   const navigate = useNavigate();
   const handleCancel = () => {
-    if(confirm("이벤트 등록을 취소하시겠습니까?") === true) {
-      return navigate(`/events`);
+    if(confirm("주문을 취소하시겠습니까?") === true) {
+      return navigate(recycleNo ? `/campaign/${recycleNo}` : `/goods/${no}`);
     } else {
       return null;
     };
@@ -67,6 +69,9 @@ const OrderPage = () => {
 
   
  
+
+  if (!userInfo) return <Navigate to="/auth/signin" replace />;
+  if (!no && !recycleNo) return <Navigate to="/goods" replace />;
 
   return (
     <main id="pageContainer" className="order">

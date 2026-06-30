@@ -110,7 +110,7 @@ const GoodsUploadForm = () => {
       <section className='dateSection'>
         <div className='sectionInner'>
           <label>판매상태</label>
-          <select name="sale_yn" onChange={(e) => setSale_yn(e.target.value)}>
+          <select name="sale_yn" onChange={(e) => setSale_Yn(e.target.value)}>
             <option value="Y">판매가능</option>
             <option value="N">품절</option>
           </select>

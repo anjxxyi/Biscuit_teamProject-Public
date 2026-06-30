@@ -1,15 +1,15 @@
 import React, { useContext, useEffect, useState } from "react";
 import axios from "../../api/client";
 import { Link, useNavigate, useParams } from "react-router-dom";
-import { LiaHeartSolid, LiaHeart, LiaCommentDotsSolid } from "react-icons/Lia";
-import { MdArrowBackIos } from "react-icons/Md";
-import { AiFillEye } from "react-icons/Ai"
+import { LiaHeartSolid, LiaHeart, LiaCommentDotsSolid } from "react-icons/lia";
+import { MdArrowBackIos } from "react-icons/md";
+import { AiFillEye } from "react-icons/ai"
 
 import Loading from "../../components/style/Loading";
 import SideBar from "../../components/layout/SideBar";
 import { Context } from "../../components/store/Context";
 
-import { GiArchiveResearch } from "react-icons/Gi";
+import { GiArchiveResearch } from "react-icons/gi";
 
 import "../../styles/base/sub.css";
 

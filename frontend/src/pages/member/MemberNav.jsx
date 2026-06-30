@@ -4,8 +4,8 @@ import { NavLink } from "react-router-dom";
 import { Context } from '../../components/store/Context';
 import SideBar from "../../components/layout/SideBar"
 
-import { GiBookshelf } from "react-icons/Gi"
-import { BsFillPersonBadgeFill } from "react-icons/Bs"
+import { GiBookshelf } from "react-icons/gi"
+import { BsFillPersonBadgeFill } from "react-icons/bs"
 
 import '../../styles/base/sub.css'
 import '../../styles/base/memberStyle.css'

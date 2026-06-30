@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react'
 import { useSearchParams } from 'react-router-dom'
-import { CgSearch } from "react-icons/Cg"
-import { MdArrowBackIos, MdArrowForwardIos } from "react-icons/Md"
+import { CgSearch } from "react-icons/cg"
+import { MdArrowBackIos, MdArrowForwardIos } from "react-icons/md"
 import { POST } from '../../components/Aaxios'
 
 import PageVisual from "../../components/layout/PageVisual"
