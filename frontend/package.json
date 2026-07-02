@@ -5,12 +5,15 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
+    "dev:preview": "vite --mode preview",
     "test": "vitest",
     "test:run": "vitest --run",
     "build": "vite build",
+    "build:preview": "vite build --mode preview",
     "postbuild": "node scripts/publish-docs.mjs",
     "lint": "eslint . --ext js,jsx --report-unused-disable-directives",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "serve:preview": "vite preview --mode preview"
   },
   "dependencies": {
     "@react-icons/all-files": "^4.1.0",
@@ -73,5 +76,12 @@
       "react/jsx-no-target-blank": "off"
     }
   },
-  "prettier": "prettier-config-a11y"
+  "prettier": {
+    "useTabs": false,
+    "tabWidth": 2,
+    "singleQuote": true,
+    "semi": false,
+    "printWidth": 120,
+    "endOfLine": "auto"
+  }
 }

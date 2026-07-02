@@ -1,0 +1,41 @@
+.previewIntroBackdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  background: #0007;
+  overflow-y: auto;
+}
+
+.previewIntro {
+  position: relative;
+  box-sizing: border-box;
+  width: 480px;
+  max-width: 100%;
+  max-height: calc(100dvh - 48px);
+  overflow-y: auto;
+  padding: 32px 28px 20px;
+  border: 1px solid var(--GuideColor);
+  border-radius: 4px;
+  background: var(--BgColor);
+  color: var(--TxtColor);
+  text-align: left;
+  word-break: keep-all;
+}
+
+.previewIntroClose { position: absolute; top: 12px; right: 16px; padding: 4px; color: inherit; font-size: 28px; line-height: 1; }
+.previewIntro h2 { font-family: inherit; font-size: 18px; font-weight: 700; }
+.previewIntro #preview-intro-description { margin-top: 16px; }
+.previewIntroNotice { margin: 8px 0 24px; font-size: 0.875rem; opacity: 0.7; }
+.previewIntroToday { display: inline-flex; align-items: center; gap: 8px; margin-top: 16px; font-size: 12px; cursor: pointer; }
+.previewIntroToday input { width: 14px; height: 14px; accent-color: var(--PointColor); }
+
+.previewIntro:focus,
+.previewIntro :focus-visible { outline: none; }
+
+@media (max-width: 480px) {
+  .previewIntro { padding: 32px 24px 20px; }
+}
