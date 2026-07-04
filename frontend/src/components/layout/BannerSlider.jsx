@@ -1,4 +1,6 @@
 import Slider from "react-slick"
+import { Link } from 'react-router-dom'
+import { isPreviewMode } from '../../preview/config'
 
 import "slick-carousel/slick/slick.css"
 import "slick-carousel/slick/slick-theme.css"
@@ -67,9 +69,9 @@ const BannerSlider = () => {
         {data ? data.map((v, i) => {
             return (
               <div className="slide" key={i}>
-                <div className="wrapper" style={{background : v.bgcolor}}>
-                  <img src={`/images/${v.img}`} alt="" />
-                </div>
+                <Link className="wrapper" style={{background : v.bgcolor, display: 'block'}} to={isPreviewMode ? `/events/${v.type}` : v.url}>
+                  <img src={`/images/${v.img}`} alt={v.title} />
+                </Link>
               </div>
             )
         }) : null}

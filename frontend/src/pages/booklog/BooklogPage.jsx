@@ -1,5 +1,5 @@
 import React, { useRef, useState } from "react"
-import axios from "axios";
+import axios from "../../api/client";
 import { useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom"
 import { AiFillEye } from "react-icons/ai"
@@ -85,9 +85,10 @@ const BooklogPage = () => {
 	  );
 
 	useEffect(() => {
-		if(data != "") {
+		if(data != "" && observeItem.current) {
 			observer.current.observe(observeItem.current);
 		}
+		return () => observer.current.disconnect();
 	}, [data]);
 	
 

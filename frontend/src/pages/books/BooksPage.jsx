@@ -3,6 +3,7 @@ import { useSearchParams } from 'react-router-dom'
 import { CgSearch } from "react-icons/cg"
 import { MdArrowBackIos, MdArrowForwardIos } from "react-icons/md"
 import { POST } from '../../components/Aaxios'
+import { isPreviewMode } from '../../preview/config'
 
 import PageVisual from "../../components/layout/PageVisual"
 import BooksInner from './BooksInner'
@@ -145,7 +146,7 @@ const BooksPage = () => {
       <div id="pageContents">
         <section className={!urlparams.get("query") ? "topSection default" : "topSection"}>
           <div className="searchArea">
-            <input type="text" name="search" id="bpsearch" className="searchBar" placeholder="찾고 싶은 도서를 입력해 주세요.&nbsp;&nbsp;예시) 비스킷, 어린왕자, 세계 문학" onKeyUp={e => e.key == "Enter" && queryStringChanger()} ref={bookQuery} />
+            <input type="text" name="search" id="bpsearch" className="searchBar" placeholder={isPreviewMode ? '도서명 또는 저자를 입력해 주세요 (예: 아몬드 · 작별하지 않는다 · 인간 실격)' : '찾고 싶은 도서를 입력해 주세요.'} onKeyUp={e => e.key == "Enter" && queryStringChanger()} ref={bookQuery} />
             <button type="button" className="searchBtn typeIcon" onClick={() => queryStringChanger()}><CgSearch /></button>
           </div>
           {

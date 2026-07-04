@@ -3,6 +3,7 @@ import { CgSearch } from "react-icons/cg"
 import { useNavigate } from 'react-router-dom';
 
 import Dropdown from "../style/Dropdown"
+import { isPreviewMode } from '../../preview/config'
 
 const HeaderSearch = ({ dropdownVisibility, handleDropdownSearch }) => {
   const navigate = useNavigate();
@@ -16,7 +17,7 @@ const HeaderSearch = ({ dropdownVisibility, handleDropdownSearch }) => {
     <Dropdown visibility={dropdownVisibility} handleDropdown={handleDropdownSearch}>
       <h3>빠른 도서 검색</h3>
       <div className="searchBox">
-        <input type="text" name="search" id="hssearch" className="searchBar" aria-label="빠른 도서 검색어" placeholder="찾고 싶은 도서를 검색해 보세요." onKeyUp={e => e.key == "Enter" && searchHandler()} />
+        <input type="text" name="search" id="hssearch" className="searchBar" aria-label="빠른 도서 검색어" placeholder={isPreviewMode ? '도서명 또는 저자를 입력해 주세요 (예: 아몬드 · 작별하지 않는다 · 인간 실격)' : '찾고 싶은 도서를 검색해 보세요.'} onKeyUp={e => e.key == "Enter" && searchHandler()} />
         <button type="button" className="searchBtn typeIcon" aria-label="도서 검색" onClick={() => searchHandler()}><CgSearch /></button>
       </div>
     </Dropdown>

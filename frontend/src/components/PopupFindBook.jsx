@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import { useEffect } from 'react';
 import { POST } from './Aaxios'
+import { isPreviewMode } from '../preview/config'
 
 const PopupFindBook = ({ onClose, setBookTitle, setBookAuth, setBookPub, setBookIsbn, userInfo }) => {
 
@@ -59,7 +60,7 @@ const PopupFindBook = ({ onClose, setBookTitle, setBookAuth, setBookPub, setBook
     <div id="modalContent">
       <div className="findBook">
         <div className="searchBar">
-          <input className="bar" type="search" name="" id="" placeholder="찾을 도서명을 입력하세요. 기본목록은 북클립입니다." onKeyDown={e => {e.key == "Enter" && searchBookHandler(e)}} />
+          <input className="bar" type="search" name="" id="" placeholder={isPreviewMode ? '도서명 또는 저자를 입력해 주세요 (예: 아몬드 · 작별하지 않는다 · 인간 실격)' : '찾을 도서명을 입력하세요. 기본목록은 북클립입니다.'} onKeyDown={e => {e.key == "Enter" && searchBookHandler(e)}} />
         </div>
         <div className="resultBox">
           {

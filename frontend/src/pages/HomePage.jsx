@@ -2,6 +2,7 @@ import React , { useState, useEffect } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import { CgSearch } from "react-icons/cg"
 import axios from '../api/client'
+import { isPreviewMode } from '../preview/config'
 
 import BannerSlider from '../components/layout/BannerSlider'
 import VisualSlider from '../components/layout/VisualSlider'
@@ -48,7 +49,7 @@ const HomePage = () => {
         
         <section className="search">
           <div className="searchBox">
-            <input type="text" name="search" id="hpsearch" className="searchBar" aria-label="도서 검색어" autoComplete="off" placeholder="찾고 싶은 도서를 검색해 보세요." onKeyUp={e => e.key == "Enter" && searchHandler()} />
+            <input type="text" name="search" id="hpsearch" className="searchBar" aria-label="도서 검색어" autoComplete="off" placeholder={isPreviewMode ? '도서명 또는 저자를 입력해 주세요 (예: 아몬드 · 작별하지 않는다 · 인간 실격)' : '찾고 싶은 도서를 검색해 보세요.'} onKeyUp={e => e.key == "Enter" && searchHandler()} />
             <button type="button" className="searchBtn typeIcon" aria-label="도서 검색" onClick={() => searchHandler()}><CgSearch /></button>
           </div>
         </section>
