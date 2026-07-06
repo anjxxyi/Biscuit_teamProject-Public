@@ -114,3 +114,29 @@
 #pageContainer.auth.find .btnBox {margin-top:1em;}
 #pageContainer.auth.find .btnBox .moveBtn {background:var(--BorderColor); color:var(--TxtColor); margin-top:0.75em;}
 /* #pageContainer.auth /find -- END ---*/
+#pageContainer.auth.signin .formArea .previewAccount {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5em 1em;
+  margin-bottom: 1em;
+  font-size: 0.8125em;
+  line-height: 1.5;
+}
+
+#pageContainer.auth.signin .previewAccount p {
+  margin: 0;
+  color: var(--InputTxtColor);
+}
+
+#pageContainer.auth.signin .previewAccount button {
+  padding: 0.4em 0.75em;
+  border: 1px solid var(--GuideColor);
+  border-radius: 0.25em;
+  background: transparent;
+  color: inherit;
+  font: inherit;
+  cursor: pointer;
+}
+

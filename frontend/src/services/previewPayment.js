@@ -1,4 +1,5 @@
 import apiClient from '../api/client'
+import { isPreviewMode } from '../preview/config'
 
 const createMerchantUid = (date = new Date()) =>
   `IMP${date.getDate()}${date.getHours()}${date.getMinutes()}${date.getSeconds()}${date.getMilliseconds()}${date.getFullYear()}${date.getMonth()}`
@@ -44,6 +45,12 @@ async function persistPreviewOrder(order) {
 // Preview-only flow: 실제 운영 결제 승인 검증을 대신하지 않습니다.
 export function requestPay(info) {
   const { checkout, order } = createPaymentData(info)
+
+  if (isPreviewMode) {
+    alert('현재 실제 결제는 지원하지 않습니다. 결제 금액은 청구되지 않습니다.')
+    return { data: checkout, preview: true, result: true }
+  }
+
   const payment = window.IMP
   if (!payment) {
     alert('결제 모듈을 불러오지 못했습니다.')

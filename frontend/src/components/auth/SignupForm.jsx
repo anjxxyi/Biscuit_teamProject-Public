@@ -4,6 +4,7 @@ import { POST, GET } from "./../Aaxios";
 import PopupPostCode from "../PopupPostCode";
 import useBodyScrollLock from '../../hooks/useBodyScrollLock'
 import { isValidNickname, isValidPassword, isValidUserId } from '../../utils/validation'
+import { isPreviewMode } from '../../preview/config'
 
 const SignupForm = () => {
 	const [bisAgree, setBisAgree] = useState(false);
@@ -180,7 +181,9 @@ const SignupForm = () => {
     )
       .then((res) => {
 				// 회원가입 성공 시 처리
-				alert("회원가입 성공");
+				alert(isPreviewMode
+					? "입력 확인이 완료되었습니다. 실제 계정은 생성되지 않으며 입력 정보는 서버에 저장되지 않습니다."
+					: "회원가입 성공");
 				navigate("/auth/signin");
 			})
 			.catch((error) => {

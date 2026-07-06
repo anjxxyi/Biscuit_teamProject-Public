@@ -3,6 +3,7 @@ import { Link, useNavigate } from 'react-router-dom'
 import { FcGoogle } from 'react-icons/fc'
 import { POST } from "./../Aaxios";
 import { Context } from '../store/Context';
+import { isPreviewMode } from '../../preview/config';
 
 const LS_KEY_ID = "LS_KEY_ID";
 const LS_KEY_SAVE_ID_FLAG = "LS_KEY_SAVE_ID_FLAG";  
@@ -28,6 +29,12 @@ const SigninForm = () => {
   };
 
   const [loginID, setLoginID] = useState('');
+
+  const fillPreviewAccount = () => {
+    setLoginID('preview');
+    tagsRef.current["ipw"].value = 'biscuit123!';
+    tagsRef.current["ipw"].focus();
+  };
   useEffect(() => {
     let idFlag = JSON.parse(localStorage.getItem(LS_KEY_SAVE_ID_FLAG));
     if (idFlag !== null) setSaveIDFlag(idFlag);
@@ -73,6 +80,12 @@ const SigninForm = () => {
   return (
     <>
       <form className="formArea">
+        {isPreviewMode && (
+          <div className="previewAccount">
+            <p>체험 계정으로 비스킷을 둘러보세요.</p>
+            <button type="button" onClick={fillPreviewAccount}>체험 계정 입력</button>
+          </div>
+        )}
         <div className="inputBox">
           <input type="text" name="userId" id="id" placeholder="ID" value={loginID}
           onChange={(e) => setLoginID(e.target.value)}
