@@ -145,6 +145,10 @@
 #pageContainer.bookclass.view section.mainSection dl.classBox dd {width:600px;}
 #pageContainer.bookclass.view section.mainSection dl.classBox dd.map {width:600px;width:calc(100% - 600px); padding-right:2em;}
 #pageContainer.bookclass.view section.mainSection dl.classBox dd.map div {width:100%; min-height:400px;}
+#pageContainer.bookclass.view section.mainSection dl.classBox dd.map .mapFallback {background:linear-gradient(135deg, #f5efe5, #e5eee7); color:#4d493f; display:flex; flex-flow:column; align-items:center; justify-content:center; gap:0.75em; text-align:center;}
+#pageContainer.bookclass.view section.mainSection dl.classBox dd.map .mapFallback svg {font-size:3em; color:#d96d55;}
+#pageContainer.bookclass.view section.mainSection dl.classBox dd.map .mapFallback strong {font-size:1.25em;}
+#pageContainer.bookclass.view section.mainSection dl.classBox dd.map .mapFallback span {color:#716b60;}
 #pageContainer.bookclass.view section.mainSection dl.classBox dd.map div > div:nth-child(5) > div > div > div > *:nth-child(2) {height:80% !important;}
 #pageContainer.bookclass.view section.mainSection dl.classBox dd.map div > div:nth-child(5) > div > div > div > *:nth-child(2) > div {height:80% !important;}
 #pageContainer.bookclass.view section.mainSection dl.classBox ul {height:100%; display:flex; flex-flow:column; justify-content:flex-start; align-items:stretch; padding:1em 0;}

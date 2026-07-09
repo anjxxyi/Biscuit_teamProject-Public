@@ -12,10 +12,21 @@
     <meta property="og:description" content="책을 기록하거나 대화로 풀어보며 공유하는 당신의 독서 서포터">
     <title>Biscuit :: 당신의 독서 서포터</title>
     
-    <!-- Naver Map  -->
-    <script type="text/javascript" src="https://openapi.map.naver.com/openapi/v3/maps.js?ncpClientId=&submodules=geocoder"></script>
-    <!-- Port One Payments -->
-    <script type="text/javascript" src="https://cdn.iamport.kr/v1/iamport.js"></script>
+    <script type="module">
+      if (import.meta.env.VITE_UI_PREVIEW_MODE !== 'true') {
+        const mapClientId = import.meta.env.VITE_NAVER_MAP_CLIENT_ID
+
+        if (mapClientId) {
+          const mapScript = document.createElement('script')
+          mapScript.src = `https://openapi.map.naver.com/openapi/v3/maps.js?ncpClientId=${mapClientId}&submodules=geocoder`
+          document.head.appendChild(mapScript)
+        }
+
+        const paymentScript = document.createElement('script')
+        paymentScript.src = 'https://cdn.iamport.kr/v1/iamport.js'
+        document.head.appendChild(paymentScript)
+      }
+    </script>
 
   </head>
   <body>

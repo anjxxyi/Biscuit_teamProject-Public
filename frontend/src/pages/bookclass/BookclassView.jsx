@@ -4,7 +4,6 @@ import { useParams } from 'react-router-dom'
 import { RiTimeFill, RiMapPinFill, RiBookFill, RiVipCrownFill } from "react-icons/ri"
 import { PiUsersThreeFill } from "react-icons/pi"
 import { TiLocationArrow } from "react-icons/ti"
-import { useNavermaps } from 'react-naver-maps'
 
 import Sidebar from '../../components/layout/SideBar'
 import Loading from '../../components/style/Loading'
@@ -13,6 +12,7 @@ import '../../styles/base/sub.css'
 import '../../styles/base/bookclassStyle.css'
 import { Context } from '../../components/store/Context'
 import { POST, GET } from '../../components/Aaxios'
+import { isPreviewMode } from '../../preview/config'
 
 const BookclassView = () => {
   
@@ -35,14 +35,14 @@ const BookclassView = () => {
             case "종료됨":
               break;
             default:
-              if(res.data.leaderNickname != userInfo.nickname)
+              if(res.data.leaderNickname != userInfo?.nickname)
                 return navigate(-1);
               break;
           }
 
           setDataList(res.data);
           setJoined(res.data.joined);
-          naverMap(res.data.location);
+          if (!isPreviewMode) naverMap(res.data.location);
           setLoad(false);
         })
         .catch(() => {
@@ -54,19 +54,28 @@ const BookclassView = () => {
 
   
   // NAVER map geocode API -- START --
-  const navermaps = useNavermaps();
-  const [pointMap, setPointMap] = useState([]);
+  const [pointMap, setPointMap] = useState(null);
+  const [mapUnavailable, setMapUnavailable] = useState(isPreviewMode);
 
   const naverMap = (addr) => {
+    const navermaps = window.naver?.maps;
+    if (!navermaps?.Service) {
+      setMapUnavailable(true);
+      return;
+    }
+
     navermaps.Service.geocode(
       {address: addr},
       function (status, response) {
         if (status !== navermaps.Service.Status.OK) {
-          alert('북클래스 정보를 불러오지 못했습니다.');
-          return alert('Something wrong!');
+          setMapUnavailable(true);
+          return;
         }
         const result = response.result;
-        if(result) setPointMap(result.items[0].point);
+        if(result?.items?.[0]?.point) {
+          setPointMap(result.items[0].point);
+          setMapUnavailable(false);
+        }
       }
     );   
   };
@@ -77,7 +86,7 @@ const BookclassView = () => {
   const mapElement = useRef(null);
   useEffect(() => {
     const { naver } = window;
-    if (!mapElement.current || !naver) return;
+    if (!mapElement.current || !naver || !pointMap) return;
     const location = new naver.maps.LatLng(pointMap.y, pointMap.x);
     const mapOptions = naver.maps.MapOptions = {
       center: location,
@@ -102,6 +111,7 @@ const BookclassView = () => {
   const onMoveToClass = () => window.scrollBy({top:document.getElementById("classBox").getBoundingClientRect().top - 140, behavior:'smooth'});
 
   const distancePeFromTop = () => {
+    if (!tabBtn.current || !introBox.current || !bookBox.current || !classBox.current) return;
     let tabBtnBtm = tabBtn.current.getBoundingClientRect().bottom;
     let introBoxTop = introBox.current.getBoundingClientRect().top;
     let bookBoxTop = bookBox.current.getBoundingClientRect().top;
@@ -132,12 +142,14 @@ const BookclassView = () => {
       const data = {bookclassNo: dataList.no, userNo: userInfo.no}
       POST(`/api/bookclass/party/in`, data)
         .then(res => {
-          setJoined(!joined);
-          dataList.partyMemCnt++;
-          setLoad(false);
-          if(res.data == "max") alert("북클래스가 이미 만원입니다.");
+          if (String(res.data).toLowerCase() === 'success') {
+            setJoined(true);
+            setDataList(current => ({ ...current, partyMemCnt: current.partyMemCnt + 1 }));
+            alert('참여 신청이 완료되었습니다.');
+          } else if(res.data === "max") alert("북클래스가 이미 만원입니다.");
           else alert('참여 신청을 처리하지 못했습니다.');
-        });
+        }).catch(() => alert('참여 신청을 처리하지 못했습니다.'))
+        .finally(() => setLoad(false));
     }
   };
 
@@ -147,10 +159,12 @@ const BookclassView = () => {
       const data = {bookclassNo: dataList.no, userNo: userInfo.no}
       POST(`/api/bookclass/party/out`, data)
         .then(res => {
-          setJoined(!joined);
-          dataList.partyMemCnt--;
-          alert('참여 취소를 처리하지 못했습니다.');
-        });
+          if (String(res.data).toLowerCase() === 'success') {
+            setJoined(false);
+            setDataList(current => ({ ...current, partyMemCnt: Math.max(0, current.partyMemCnt - 1) }));
+            alert('참여 신청이 취소되었습니다.');
+          } else alert('참여 취소를 처리하지 못했습니다.');
+        }).catch(() => alert('참여 취소를 처리하지 못했습니다.'));
     }
   };
 
@@ -211,7 +225,17 @@ const BookclassView = () => {
           </dl>
           <dl className="classBox" id="classBox" ref={classBox}>
             <dt>클래스 정보</dt>
-            <dd className="map"><div ref={mapElement}/></dd>
+            <dd className="map">
+              {mapUnavailable ? (
+                <div className="mapFallback" role="img" aria-label={`${dataList.location} 위치 안내`}>
+                  <RiMapPinFill />
+                  <strong>{dataList.location}</strong>
+                  <span>{isPreviewMode ? '모임 장소 안내' : '지도를 불러올 수 없습니다.'}</span>
+                </div>
+              ) : (
+                <div ref={mapElement}/>
+              )}
+            </dd>
             <dd>
               <ul>
                 <li><RiTimeFill/><span>{dataList.scheduleStart + " - " + dataList.scheduleEnd}</span></li>
