@@ -1,11 +1,12 @@
 import axios from 'axios'
 import { annotateApiError } from './errors'
 import { previewAdapter } from '../preview/adapter'
-import { isPreviewMode } from '../preview/config'
+import { apiHost, isPreviewMode } from '../preview/config'
 
 const apiClient = axios.create({
+  // Keep this switch in one place. See /docs/BACKEND_RECONNECT.md before a live cutover.
   adapter: isPreviewMode ? previewAdapter : undefined,
-  baseURL: isPreviewMode ? undefined : import.meta.env.VITE_API_HOST,
+  baseURL: isPreviewMode ? undefined : apiHost,
   headers: { 'Content-Type': 'application/json' },
 })
 
